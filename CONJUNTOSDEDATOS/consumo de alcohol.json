@@ -1,0 +1,1681 @@
+[{"Nombre":"Ambos sexos, Total, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":39974.1}
+]
+}
+,{"Nombre":"Ambos sexos, Total, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":26139.8}
+]
+}
+,{"Nombre":"Ambos sexos, Total, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":13774.4}
+]
+}
+,{"Nombre":"Ambos sexos, Total, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":59.9}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":7096.4}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":3775.2}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":3305.9}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":15.3}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1121.4}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":667.3}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":454.1}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":896.9}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":654.1}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":240.0}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":2.7}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1030.2}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":632.2}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":390.5}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":7.5}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1936.1}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1079.1}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":857.0}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":500.1}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":364.4}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":132.8}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":2.9}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":2063.7}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1473.9}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":581.2}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":8.6}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1709.7}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1048.5}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":661.1}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":6397.6}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":4458.7}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":1933.1}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":5.8}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":4255.3}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":3058.5}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":1196.8}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":904.8}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":574.1}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":330.7}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":2360.6}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1477.1}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":874.6}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":8.9}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":5649.9}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":3964.9}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":1681.9}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":3.2}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1242.4}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":796.0}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":446.4}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":547.4}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":424.0}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":121.8}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":1.6}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1863.3}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1451.0}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":410.8}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":1.4}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":267.4}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":192.7}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":72.7}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":2.0}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":66.8}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":27.0}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":39.8}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":64.3}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":21.1}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":43.2}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Total, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":19449.1}
+]
+}
+,{"Nombre":"Hombres, Total, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":14491.3}
+]
+}
+,{"Nombre":"Hombres, Total, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":4924.2}
+]
+}
+,{"Nombre":"Hombres, Total, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":33.6}
+]
+}
+,{"Nombre":"Hombres, Andalucía, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":3473.0}
+]
+}
+,{"Nombre":"Hombres, Andalucía, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":2223.9}
+]
+}
+,{"Nombre":"Hombres, Andalucía, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":1237.6}
+]
+}
+,{"Nombre":"Hombres, Andalucía, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":11.5}
+]
+}
+,{"Nombre":"Hombres, Aragón, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":550.5}
+]
+}
+,{"Nombre":"Hombres, Aragón, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":392.2}
+]
+}
+,{"Nombre":"Hombres, Aragón, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":158.3}
+]
+}
+,{"Nombre":"Hombres, Aragón, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":425.8}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":352.5}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":72.5}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.8}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":512.0}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":388.7}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":120.8}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":2.5}
+]
+}
+,{"Nombre":"Hombres, Canarias, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":953.4}
+]
+}
+,{"Nombre":"Hombres, Canarias, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":628.2}
+]
+}
+,{"Nombre":"Hombres, Canarias, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":325.1}
+]
+}
+,{"Nombre":"Hombres, Canarias, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Cantabria, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":241.9}
+]
+}
+,{"Nombre":"Hombres, Cantabria, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":197.7}
+]
+}
+,{"Nombre":"Hombres, Cantabria, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":43.7}
+]
+}
+,{"Nombre":"Hombres, Cantabria, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.6}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1015.7}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":827.2}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":186.4}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":2.0}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":856.5}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":624.5}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":232.0}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Cataluña, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":3107.2}
+]
+}
+,{"Nombre":"Hombres, Cataluña, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":2386.7}
+]
+}
+,{"Nombre":"Hombres, Cataluña, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":715.6}
+]
+}
+,{"Nombre":"Hombres, Cataluña, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":4.9}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":2079.7}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1671.7}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":408.1}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Extremadura, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":447.0}
+]
+}
+,{"Nombre":"Hombres, Extremadura, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":343.4}
+]
+}
+,{"Nombre":"Hombres, Extremadura, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":103.5}
+]
+}
+,{"Nombre":"Hombres, Extremadura, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Galicia, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1129.4}
+]
+}
+,{"Nombre":"Hombres, Galicia, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":840.9}
+]
+}
+,{"Nombre":"Hombres, Galicia, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":279.6}
+]
+}
+,{"Nombre":"Hombres, Galicia, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":8.9}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":2678.4}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":2062.9}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":615.5}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":617.5}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":443.6}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":173.9}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":269.6}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":224.0}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":45.5}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.1}
+]
+}
+,{"Nombre":"Hombres, País Vasco, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":895.0}
+]
+}
+,{"Nombre":"Hombres, País Vasco, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":750.7}
+]
+}
+,{"Nombre":"Hombres, País Vasco, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":142.9}
+]
+}
+,{"Nombre":"Hombres, País Vasco, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":1.4}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":131.1}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":105.2}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":25.0}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.9}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":33.6}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":14.2}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":19.4}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":32.0}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":13.1}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":18.8}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Total, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":20525.0}
+]
+}
+,{"Nombre":"Mujeres, Total, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":11648.5}
+]
+}
+,{"Nombre":"Mujeres, Total, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":8850.2}
+]
+}
+,{"Nombre":"Mujeres, Total, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":26.3}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":3623.4}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1551.3}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":2068.3}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":3.8}
+]
+}
+,{"Nombre":"Mujeres, Aragón, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":570.9}
+]
+}
+,{"Nombre":"Mujeres, Aragón, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":275.1}
+]
+}
+,{"Nombre":"Mujeres, Aragón, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":295.8}
+]
+}
+,{"Nombre":"Mujeres, Aragón, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":471.1}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":301.6}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":167.6}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":1.9}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":518.3}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":243.5}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":269.7}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":5.0}
+]
+}
+,{"Nombre":"Mujeres, Canarias, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":982.8}
+]
+}
+,{"Nombre":"Mujeres, Canarias, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":450.8}
+]
+}
+,{"Nombre":"Mujeres, Canarias, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":531.9}
+]
+}
+,{"Nombre":"Mujeres, Canarias, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":258.1}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":166.7}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":89.1}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":2.3}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1048.0}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":646.7}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":394.8}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":6.5}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":853.2}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":424.0}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":429.1}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":3290.4}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":2072.0}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":1217.5}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.9}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":2175.5}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1386.8}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":788.7}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":457.9}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":230.7}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":227.2}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Galicia, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":1231.2}
+]
+}
+,{"Nombre":"Mujeres, Galicia, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":636.2}
+]
+}
+,{"Nombre":"Mujeres, Galicia, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":595.0}
+]
+}
+,{"Nombre":"Mujeres, Galicia, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":2971.5}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":1901.9}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":1066.4}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":3.2}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":624.9}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":352.4}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":272.5}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":277.8}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":199.9}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":76.3}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":1.5}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":968.3}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":700.4}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":268.0}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":136.2}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":87.5}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":47.7}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":1.1}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":33.2}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":12.8}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":20.4}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":32.3}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), Sí ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"Sí ha consumido", "Codigo":"sihaconsumido"}
+]
+, "Data":[{"Valor":8.0}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), No ha consumido", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No ha consumido", "Codigo":"nohaconsumido"}
+]
+, "Data":[{"Valor":24.3}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), No consta", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"consumo de bebidas alcohólicas", "Nombre":"No consta", "Codigo":"noconsta"}
+]
+, "Data":[{"Valor":0.0}
+]
+}
+]
