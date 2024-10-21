@@ -30,6 +30,9 @@ suicidio %>%
 suicidio %>%
   enter_object(MetaData) %>%
   gather_array %>%
-  spread_all %>%
-  view()
-
+  spread_all 
+  
+suicidio %>%
+  enter_object(Nombre) %>%
+  gather_object %>%
+  spread_all
