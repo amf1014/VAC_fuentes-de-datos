@@ -5,38 +5,36 @@ library(tidyjson)
 
 
 
-consumo_alcohol <- fromJSON(file = "C:/Users/USUARIO/Desktop/1_PRACTICA_FUENTES/VAC_fuentes-de-datos/CONJUNTOSDEDATOS/consumo_de_alcohol.json")
+consumo_alcohol <- fromJSON(file = "CONJUNTOSDEDATOS/consumo_de_alcohol.json")
 
-view(consumo_alcohol)
+#view(consumo_alcohol)
 
 
 head(consumo_alcohol)
 spread_all(consumo_alcohol)
 
-consumo_alcohol %>%
+
+consumo_alcohol_mejor<-consumo_alcohol %>% 
   spread_all() %>% 
-  View()
+  gather_object %>% 
+  json_types
 
-consumo_alcohol <- spread_all(consumo_alcohol)
-
-consumo_alcohol %>% 
+consumo_alcohol_<-consumo_alcohol %>% 
   spread_all() %>% 
   gather_object %>% 
   json_types %>% 
   count(name, type)
+view(consumo_alcohol_mejor)
+view(consumo_alcohol_)
+
 
 consumo_alcohol %>%
   enter_object(Data) %>%
-  gather_array %>%
-  spread_all %>%
-  #hacer un join para unir tablas
-view(consumo_alcohol)
+  gather_array() %>%
+  spread_all() 
+#view(consumo_alcohol)
+#hacer un join para unir tablas
 
-consumo_alcohol %>%
-  enter_object(MetaData) %>%
-  gather_array %>%
-  spread_all %>%
-  #hacer un join para unir las tablas 
-view(consumo_alcohol)
+
 
 
