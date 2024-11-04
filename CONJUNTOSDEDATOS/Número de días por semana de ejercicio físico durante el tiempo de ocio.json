@@ -1,0 +1,2521 @@
+[{"Nombre":"Ambos sexos, Total, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Total, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":50.72}
+]
+}
+,{"Nombre":"Ambos sexos, Total, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.21}
+]
+}
+,{"Nombre":"Ambos sexos, Total, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":18.14}
+]
+}
+,{"Nombre":"Ambos sexos, Total, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.25}
+]
+}
+,{"Nombre":"Ambos sexos, Total, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":7.68}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":52.22}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":11.68}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":18.65}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.68}
+]
+}
+,{"Nombre":"Ambos sexos, Andalucía, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.76}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":53.46}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.98}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.19}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.18}
+]
+}
+,{"Nombre":"Ambos sexos, Aragón, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":8.19}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":33.99}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":18.08}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":22.53}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":20.11}
+]
+}
+,{"Nombre":"Ambos sexos, Asturias (Principado de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.29}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":47.26}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":9.87}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.8}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.9}
+]
+}
+,{"Nombre":"Ambos sexos, Balears (Illes), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":16.17}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":51.46}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":9.21}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":23.07}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":13.02}
+]
+}
+,{"Nombre":"Ambos sexos, Canarias, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":3.24}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":65.36}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":8.04}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":13.08}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.75}
+]
+}
+,{"Nombre":"Ambos sexos, Cantabria, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":3.77}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":44.34}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.4}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":14.74}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":12.51}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla y León, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":15.01}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":58.0}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":10.04}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":15.97}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.62}
+]
+}
+,{"Nombre":"Ambos sexos, Castilla-La Mancha, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":8.38}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":50.85}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.92}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":17.91}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.67}
+]
+}
+,{"Nombre":"Ambos sexos, Cataluña, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.65}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":51.32}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.09}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":17.53}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.33}
+]
+}
+,{"Nombre":"Ambos sexos, Comunitat Valenciana, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.73}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":60.85}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.06}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":11.98}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.39}
+]
+}
+,{"Nombre":"Ambos sexos, Extremadura, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.72}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":61.59}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.85}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":13.84}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.77}
+]
+}
+,{"Nombre":"Ambos sexos, Galicia, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":3.95}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":47.61}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.52}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.89}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.68}
+]
+}
+,{"Nombre":"Ambos sexos, Madrid (Comunidad de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":8.3}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":44.37}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":15.57}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":22.63}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.87}
+]
+}
+,{"Nombre":"Ambos sexos, Murcia (Región de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.57}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":35.2}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":15.91}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":18.25}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.98}
+]
+}
+,{"Nombre":"Ambos sexos, Navarra (Comunidad Foral de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":18.66}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.47}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.29}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.94}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.46}
+]
+}
+,{"Nombre":"Ambos sexos, País Vasco, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":11.84}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.86}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.28}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.39}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.99}
+]
+}
+,{"Nombre":"Ambos sexos, Rioja (La), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":13.48}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":65.03}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":6.94}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":15.24}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.78}
+]
+}
+,{"Nombre":"Ambos sexos, Ceuta (Ciudad Autónoma de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":1.0}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":50.16}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":9.74}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":23.21}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":16.26}
+]
+}
+,{"Nombre":"Ambos sexos, Melilla (Ciudad Autónoma de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Ambos sexos", "Codigo":"ambossexos"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":0.64}
+]
+}
+,{"Nombre":"Hombres, Total, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Total, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.46}
+]
+}
+,{"Nombre":"Hombres, Total, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.46}
+]
+}
+,{"Nombre":"Hombres, Total, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.93}
+]
+}
+,{"Nombre":"Hombres, Total, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.76}
+]
+}
+,{"Nombre":"Hombres, Total, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":8.39}
+]
+}
+,{"Nombre":"Hombres, Andalucía, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Andalucía, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.81}
+]
+}
+,{"Nombre":"Hombres, Andalucía, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.5}
+]
+}
+,{"Nombre":"Hombres, Andalucía, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.46}
+]
+}
+,{"Nombre":"Hombres, Andalucía, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":12.71}
+]
+}
+,{"Nombre":"Hombres, Andalucía, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":7.52}
+]
+}
+,{"Nombre":"Hombres, Aragón, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Aragón, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":54.62}
+]
+}
+,{"Nombre":"Hombres, Aragón, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.99}
+]
+}
+,{"Nombre":"Hombres, Aragón, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":15.96}
+]
+}
+,{"Nombre":"Hombres, Aragón, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.49}
+]
+}
+,{"Nombre":"Hombres, Aragón, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.94}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":34.31}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.95}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":23.76}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":22.11}
+]
+}
+,{"Nombre":"Hombres, Asturias (Principado de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":4.87}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":44.9}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":7.48}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.2}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.55}
+]
+}
+,{"Nombre":"Hombres, Balears (Illes), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":18.87}
+]
+}
+,{"Nombre":"Hombres, Canarias, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Canarias, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":47.98}
+]
+}
+,{"Nombre":"Hombres, Canarias, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":8.09}
+]
+}
+,{"Nombre":"Hombres, Canarias, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":26.34}
+]
+}
+,{"Nombre":"Hombres, Canarias, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":14.5}
+]
+}
+,{"Nombre":"Hombres, Canarias, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":3.08}
+]
+}
+,{"Nombre":"Hombres, Cantabria, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Cantabria, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":59.01}
+]
+}
+,{"Nombre":"Hombres, Cantabria, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":7.51}
+]
+}
+,{"Nombre":"Hombres, Cantabria, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.69}
+]
+}
+,{"Nombre":"Hombres, Cantabria, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.47}
+]
+}
+,{"Nombre":"Hombres, Cantabria, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.31}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":44.41}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.89}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":15.59}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.85}
+]
+}
+,{"Nombre":"Hombres, Castilla y León, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":13.27}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":53.6}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":9.62}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":18.61}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.16}
+]
+}
+,{"Nombre":"Hombres, Castilla-La Mancha, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":9.01}
+]
+}
+,{"Nombre":"Hombres, Cataluña, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Cataluña, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.34}
+]
+}
+,{"Nombre":"Hombres, Cataluña, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":15.18}
+]
+}
+,{"Nombre":"Hombres, Cataluña, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.47}
+]
+}
+,{"Nombre":"Hombres, Cataluña, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.97}
+]
+}
+,{"Nombre":"Hombres, Cataluña, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":7.04}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.34}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.67}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.18}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.8}
+]
+}
+,{"Nombre":"Hombres, Comunitat Valenciana, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":8.02}
+]
+}
+,{"Nombre":"Hombres, Extremadura, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Extremadura, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":60.91}
+]
+}
+,{"Nombre":"Hombres, Extremadura, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.84}
+]
+}
+,{"Nombre":"Hombres, Extremadura, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":12.19}
+]
+}
+,{"Nombre":"Hombres, Extremadura, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.48}
+]
+}
+,{"Nombre":"Hombres, Extremadura, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.58}
+]
+}
+,{"Nombre":"Hombres, Galicia, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Galicia, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":58.26}
+]
+}
+,{"Nombre":"Hombres, Galicia, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.43}
+]
+}
+,{"Nombre":"Hombres, Galicia, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.81}
+]
+}
+,{"Nombre":"Hombres, Galicia, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.92}
+]
+}
+,{"Nombre":"Hombres, Galicia, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":4.58}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":39.52}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.79}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":23.25}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":12.52}
+]
+}
+,{"Nombre":"Hombres, Madrid (Comunidad de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":9.91}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":42.07}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":15.6}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":23.32}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":13.27}
+]
+}
+,{"Nombre":"Hombres, Murcia (Región de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.73}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":30.08}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.6}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.6}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":13.36}
+]
+}
+,{"Nombre":"Hombres, Navarra (Comunidad Foral de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":22.36}
+]
+}
+,{"Nombre":"Hombres, País Vasco, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, País Vasco, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":44.31}
+]
+}
+,{"Nombre":"Hombres, País Vasco, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.46}
+]
+}
+,{"Nombre":"Hombres, País Vasco, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":21.53}
+]
+}
+,{"Nombre":"Hombres, País Vasco, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.28}
+]
+}
+,{"Nombre":"Hombres, País Vasco, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":13.42}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.48}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":9.66}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":21.39}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.36}
+]
+}
+,{"Nombre":"Hombres, Rioja (La), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":13.11}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":56.63}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":6.42}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":18.44}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":17.78}
+]
+}
+,{"Nombre":"Hombres, Ceuta (Ciudad Autónoma de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":0.74}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":42.47}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":6.22}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":27.04}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":23.43}
+]
+}
+,{"Nombre":"Hombres, Melilla (Ciudad Autónoma de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Hombres", "Codigo":"hombres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":0.85}
+]
+}
+,{"Nombre":"Mujeres, Total, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Total, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":54.75}
+]
+}
+,{"Nombre":"Mujeres, Total, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.98}
+]
+}
+,{"Nombre":"Mujeres, Total, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.44}
+]
+}
+,{"Nombre":"Mujeres, Total, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.83}
+]
+}
+,{"Nombre":"Mujeres, Total, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Total Nacional", "Nombre":"Total", "Codigo":"00"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":7.01}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":57.43}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":9.92}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":17.88}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.73}
+]
+}
+,{"Nombre":"Mujeres, Andalucía, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Andalucía", "Codigo":"01"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.03}
+]
+}
+,{"Nombre":"Mujeres, Aragón, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Aragón, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":52.34}
+]
+}
+,{"Nombre":"Mujeres, Aragón, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":11.04}
+]
+}
+,{"Nombre":"Mujeres, Aragón, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.41}
+]
+}
+,{"Nombre":"Mujeres, Aragón, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.8}
+]
+}
+,{"Nombre":"Mujeres, Aragón, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Aragón", "Codigo":"02"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":9.4}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":33.7}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":20.93}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":21.42}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":18.29}
+]
+}
+,{"Nombre":"Mujeres, Asturias (Principado de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Asturias (Principado de)", "Codigo":"03"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.67}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":49.58}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":12.23}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":14.44}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.25}
+]
+}
+,{"Nombre":"Mujeres, Balears (Illes), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Balears (Illes)", "Codigo":"04"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":13.5}
+]
+}
+,{"Nombre":"Mujeres, Canarias, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Canarias, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":54.83}
+]
+}
+,{"Nombre":"Mujeres, Canarias, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":10.28}
+]
+}
+,{"Nombre":"Mujeres, Canarias, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.9}
+]
+}
+,{"Nombre":"Mujeres, Canarias, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":11.6}
+]
+}
+,{"Nombre":"Mujeres, Canarias, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Canarias", "Codigo":"05"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":3.39}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":71.31}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":8.53}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":9.7}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.06}
+]
+}
+,{"Nombre":"Mujeres, Cantabria, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cantabria", "Codigo":"06"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":1.39}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":44.27}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":11.95}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":13.93}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":13.15}
+]
+}
+,{"Nombre":"Mujeres, Castilla y León, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla y León", "Codigo":"07"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":16.7}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":62.42}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":10.45}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":13.31}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":6.07}
+]
+}
+,{"Nombre":"Mujeres, Castilla-La Mancha, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Castilla-La Mancha", "Codigo":"08"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":7.75}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":55.11}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.66}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.45}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.49}
+]
+}
+,{"Nombre":"Mujeres, Cataluña, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Cataluña", "Codigo":"09"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.29}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":56.09}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.54}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":15.95}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.92}
+]
+}
+,{"Nombre":"Mujeres, Comunitat Valenciana, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Comunitat Valenciana", "Codigo":"10"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.5}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":60.79}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":15.25}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":11.77}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":6.34}
+]
+}
+,{"Nombre":"Mujeres, Extremadura, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Extremadura", "Codigo":"11"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.85}
+]
+}
+,{"Nombre":"Mujeres, Galicia, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Galicia, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":64.61}
+]
+}
+,{"Nombre":"Mujeres, Galicia, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.24}
+]
+}
+,{"Nombre":"Mujeres, Galicia, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":11.13}
+]
+}
+,{"Nombre":"Mujeres, Galicia, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.64}
+]
+}
+,{"Nombre":"Mujeres, Galicia, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Galicia", "Codigo":"12"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":3.38}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":54.9}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.27}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.86}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":7.13}
+]
+}
+,{"Nombre":"Mujeres, Madrid (Comunidad de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Madrid (Comunidad de)", "Codigo":"13"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":6.84}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":46.63}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":15.55}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":21.94}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.47}
+]
+}
+,{"Nombre":"Mujeres, Murcia (Región de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Murcia (Región de)", "Codigo":"14"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":5.4}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":40.31}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":17.21}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":16.9}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":10.61}
+]
+}
+,{"Nombre":"Mujeres, Navarra (Comunidad Foral de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Navarra (Comunidad Foral de)", "Codigo":"15"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":14.97}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":48.47}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.04}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":18.47}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":8.63}
+]
+}
+,{"Nombre":"Mujeres, País Vasco, 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"País Vasco", "Codigo":"16"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":10.39}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":47.2}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":14.63}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":17.61}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":6.75}
+]
+}
+,{"Nombre":"Mujeres, Rioja (La), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Rioja (La)", "Codigo":"17"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":13.81}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":73.52}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":7.48}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":12.0}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":5.72}
+]
+}
+,{"Nombre":"Mujeres, Ceuta (Ciudad Autónoma de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Ceuta (Ciudad Autónoma de)", "Codigo":"18"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":1.27}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), TOTAL", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"TOTAL", "Codigo":"total"}
+]
+, "Data":[{"Valor":100.0}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), Ninguno", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"Ninguno", "Codigo":"ninguno"}
+]
+, "Data":[{"Valor":57.76}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), 1 o 2 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"1 o 2 días a la semana", "Codigo":"1o2diasalasemana"}
+]
+, "Data":[{"Valor":13.23}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), 3 o 4 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"3 o 4 días a la semana", "Codigo":"3o4diasalasemana"}
+]
+, "Data":[{"Valor":19.42}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), 5 o 6 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"5 o 6 días a la semana", "Codigo":"5o6diasalasemana"}
+]
+, "Data":[{"Valor":9.17}
+]
+}
+,{"Nombre":"Mujeres, Melilla (Ciudad Autónoma de), 7 días a la semana", "MetaData":[{"T3_Variable":"sexo", "Nombre":"Mujeres", "Codigo":"mujeres"}
+,{"T3_Variable":"Comunidades y Ciudades Autónomas", "Nombre":"Melilla (Ciudad Autónoma de)", "Codigo":"19"}
+,{"T3_Variable":"frecuencia", "Nombre":"7 días a la semana", "Codigo":"7diasalasemana"}
+]
+, "Data":[{"Valor":0.42}
+]
+}
+]
