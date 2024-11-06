@@ -24,6 +24,18 @@ En este seminario vamos a tratar de encontrar relación entre el suicidio, el ej
 3.- Relación entre el suicidio y el consumo de alcohol por sexo.
 4.- Relación entre el suicidio y el ejercicio físico por sexo.
 
+## CARGA DE LOS DATOS A USAR
+```{r}
+library(dplyr)
+library(tidyverse)
+library(rjson)
+library(tidyjson)
+
+suicidio <- fromJSON(file = "CONJUNTOSDEDATOS/ConjuntoDatos_SeminarioFuentes.json")
+consumo_alcohol <- fromJSON(file = "CONJUNTOSDEDATOS/consumo_de_alcohol.json")
+ejercicioFisico <- fromJSON(file = "CONJUNTOSDEDATOS/Número de días por semana de ejercicio físico durante el tiempo de ocio.json")
+```
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
