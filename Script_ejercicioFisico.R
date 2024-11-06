@@ -5,33 +5,25 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
-ejercicioFisico = fromJSON(file = "CONJUNTOSDEDATOS/Número de días por semana de ejercicio físico durante el tiempo de ocio.json")
+ejercicioFisico <- fromJSON(file = "INPUT/DATA/Número de días por semana de ejercicio físico durante el tiempo de ocio.json")
 
-head(ejercicioFisico)
-
-spread_all(ejercicioFisico)
+ejercicioFisico
 
 ejercicioFisico %>%
-  spread_all()
-
-
-ejercicioFisico%>%
-  gather_object %>%
-  json_types
+  gather_object %>% 
+  json_types %>% 
+  count(name, type)
 
 ejercicioFisico %>%
   enter_object(Data) %>%
   gather_array %>%
-  spread_all 
+  spread_all%>%
+  select(-document.id, -array.index)
 
 ejercicioFisico %>%
   enter_object(MetaData) %>%
   gather_array %>%
-  spread_all 
-
-ejercicioFisico %>%
-  enter_object(Nombre) %>%
-  gather_object %>%
-  spread_all
+  spread_all %>%
+  select(-document.id, -array.index)
 
 view(ejercicioFisico)
