@@ -31,7 +31,7 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
-suicidio <- fromJSON(file = "INPUT/DATA/ConjuntoDatos_SeminarioFuentes.json")
+suicidio <- fromJSON(file = "INPUT/DATA/Suicidios_por_comunidades.json")
 consumo_alcohol <- fromJSON(file = "INPUT/DATA/consumo_de_alcohol.json")
 ejercicioFisico <- fromJSON(file = "INPUT/DATA/Número de días por semana de ejercicio físico durante el tiempo de ocio.json")
 ```
