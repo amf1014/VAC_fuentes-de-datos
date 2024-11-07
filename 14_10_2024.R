@@ -18,16 +18,22 @@ consumo_alcohol_tiposresum<-consumo_alcohol %>%
   gather_object %>% 
   json_types %>% 
   count(name, type)
-view(consumo_alcohol_mejor)
-view(consumo_alcohol_mejorr)
+#view(consumo_alcohol_mejor)
+#view(consumo_alcohol_mejorr)
+
+consumo_alcohol_tiposresum$name[3]
+
 
 
 consumo_alcohol<-consumo_alcohol %>%
   enter_object(Data) %>%
   gather_array() %>%
-  spread_all() %>%
-  select(-document.id, -array.index)
+  spread_all() 
+#%>%
+ # select(-document.id, -array.index)
 view(consumo_alcohol)
+
+consumo_alcohol
 
 consumo_alcohol<-consumo_alcohol %>%
   enter_object(MetaData) %>%
