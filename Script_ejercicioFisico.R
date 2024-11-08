@@ -9,21 +9,42 @@ ejercicioFisico <- fromJSON(file = "INPUT/DATA/Número de días por semana de 
 
 ejercicioFisico
 
-ejercicioFisico %>%
+tiposEjercicioFisico_visiongeneral<-ejercicioFisico%>% 
+  gather_object %>% 
+  json_types
+
+tiposEjercicioFisico_visiongeneral
+
+tiposEjercicioFisico <- ejercicioFisico %>%
   gather_object %>% 
   json_types %>% 
   count(name, type)
 
-ejercicioFisico %>%
+tiposEjercicioFisico
+
+nombresEjercicioFisico <- ejercicioFisico %>%
+  enter_object(Nombre)
+
+nombresEjercicioFisico
+
+ejercicioFisicoData <- ejercicioFisico %>%
   enter_object(Data) %>%
   gather_array %>%
-  spread_all%>%
-  select(-document.id, -array.index)
+  spread_all
 
-ejercicioFisico %>%
+ejercicioFisicoMetaData <-ejercicioFisico %>%
   enter_object(MetaData) %>%
   gather_array %>%
-  spread_all %>%
-  select(-document.id, -array.index)
+  spread_all
 
-view(ejercicioFisico)
+nombresEjercicioFisico
+ejercicioFisicoData
+ejercicioFisicoMetaData
+
+tablaUnion <- full_join(nombresEjercicioFisico, ejercicioFisicoData, by="document.id")
+tablaUnion
+
+ejercicioFisicoEstructurado <- left_join(ejercicioFisicoMetaData, tablaUnion, by="document.id")
+ejercicioFisicoEstructurado
+
+mutate(SEXO, ratio = for(elemento in ejercicioFisicoMetaData$T3_Variable) {if(elemento=="sexo"){} } )
