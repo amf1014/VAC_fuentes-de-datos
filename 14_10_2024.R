@@ -40,7 +40,7 @@ consumo_alcohol3 <- consumo_alcohol1 %>%
               select(c("document.id","Nombre")),
             by = c("document.id"))
 
-view(consumo_alcohol3)
+#view(consumo_alcohol3)
 
 consumo_alcohol4 <- consumo_alcohol3 %>%
   mutate(
@@ -84,6 +84,32 @@ consumo_alcohol6 <- consumo_alcohol5 %>%
       Nombre == "TOTAL" ~ "Total consumido",
       Nombre == "Si ha consumido" ~ "Si ha consumido",
       Nombre == "No ha consumido" ~ "No ha consumido",
+      Nombre == "No consta" ~ "No consta",
       TRUE ~ as.character(NA)
     )
   )
+view(consumo_alcohol6)
+
+consumo_por_sexo<- consumo_alcohol6 %>%
+  group_by(sexo) %>%
+  summarize(consumo_medio_sexo=mean(Valor, na.rm = TRUE))
+
+#view(consumo_por_sexo)
+
+consumo_por_comunidad <- consumo_alcohol6 %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(consumo_medio_comunidad = mean(Valor, na.rm = TRUE))
+
+#view(consumo_por_comunidad)
+
+consumo_por_sexo_comunidad <- consumo_alcohol6 %>%
+  group_by(sexo, comunidades_autonomas) %>%
+  summarize(consumo_medio_sexo_comunidad = mean(Valor, na.rm = TRUE))
+
+#view(consumo_por_sexo_comunidad)
+
+ggplot(consumo_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = consumo_medio_sexo_comunidad,fill = sexo)) +
+  geom_bar(stat = "identity",position = position_dodge()) +
+  labs(title = "Consumo Medio de Alcohol por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Consumo Medio (unidades)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))

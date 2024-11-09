@@ -36,7 +36,7 @@ suicidio3 <- suicidio1 %>%
               select(c("document.id","Nombre")),
             by = c("document.id"))
 
-#view(suicidio3)
+view(suicidio3)
 
 suicidio4 <- suicidio3 %>%
   mutate(
