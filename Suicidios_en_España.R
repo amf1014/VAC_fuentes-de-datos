@@ -98,4 +98,21 @@ suicidio6 <- suicidio5 %>%
     )
   )
 
-view(suicidio6)
+#view(suicidio6)
+
+suicidio7 <- 
+  as.data.frame(apply(suicidio6, 2, function(col) col[!is.na(col)])) 
+  
+
+#view(suicidio7)
+
+suicidio7 <- suicidio7[, -3]
+
+#view(suicidio7)
+
+#suicidio7 <- df[seq(1, nrow(df), by = 3), ]
+
+#df$mi_columna <- df$mi_columna[seq(1, length(df$mi_columna), by = 3)]
+
+suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 3)]
+view(suicidio7)
