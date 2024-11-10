@@ -1,6 +1,6 @@
 ---
-title: Suicidio en España en relación con las comunidades autónomas y el consumo de
-  alcohol
+title: Suicidio en España en relación con las comunidades autónomas, el consumo de
+  alcohol y el ejercicio físico.
 author: "Claudia Gijón Pigazo, Verónica Barriuso Moreno y Adrián Martín Fuentes"
 date: "`r Sys.Date()`"
 output: 
