@@ -36,7 +36,7 @@ suicidio3 <- suicidio1 %>%
               select(c("document.id","Nombre")),
             by = c("document.id"))
 
-view(suicidio3)
+#view(suicidio3)
 
 suicidio4 <- suicidio3 %>%
   mutate(
@@ -110,9 +110,32 @@ suicidio7 <- suicidio7[, -3]
 
 #view(suicidio7)
 
-#suicidio7 <- df[seq(1, nrow(df), by = 3), ]
-
-#df$mi_columna <- df$mi_columna[seq(1, length(df$mi_columna), by = 3)]
 
 suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 3)]
 view(suicidio7)
+
+suicidio_por_sexo <- suicidio7 %>%
+  group_by(sexo) %>%
+  summarize(suicidio_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
+
+#view(suicidio_por_sexo)
+
+suicidio_por_comunidad <- suicidio7 %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(suicidio_medio_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+
+#view(suicidio_por_comunidad)
+
+suicidio_por_edad <- suicidio7 %>%
+  group_by(años) %>%
+  summarize(suicidio_medio_edad=mean(as.numeric(Valor), na.rm = TRUE))
+
+#view(suicidio_por_edad)
+
+suicidio_por_sexo_comunidad_edad <- suicidio7 %>%
+  group_by(sexo, comunidades_autonomas, años) %>%
+  summarize(suicidio_medio_sexo_comunidad_edad=mean(as.numeric(Valor), na.rm = TRUE))
+
+#view(suicidio_por_sexo_comunidad_edad)
+
+
