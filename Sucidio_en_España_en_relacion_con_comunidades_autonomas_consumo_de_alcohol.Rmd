@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## INTRODUCCIÓN
-En España se estima que la tasa de suicidio es aproximadamente de un 13,9 por 100.000 hab/ año. Un número preocupante, pero ¿que motivos pueden llevar a dicha tragedia?
+En España se estima que la tasa de suicidio es aproximadamente de un 13,9 por 100.000 hab/ año. Un número preocupante, pero ¿que motivos pueden llevar a dicha tragedia? 
 En este seminario vamos a tratar de encontrar relación entre el suicidio, el ejercicio físico y el consumo de alcohol.
 
 
