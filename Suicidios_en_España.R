@@ -112,7 +112,7 @@ suicidio7 <- suicidio7[, -3]
 
 
 suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 3)]
-view(suicidio7)
+#view(suicidio7)
 
 suicidio_por_sexo <- suicidio7 %>%
   group_by(sexo) %>%
@@ -132,10 +132,17 @@ suicidio_por_edad <- suicidio7 %>%
 
 #view(suicidio_por_edad)
 
-suicidio_por_sexo_comunidad_edad <- suicidio7 %>%
-  group_by(sexo, comunidades_autonomas, años) %>%
-  summarize(suicidio_medio_sexo_comunidad_edad=mean(as.numeric(Valor), na.rm = TRUE))
+suicidio_por_sexo_comunidad <- suicidio7 %>%
+  group_by(sexo, comunidades_autonomas) %>%
+  summarize(suicidio_medio_sexo_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
 
 #view(suicidio_por_sexo_comunidad_edad)
+
+ggplot(suicidio_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = suicidio_medio_sexo_comunidad,fill = sexo)) +
+  geom_bar(stat = "identity",position = position_dodge()) +
+  labs(title = "Suicidio medio por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Suicidio Medio (unidades)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
 
 

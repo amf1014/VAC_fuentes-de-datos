@@ -5,7 +5,7 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
-ejercicioFisico <- fromJSON(file = "INPUT/DATA/Número de días por semana de ejercicio físico durante el tiempo de ocio.json")
+ejercicioFisico <- fromJSON(file = "INPUT/DATA/Ejercicio_fisico.json")
 
 ejercicioFisico
 
