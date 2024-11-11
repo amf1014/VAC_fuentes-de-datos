@@ -88,23 +88,30 @@ consumo_alcohol6 <- consumo_alcohol5 %>%
       TRUE ~ as.character(NA)
     )
   )
-view(consumo_alcohol6)
+#view(consumo_alcohol6)
 
-consumo_por_sexo<- consumo_alcohol6 %>%
+consumo_alcohol7 <- 
+  as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
+
+consumo_alcohol7
+
+consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3)]
+
+consumo_por_sexo<- consumo_alcohol7 %>%
   group_by(sexo) %>%
-  summarize(consumo_medio_sexo=mean(Valor, na.rm = TRUE))
+  summarize(consumo_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
 
 #view(consumo_por_sexo)
 
-consumo_por_comunidad <- consumo_alcohol6 %>%
+consumo_por_comunidad <- consumo_alcohol7 %>%
   group_by(comunidades_autonomas) %>%
-  summarize(consumo_medio_comunidad = mean(Valor, na.rm = TRUE))
+  summarize(consumo_medio_comunidad = mean(as.numeric(Valor), na.rm = TRUE))
 
 #view(consumo_por_comunidad)
 
-consumo_por_sexo_comunidad <- consumo_alcohol6 %>%
+consumo_por_sexo_comunidad <- consumo_alcohol7 %>%
   group_by(sexo, comunidades_autonomas) %>%
-  summarize(consumo_medio_sexo_comunidad = mean(Valor, na.rm = TRUE))
+  summarize(consumo_medio_sexo_comunidad = mean(as.numeric(Valor), na.rm = TRUE))
 
 #view(consumo_por_sexo_comunidad)
 
