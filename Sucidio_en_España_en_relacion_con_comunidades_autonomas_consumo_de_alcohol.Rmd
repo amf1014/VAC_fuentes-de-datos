@@ -91,10 +91,7 @@ Una vez cargados, procedemos a formatear los datos para crear tablas ordenadas c
 
 Formateo de datos del conjunto de datos de suicidio:
 
-```{r}
-suicidio
-
-head(suicidio)
+```{r, eval = TRUE}
 
 suicidio %>%
   gather_object %>%
@@ -199,12 +196,12 @@ suicidio7 <- suicidio7[, -3]
 
 
 suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 3)]
+head(suicidio7)
 ```
 
 Formateo de datos del conjunto de datos del consumo de alcohol:
 
-```{r}
-head(consumo_alcohol)
+```{r, eval = TRUE}
 
 consumo_alcohol_tiposresum<-consumo_alcohol %>%  
   gather_object %>% 
@@ -286,11 +283,11 @@ consumo_alcohol6 <- consumo_alcohol5 %>%
     )
   )
 ```
+head(consumo_alcohol6)
 
 Formateo de datos del conjunto de datos de ejercicio físico:
 
-```{r}
-ejercicioFisico
+```{r, eval = TRUE}
 
 tiposEjercicioFisico_visiongeneral<-ejercicioFisico%>% 
   gather_object %>% 
@@ -408,7 +405,7 @@ ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, 
 
 Una vez formateados los datos, pasamos a analizarlos, calculando medias y porcentajes:
 
-```{r}
+```{r, eval = TRUE}
 suicidio_por_sexo <- suicidio7 %>%
   group_by(sexo) %>%
   summarize(suicidio_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
@@ -433,7 +430,7 @@ suicidio_por_sexo_comunidad <- suicidio7 %>%
 
 ```
 
-```{r}
+```{r, eval = TRUE}
 consumo_por_sexo<- consumo_alcohol6 %>%
   group_by(sexo) %>%
   summarize(consumo_medio_sexo=mean(Valor, na.rm = TRUE))
@@ -451,7 +448,7 @@ consumo_por_sexo_comunidad <- consumo_alcohol6 %>%
   summarize(consumo_medio_sexo_comunidad = mean(Valor, na.rm = TRUE))
 ```
 
-```{r}
+```{r, eval = TRUE}
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   mutate(
     Ratio = `Miles de personas` / `Total personas según la comunidad`,
@@ -523,16 +520,6 @@ Gráfica de suicidio medio por sexo y comunidad autónoma.
 ggplot(suicidio_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = suicidio_medio_sexo_comunidad,fill = sexo)) +
   geom_bar(stat = "identity",position = position_dodge()) +
   labs(title = "Suicidio medio por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Suicidio Medio (unidades)") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
-```
-
-Gráfica de consumo de alcohol medio por sexo y comunidad autónoma.
-
-```{r, echo = FALSE}
-ggplot(consumo_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = consumo_medio_sexo_comunidad,fill = sexo)) +
-  geom_bar(stat = "identity",position = position_dodge()) +
-  labs(title = "Consumo Medio de Alcohol por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Consumo Medio (unidades)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 ```
