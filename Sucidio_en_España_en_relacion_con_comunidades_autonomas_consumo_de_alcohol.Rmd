@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
+[REPOSITORIO EN GITHUB](https://github.com/amf1014/VAC_fuentes-de-datos.git)
 
 # Tabla de contenidos
 1. Introducción
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 4. Desarrollo
 5. Conclusiones finales
 
-[REPOSITORIO EN GITHUB](https://github.com/amf1014/VAC_fuentes-de-datos.git)
+
 
 ## 1. INTRODUCCIÓN
 En España se estima que la tasa de suicidio es aproximadamente de un 13,9 por 100.000 hab/ año. Un número preocupante, pero ¿que motivos pueden llevar a dicha tragedia? 
