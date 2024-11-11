@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-link(https://github.com/amf1014/VAC_fuentes-de-datos.git)
+[REPOSITORIO EN GITHUB](https://github.com/amf1014/VAC_fuentes-de-datos.git)
 
 # Tabla de contenidos
 1. Introducción
