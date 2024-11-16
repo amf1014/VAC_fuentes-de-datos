@@ -115,8 +115,20 @@ consumo_por_sexo_comunidad <- consumo_alcohol7 %>%
 
 #view(consumo_por_sexo_comunidad)
 
-ggplot(consumo_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = consumo_medio_sexo_comunidad,fill = sexo)) +
-  geom_bar(stat = "identity",position = position_dodge()) +
-  labs(title = "Consumo Medio de Alcohol por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Consumo Medio (unidades)") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+ggplot(consumo_por_sexo, aes(x = sexo, y = consumo_medio_sexo, fill = sexo)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (unidades)") +
+  theme_minimal()
+
+
+ggplot(consumo_por_comunidad, aes(x = reorder(comunidades_autonomas, consumo_medio_comunidad), y = consumo_medio_comunidad, fill = comunidades_autonomas)) +
+  geom_bar(stat = "identity", show.legend = FALSE) + 
+  labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") +theme_minimal() +theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplot(consumo_por_sexo_comunidad, aes(x = reorder(comunidades_autonomas, consumo_medio_sexo_comunidad), y = consumo_medio_sexo_comunidad, fill = sexo)) +
+  geom_bar(stat = "identity", position = position_dodge()) + 
+  labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
