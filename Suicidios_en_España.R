@@ -154,9 +154,3 @@ ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_m
 ggplot(suicidio_por_edad, aes(x = reorder(años, suicidio_medio_edad), y = suicidio_medio_edad, fill = años)) + geom_bar(stat = "identity", show.legend = FALSE) + 
   labs(title = "Suicidio Medio por Edad", x = "Edad", y = "Suicidio Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-ggplot(suicidio_por_sexo_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_medio_sexo_comunidad), y = suicidio_medio_sexo_comunidad, fill = sexo)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  labs(title = "Suicidio Medio por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Suicidio Medio (unidades)") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
