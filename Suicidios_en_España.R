@@ -155,30 +155,73 @@ ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_m
 ggplot(suicidio_por_edad, aes(x = reorder(años, suicidio_medio_edad), y = suicidio_medio_edad, fill = años)) + geom_bar(stat = "identity", show.legend = FALSE) + 
   labs(title = "Suicidio Medio por Edad", x = "Edad", y = "Suicidio Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-suicidio8 <- suicidio7 %>%
-  mutate(
-    habitantes = case_when(
-      comunidades_autonomas == "Total nacional" ~ "48.797.875",
-      comunidades_autonomas == "Andalucía" ~ "8.637.152",
-      comunidades_autonomas == "Aragón" ~ " 1.348.206 ",
-      comunidades_autonomas == "Principado de Asturias" ~ "1.010.058",
-      comunidades_autonomas == "Islas Baleares" ~ "1.238.812",
-      comunidades_autonomas == "Islas Canarias" ~ "2.246.132",
-      comunidades_autonomas == "Cantabria" ~ "593.044",
-      comunidades_autonomas == "Castilla y León" ~ "2.393.741",
-      comunidades_autonomas == "Castilla-La Mancha" ~ "2.107.420",
-      comunidades_autonomas == "Cataluña" ~ "8.021.049",
-      comunidades_autonomas == "Comunidad Valenciana" ~ "5.359.309",
-      comunidades_autonomas == "Extremadura" ~ " 1.052.190",
-      comunidades_autonomas == "Galicia" ~ "2.706.953",
-      comunidades_autonomas == "Madrid" ~ "7.058.041",
-      comunidades_autonomas == "Murcia" ~ "1.575.171",
-      comunidades_autonomas == "Navarra" ~ "682.201",
-      comunidades_autonomas == "País Vasco" ~ "2.219.019",
-      comunidades_autonomas == "La Rioja" ~ "325.264",
-      comunidades_autonomas == "Ceuta" ~ "83.386",
-      comunidades_autonomas == "Melilla" ~ "86.418",
-      TRUE ~ as.character(NA)
-    )
-  )
-view(suicidio8)
+#suicidio7 <- suicidio7%>%
+  #select(-años)
+
+# #suicidio8 <- suicidio7 %>%
+#   #mutate(
+#     habitantes = case_when(
+#       comunidades_autonomas == "Total nacional" & sexo == "Ambos sexos" ~ "48.592.909",
+#       comunidades_autonomas == "Total nacional" & sexo == "Hombres" ~ "23.807.546",
+#       comunidades_autonomas == "Total nacional" & sexo == "Mujeres" ~ "24.785.363",
+#       comunidades_autonomas == "Andalucía" & sexo == "Ambos sexos" ~ "8.620.120",
+#       comunidades_autonomas == "Andalucía" & sexo == "Hombres" ~ "4.238.717",
+#       comunidades_autonomas == "Andalucía" & sexo == "Mujeres" ~ "4.381.403",
+#       comunidades_autonomas == "Aragón" & sexo == "Ambos sexos" ~ "1.348.918",
+#       comunidades_autonomas == "Aragón" & sexo == "Hombres" ~ "666.949",
+#       comunidades_autonomas == "Aragón" & sexo == "Mujeres" ~ "681.969 ",
+#       comunidades_autonomas == "Principado de Asturias" & sexo == "Ambos sexos" ~ "1.008.876",
+#       comunidades_autonomas == "Principado de Asturias" & sexo == "Hombres" ~ "481.018",
+#       comunidades_autonomas == "Principado de Asturias" & sexo == "Mujeres" ~ "527.858",
+#       comunidades_autonomas == "Islas Baleares" & sexo == "Ambos sexos" ~ "1.231.487",
+#       comunidades_autonomas == "Islas Baleares" & sexo == "Hombres" ~ "614.011",
+#       comunidades_autonomas == "Islas Baleares" & sexo == "Mujeres" ~ "617.476",
+#       comunidades_autonomas == "Islas Canarias" & sexo == "Ambos sexos" ~ "2.236.013",
+#       comunidades_autonomas == "Islas Canarias" & sexo == "Hombres" ~ "1.103.805",
+#       comunidades_autonomas == "Islas Canarias" & sexo == "Mujeres" ~ "1.132.208",
+#       comunidades_autonomas == "Cantabria" & sexo == "Ambos sexos" ~ "593.044",
+#       comunidades_autonomas == "Cantabria" & sexo == "Hombres" ~ "286.341",
+#       comunidades_autonomas == "Cantabria" & sexo == "Mujeres" ~ "304.810",
+#       comunidades_autonomas == "Castilla y León" & sexo == "Ambos sexos" ~ "2.389.959",
+#       comunidades_autonomas == "Castilla y León" & sexo == "Hombres" ~ "1.175.016",
+#       comunidades_autonomas == "Castilla y León" & sexo == "Mujeres" ~ "1.214.943",
+#       comunidades_autonomas == "Castilla-La Mancha" & sexo == "Ambos sexos" ~ "2.100.523",
+#       comunidades_autonomas == "Castilla-La Mancha" & sexo == "Hombres" ~ "1.053.361",
+#       comunidades_autonomas == "Castilla-La Mancha" & sexo == "Mujeres" ~ "1.047.162",
+#       comunidades_autonomas == "Cataluña" & sexo == "Ambos sexos" ~ "8.021.049",
+#       comunidades_autonomas == "Cataluña" & sexo == "Hombres" ~ "3.948.555",
+#       comunidades_autonomas == "Cataluña" & sexo == "Mujeres" ~ "4.072.494",
+#       comunidades_autonomas == "Comunidad Valenciana" & sexo == "Ambos sexos" ~ "5.316.478",
+#       comunidades_autonomas == "Comunidad Valenciana" & sexo == "Hombres" ~ "2.613.918",
+#       comunidades_autonomas == "Comunidad Valenciana" & sexo == "Mujeres" ~ "2.702.560",
+#       comunidades_autonomas == "Extremadura" & sexo == "Ambos sexos" ~ "1.053.423",
+#       comunidades_autonomas == "Extremadura" & sexo == "Hombres" ~ "521.005",
+#       comunidades_autonomas == "Extremadura" & sexo == "Mujeres" ~ "532.418",
+#       comunidades_autonomas == "Galicia" & sexo == "Ambos sexos" ~ "2.705.877",
+#       comunidades_autonomas == "Galicia" & sexo == "Hombres" ~ "1.301.669",
+#       comunidades_autonomas == "Galicia" & sexo == "Mujeres" ~ "1.404.208",
+#       comunidades_autonomas == "Madrid" & sexo == "Ambos sexos" ~ "7.000.621",
+#       comunidades_autonomas == "Madrid" & sexo == "Hombres" ~ "3.352.591",
+#       comunidades_autonomas == "Madrid" & sexo == "Mujeres" ~ "3.648.030",
+#       comunidades_autonomas == "Murcia" & sexo == "Ambos sexos" ~ "1.569.164",
+#       comunidades_autonomas == "Murcia" & sexo == "Hombres" ~ "786.213",
+#       comunidades_autonomas == "Murcia" & sexo == "Mujeres" ~ "782.951",
+#       comunidades_autonomas == "Navarra" & sexo == "Ambos sexos" ~ "678.103",
+#       comunidades_autonomas == "Navarra" & sexo == "Hombres" ~ "335.742",
+#       comunidades_autonomas == "Navarra" & sexo == "Mujeres" ~ "342.361",
+#       comunidades_autonomas == "País Vasco" & sexo == "Ambos sexos" ~ "2.227.581",
+#       comunidades_autonomas == "País Vasco" & sexo == "Hombres" ~ "1.083.234",
+#       comunidades_autonomas == "País Vasco" & sexo == "Mujeres" ~ "1.144.347",
+#       comunidades_autonomas == "La Rioja" & sexo == "Ambos sexos" ~ "324.226",
+#       comunidades_autonomas == "La Rioja" & sexo == "Hombres" ~ "160.074",
+#       comunidades_autonomas == "La Rioja" & sexo == "Mujeres" ~ "164.152",
+#       comunidades_autonomas == "Ceuta" & sexo == "Ambos sexos" ~ "83.284",
+#       comunidades_autonomas == "Ceuta" & sexo == "Hombres" ~ "41.990",
+#       comunidades_autonomas == "Ceuta" & sexo == "Mujeres" ~ "41.294",
+#       comunidades_autonomas == "Melilla" & sexo == "Ambos sexos" ~ "86.056",
+#       comunidades_autonomas == "Melilla" & sexo == "Hombres" ~ "43.337",
+#       comunidades_autonomas == "Melilla" & sexo == "Mujeres" ~ "42.719",
+#       TRUE ~ as.character(NA)
+#     )
+#   )
+# view(suicidio8)
