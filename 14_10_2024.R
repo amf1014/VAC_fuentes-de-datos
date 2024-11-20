@@ -3,6 +3,128 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
+ejercicioFisico <- fromJSON(file = "INPUT/DATA/Ejercicio_fisico.json")
+
+ejercicioFisico
+
+tiposEjercicioFisico_visiongeneral<-ejercicioFisico%>% 
+  gather_object %>% 
+  json_types
+
+tiposEjercicioFisico_visiongeneral
+
+tiposEjercicioFisico <- ejercicioFisico %>%
+  gather_object %>% 
+  json_types %>% 
+  count(name, type)
+
+tiposEjercicioFisico
+
+nombresEjercicioFisico <- ejercicioFisico %>%
+  enter_object(Nombre)
+
+#Con la línea siguiente busco interpretar como se guardan los datos.
+nombresEjercicioFisico
+
+#Estructurar los datos
+ejercicioFisicoData <- ejercicioFisico %>%
+  enter_object(Data) %>%
+  gather_array %>%
+  spread_all%>%
+  select(-array.index)
+
+ejercicioFisicoMetaData <-ejercicioFisico %>%
+  enter_object(MetaData) %>%
+  gather_array %>%
+  spread_all %>%
+  select(document.id, Nombre)
+
+ejercicioFisicoData
+ejercicioFisicoMetaData
+
+ejercicioFisicoUnion <- left_join(ejercicioFisicoMetaData, ejercicioFisicoData, by="document.id")
+ejercicioFisicoUnion
+
+ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
+  mutate(
+    Sexo = case_when(
+      Nombre == "Ambos sexos" ~ "Ambos sexos",
+      Nombre == "Hombres" ~ "Hombres",
+      Nombre == "Mujeres" ~ "Mujeres",
+      TRUE ~ as.character(NA)
+    ),
+    `Comunidades autonomas` = case_when(
+      Nombre == "Total" ~ "Total Nacional",
+      Nombre == "Andalucía" ~ "Andalucía",
+      Nombre == "Aragón" ~ "Aragón",
+      Nombre == "Asturias (Principado de)" ~ "Principado de Asturias",
+      Nombre == "Balears (Illes)" ~ "Islas Baleares",
+      Nombre == "Canarias" ~ "Islas Canarias",
+      Nombre == "Cantabria" ~ "Cantabria",
+      Nombre == "Castilla y León" ~ "Castilla y León",
+      Nombre == "Castilla-La Mancha" ~ "Castilla-La Mancha",
+      Nombre == "Cataluña" ~ "Cataluña",
+      Nombre == "Comunitat Valenciana" ~ "Comunitat Valenciana",
+      Nombre == "Extremadura" ~ "Extremadura",
+      Nombre == "Galicia" ~ "Galicia",
+      Nombre == "Madrid (Comunidad de)" ~ "Madrid",
+      Nombre == "Murcia (Región de)" ~ "Murcia",
+      Nombre == "Navarra (Comunidad Foral de)" ~ "Navarra",
+      Nombre == "País Vasco" ~ "País Vasco",
+      Nombre == "Rioja (La)" ~ "La Rioja",
+      Nombre == "Ceuta (Ciudad Autónoma de)" ~ "Ceuta",
+      Nombre == "Melilla (Ciudad Autónoma de)" ~ "Melilla",
+      TRUE ~ as.character(NA)
+    ),
+    `Frecuencia de ejercicio` = case_when(
+      Nombre == "TOTAL" ~ "TOTAL",
+      Nombre == "Ninguno" ~ "Ninguno",
+      Nombre == "1 o 2 días a la semana" ~ "1 o 2 días a la semana",
+      Nombre == "3 o 4 días a la semana" ~ "3 o 4 días a la semana",
+      Nombre == "5 o 6 días a la semana" ~ "5 o 6 días a la semana",
+      Nombre == "7 días a la semana" ~ "7 días a la semana",
+      TRUE ~ as.character(NA)
+    )
+  )
+
+ejercicioFisicoUnion
+
+ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
+  fill(Sexo, `Comunidades autonomas`, `Frecuencia de ejercicio`, .direction = "up")
+
+ejercicioFisicoUnion
+
+ejercicioFisicoUnion <- filter(ejercicioFisicoUnion, ejercicioFisicoUnion$Nombre == ejercicioFisicoUnion$Sexo)
+
+ejercicioFisicoUnion
+
+ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
+  select(-Nombre,-document.id)%>%
+  rename("Miles de personas"=Valor)
+
+ejercicioFisicoUnion
+
+totalPersonasComunidad <- ejercicioFisicoUnion %>%
+  filter(`Frecuencia de ejercicio` == "TOTAL") %>%
+  select(`Comunidades autonomas`, `Total personas según la comunidad` = `Miles de personas`)
+
+totalPersonasComunidad
+duplicated(totalPersonasComunidad)
+
+totalPersonasComunidad <- totalPersonasComunidad %>%
+  distinct(`Comunidades autonomas`, .keep_all = TRUE)
+
+duplicated(totalPersonasComunidad)
+
+ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades autonomas")
+
+ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
+  mutate(
+    Ratio = `Miles de personas` / `Total personas según la comunidad`,
+    Porcentaje = Ratio * 100
+  )%>%
+  select(-`Total personas según la comunidad`)
+
 
 
 consumo_alcohol <- fromJSON(file = "INPUT/DATA/consumo_de_alcohol.json")
@@ -100,7 +222,7 @@ consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$
 consumo_por_sexo<- consumo_alcohol7 %>%
   group_by(sexo) %>%
   summarize(consumo_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
-
+consumo_por_sexo
 #view(consumo_por_sexo)
 
 consumo_por_comunidad <- consumo_alcohol7 %>%
@@ -130,5 +252,17 @@ ggplot(consumo_por_sexo_comunidad, aes(x = reorder(comunidades_autonomas, consum
   geom_bar(stat = "identity", position = position_dodge()) + 
   labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+#COMPARACIÓN CONSUMO DE ALCOHOL CON EL EJERCICIO FÍSICO POR COMUNIDAD AUTÓNÓNOMA(variable no importante)
+# Ajustar nombres de columnas para la unión
+unique(consumo_alcohol7$sexo)        
+unique(ejercicioFisicoUnion$sexo)   
+ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
+  rename(comunidades_autonomas = `Comunidades autonomas`, miles_personas = `Miles de personas`)
+
+comparacion_datos <- full_join(consumo_alcohol7, ejercicioFisicoUnion, 
+                               by = c("comunidades_autonomas", "sexo"))
+
+
+#COMPARACIÓN CONSUMO DE ALCOHOL CON EL EJERCICIO FÍSICO POR SEXO (variable no importante)
 
 

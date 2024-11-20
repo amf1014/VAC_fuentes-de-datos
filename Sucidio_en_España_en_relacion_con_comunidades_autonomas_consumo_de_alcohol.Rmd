@@ -49,7 +49,7 @@ Sobre el conjunto de datos sobre el ejercicio físico, observamos las diferencia
 Una vez analizado por separado cada conjunto de datos, pasamos a observar si hay relación entre ellos, centrándonos especialmente en:
 
 1.- Relación entre el suicidio y el consumo de alcohol por comunidad autónoma y por sexo.
-2.- Relación entre el sucidio y el ejercicio físico por comunidad autónoma y por sexo.
+2.- Relación entre el suicidio y el ejercicio físico por comunidad autónoma y por sexo.
 3.- Relación entre el ejercicio físico y el consumo de alcohol por comunidad autónoma y por sexo.
 
 ## 3. Paquetes utilizados
