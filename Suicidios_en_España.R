@@ -84,7 +84,7 @@ suicidio6 <- suicidio5 %>%
       Nombre == "Castilla y León" ~ "Castilla y León",
       Nombre == "Castilla-La Mancha" ~ "Castilla-La Mancha",
       Nombre == "Cataluña" ~ "Cataluña",
-      Nombre == "Comunitat Valenciana" ~ "Comunitat Valenciana",
+      Nombre == "Comunitat Valenciana" ~ "Comunidad Valenciana",
       Nombre == "Extremadura" ~ "Extremadura",
       Nombre == "Galicia" ~ "Galicia",
       Nombre == "Madrid, Comunidad de" ~ "Madrid",
@@ -113,6 +113,7 @@ suicidio7 <- suicidio7[, -3]
 
 suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 3)]
 #view(suicidio7)
+
 
 suicidio_por_sexo <- suicidio7 %>%
   group_by(sexo) %>%
@@ -154,3 +155,30 @@ ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_m
 ggplot(suicidio_por_edad, aes(x = reorder(años, suicidio_medio_edad), y = suicidio_medio_edad, fill = años)) + geom_bar(stat = "identity", show.legend = FALSE) + 
   labs(title = "Suicidio Medio por Edad", x = "Edad", y = "Suicidio Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+suicidio8 <- suicidio7 %>%
+  mutate(
+    habitantes = case_when(
+      comunidades_autonomas == "Total nacional" ~ "48.797.875",
+      comunidades_autonomas == "Andalucía" ~ "8.637.152",
+      comunidades_autonomas == "Aragón" ~ " 1.348.206 ",
+      comunidades_autonomas == "Principado de Asturias" ~ "1.010.058",
+      comunidades_autonomas == "Islas Baleares" ~ "1.238.812",
+      comunidades_autonomas == "Islas Canarias" ~ "2.246.132",
+      comunidades_autonomas == "Cantabria" ~ "593.044",
+      comunidades_autonomas == "Castilla y León" ~ "2.393.741",
+      comunidades_autonomas == "Castilla-La Mancha" ~ "2.107.420",
+      comunidades_autonomas == "Cataluña" ~ "8.021.049",
+      comunidades_autonomas == "Comunidad Valenciana" ~ "5.359.309",
+      comunidades_autonomas == "Extremadura" ~ " 1.052.190",
+      comunidades_autonomas == "Galicia" ~ "2.706.953",
+      comunidades_autonomas == "Madrid" ~ "7.058.041",
+      comunidades_autonomas == "Murcia" ~ "1.575.171",
+      comunidades_autonomas == "Navarra" ~ "682.201",
+      comunidades_autonomas == "País Vasco" ~ "2.219.019",
+      comunidades_autonomas == "La Rioja" ~ "325.264",
+      comunidades_autonomas == "Ceuta" ~ "83.386",
+      comunidades_autonomas == "Melilla" ~ "86.418",
+      TRUE ~ as.character(NA)
+    )
+  )
+view(suicidio8)
