@@ -35,7 +35,6 @@ En un primer lugar, vamos a observar y a intentar obtener información de cada c
 Sobre el conjunto de datos sobre el suicidio, observamos las diferencias que hay en el número de suicidios según:
 - Sexo.
 - Comunidades autónomas.
-- Edad.
 
 Sobre el conjunto de datos sobre el consumo de alcohol, observamos las diferencias que hay en el número de consumo de alcohol según:
 - Sexo.
