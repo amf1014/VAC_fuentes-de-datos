@@ -55,7 +55,7 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
       Nombre == "Mujeres" ~ "Mujeres",
       TRUE ~ as.character(NA)
     ),
-    `Comunidades autonomas` = case_when(
+    `Comunidades_autonomas` = case_when(
       Nombre == "Total" ~ "Total Nacional",
       Nombre == "Andalucía" ~ "Andalucía",
       Nombre == "Aragón" ~ "Aragón",
@@ -78,7 +78,7 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
       Nombre == "Melilla (Ciudad Autónoma de)" ~ "Melilla",
       TRUE ~ as.character(NA)
     ),
-    `Frecuencia de ejercicio` = case_when(
+    `Frecuencia_de_ejercicio` = case_when(
       Nombre == "TOTAL" ~ "TOTAL",
       Nombre == "Ninguno" ~ "Ninguno",
       Nombre == "1 o 2 días a la semana" ~ "1 o 2 días a la semana",
@@ -92,7 +92,7 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
 ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
-  fill(Sexo, `Comunidades autonomas`, `Frecuencia de ejercicio`, .direction = "up")
+  fill(Sexo, `Comunidades_autonomas`, `Frecuencia_de_ejercicio`, .direction = "up")
 
 ejercicioFisicoUnion
 
@@ -102,45 +102,45 @@ ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   select(-Nombre,-document.id)%>%
-  rename("Miles de personas"=Valor)
+  rename("Miles_de_personas"=Valor)
 
 ejercicioFisicoUnion
 
 totalPersonasComunidad <- ejercicioFisicoUnion %>%
-  filter(`Frecuencia de ejercicio` == "TOTAL") %>%
-  select(`Comunidades autonomas`, `Total personas según la comunidad` = `Miles de personas`)
+  filter(`Frecuencia_de_ejercicio` == "TOTAL") %>%
+  select(`Comunidades_autonomas`, `Total_personas_según_la_comunidad` = `Miles_de_personas`)
 
 totalPersonasComunidad
 duplicated(totalPersonasComunidad)
 
 totalPersonasComunidad <- totalPersonasComunidad %>%
-  distinct(`Comunidades autonomas`, .keep_all = TRUE)
+  distinct(`Comunidades_autonomas`, .keep_all = TRUE)
 
 duplicated(totalPersonasComunidad)
 
-ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades autonomas")
+ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades_autonomas")
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   mutate(
-    Ratio = `Miles de personas` / `Total personas según la comunidad`,
+    Ratio = `Miles_de_personas` / `Total_personas_según_la_comunidad`,
     Porcentaje = Ratio * 100
   )%>%
-  select(-`Total personas según la comunidad`)
+  select(-`Total_personas_según_la_comunidad`)
 
 frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
   mutate(
     NadaMax = case_when(
-      `Frecuencia de ejercicio` == "Ninguno" ~ `Ratio`,
-      `Frecuencia de ejercicio` == "7 días a la semana" ~ `Ratio`,
+      `Frecuencia_de_ejercicio` == "Ninguno" ~ `Ratio`,
+      `Frecuencia_de_ejercicio` == "7 días a la semana" ~ `Ratio`,
       TRUE ~ as.double(NA)
     ))%>%
-  select(`Comunidades autonomas`,Sexo,`Frecuencia de ejercicio`,`Ratio`, NadaMax) %>%
+  select(`Comunidades_autonomas`,Sexo,`Frecuencia_de_ejercicio`,`Ratio`, NadaMax) %>%
   filter(!is.na(NadaMax))
 
 frecuenciaNadaYMaxEjercicioComunidad
 
 ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
-  spread(`Frecuencia de ejercicio`, Ratio)%>%
+  spread(`Frecuencia_de_ejercicio`, Ratio)%>%
   fill(`7 días a la semana`,`Ninguno`, .direction = "up")%>%
   filter(NadaMax==`7 días a la semana`)%>%
   mutate(
@@ -153,6 +153,8 @@ ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio%>%
     `Porcentaje nada y máximo ejercicio` = ComparacionNadaYMaxEjercicio$`Comparacion nada y máximo ejercicio por comunidad y sexo`*100)
 
 ComparacionNadaYMaxEjercicio
+
+#Diferencias que hay en el número de ejercicio físico que se realiza según sexo
 
 NadaFrenteMaxEjercicioHombres <- ComparacionNadaYMaxEjercicio%>%
   filter(Sexo=="Hombres")%>%
@@ -173,11 +175,13 @@ NadaFrenteMaxEjercicioAmbos <- ComparacionNadaYMaxEjercicio%>%
 NadaFrenteMaxEjercicioAmbos
 
 
-DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercicioMujeres,NadaFrenteMaxEjercicioHombres, by = c("Comunidades autonomas"))%>%
-  rename(`Porcentaje Mujeres` =`Porcentaje nada y máximo ejercicio.x`, `Porcentaje Hombres` =`Porcentaje nada y máximo ejercicio.y`, ` Mujeres: 7 días a la semana` =`7 días a la semana.x`, `Hombres: 7 días a la semana` =`7 días a la semana.y`, `Mujeres: Ninguno`= Ninguno.x, `Hombres: Ninguno`= Ninguno.y)%>%
+DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercicioMujeres,NadaFrenteMaxEjercicioHombres, by = c("Comunidades_autonomas"))%>%
+  rename(`Porcentaje_Mujeres` =`Porcentaje nada y máximo ejercicio.x`, `Porcentaje_Hombres` =`Porcentaje nada y máximo ejercicio.y`, ` Mujeres: 7 días a la semana` =`7 días a la semana.x`, `Hombres: 7 días a la semana` =`7 días a la semana.y`, `Mujeres: Ninguno`= Ninguno.x, `Hombres: Ninguno`= Ninguno.y)%>%
   select(-Sexo.x, -Sexo.y)%>%
   mutate(
     `Porcentaje deferido ningun ejercicio mujeres respecto hombres` = (`Mujeres: Ninguno`- `Hombres: Ninguno`)*100,
     `Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres` = (` Mujeres: 7 días a la semana`-`Hombres: 7 días a la semana`)*100)%>%
-  select(`Comunidades autonomas`,`Porcentaje deferido ningun ejercicio mujeres respecto hombres`,`Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres`)
+  select(`Comunidades_autonomas`,`Porcentaje deferido ningun ejercicio mujeres respecto hombres`,`Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres`)
 
+
+DiferenciaDeActividadEntreAmbosSexosComunidad
