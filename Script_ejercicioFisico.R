@@ -181,3 +181,4 @@ DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercici
     `Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres` = (` Mujeres: 7 días a la semana`-`Hombres: 7 días a la semana`)*100)%>%
   select(`Comunidades autonomas`,`Porcentaje deferido ningun ejercicio mujeres respecto hombres`,`Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres`)
 
+ejercicioFisicoUnion
