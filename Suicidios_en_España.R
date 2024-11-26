@@ -255,6 +255,21 @@ ccaa_sf <- esp_get_ccaa() %>%
 can <- esp_get_can_box()
 #view(ccaa_sf)
 
+suicidio10 <- suicidio10 %>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+  
+
 suicidio_mujeres <- suicidio10 %>%
   filter(sexo == "Mujeres") %>%
   group_by(comunidades_autonomas) %>%
@@ -265,7 +280,7 @@ suicidio_mujeres <- suicidio10 %>%
 ccaa_sf <- esp_get_ccaa() %>%
   left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
 
-view(ccaa_sf)
+#view(ccaa_sf)
 ggplot(ccaa_sf) +
   geom_sf(aes(fill = porcentaje_mujeres_suicidios), color = "grey70", linewidth = .3) +
   geom_sf(data = can, color = "grey70") +
