@@ -1,7 +1,12 @@
+install.packages("mapSpain", dependencies = TRUE)
+install.packages("sf")
 library(dplyr)
 library(tidyverse)
 library(rjson)
 library(tidyjson)
+library(ggplot2)
+library(mapSpain)
+library(sf)
 
 suicidio <- fromJSON(file = "INPUT/DATA/Suicidios_por_comunidades.json")
 
@@ -197,7 +202,7 @@ suicidio10 <- suicidio9 %>%
   mutate(
     porcentaje_suicidios = (as.numeric(Valor) / habitantes) * 100 
   )
-#view(suicidio10)
+view(suicidio10)
 
 suicidio_por_sexo <- suicidio10 %>%
   group_by(sexo) %>%
@@ -230,7 +235,48 @@ ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_m
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+census <- mapSpain::pobmun19
 
+codelist <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
 
+census_ccaa <- census %>%
+  left_join(codelist) %>%
+  # Summarize by CCAA
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(census_ccaa)
+can <- esp_get_can_box()
+#view(ccaa_sf)
 
+suicidio_mujeres <- suicidio10 %>%
+  filter(sexo == "Mujeres") %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(
+    porcentaje_mujeres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE)
+  )
 
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+view(ccaa_sf)
+ggplot(ccaa_sf) +
+  geom_sf(aes(fill = porcentaje_mujeres_suicidios), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_mujeres_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Reds", rev = TRUE),
+    n.breaks = 10, labels = scales::label_percent(),
+    guide = guide_legend(title = "Porcentaje Mujeres Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
