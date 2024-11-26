@@ -154,19 +154,63 @@ ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio%>%
 
 ComparacionNadaYMaxEjercicio
 
-#Diferencias que hay en el número de ejercicio físico que se realiza según sexo
+#Diferencias entre los valores extremos de realización de ejercicio físico comparado con el sexo
 
 NadaFrenteMaxEjercicioHombres <- ComparacionNadaYMaxEjercicio%>%
   filter(Sexo=="Hombres")%>%
   select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
 
-NadaFrenteMaxEjercicioHombres
+ExtremosEjercicioHombres <- NadaFrenteMaxEjercicioHombres%>%
+  pivot_longer(
+  cols = c("7 días a la semana", "Ninguno"), 
+  names_to = "Ejercicio_fisico",            
+  values_to = "Valor"                     
+)%>%
+  select(-`Porcentaje nada y máximo ejercicio`)
 
 NadaFrenteMaxEjercicioMujeres <- ComparacionNadaYMaxEjercicio%>%
   filter(Sexo=="Mujeres")%>%
   select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
 
-NadaFrenteMaxEjercicioMujeres
+ExtremosEjercicioMujeres <- NadaFrenteMaxEjercicioMujeres%>%
+  pivot_longer(
+    cols = c("7 días a la semana", "Ninguno"), 
+    names_to = "Ejercicio_fisico",            
+    values_to = "Valor"                     
+  )%>%
+  select(-`Porcentaje nada y máximo ejercicio`)
+
+ExtremosRealizacionEjercicio <- left_join(ExtremosEjercicioHombres, ExtremosEjercicioMujeres, by=c("Comunidades_autonomas"))
+  
+ExtremosUnion <- ExtremosRealizacionEjercicio %>%
+  pivot_longer(
+    cols = starts_with("Valor"),  
+    names_to = "Sexo",            
+    values_to = "Valor"           
+  )%>%
+  mutate(
+    Sexo = ifelse(Sexo == "Valor.x","Hombres", "Mujeres"))%>%
+  select(-`Sexo.x`,-`Sexo.y`)%>%
+  distinct(Comunidades_autonomas, Sexo, Valor,.keep_all = TRUE)
+
+ExtremosUnion <- ExtremosUnion%>%
+  mutate(
+    Frecuencia_Ejercicio = case_when(
+      Sexo == "Mujeres" ~ Ejercicio_fisico.y, 
+      Sexo == "Hombres" ~ Ejercicio_fisico.x
+    ))%>%
+  select(-Ejercicio_fisico.x, -Ejercicio_fisico.y)
+  
+ExtremosUnion <- ExtremosUnion %>%
+  pivot_longer(
+    cols = starts_with("Ejercicio_fisico"),
+    values_to = "FrecuenciasExtremo")%>%
+  select(-`name`)
+  
+
+ggplot(ExtremosUnion, aes(Comunidades_autonomas,Valor))+geom_point(aes(colour=factor(Sexo), shape = factor(Frecuencia_Ejercicio)))
+
+
 
 NadaFrenteMaxEjercicioAmbos <- ComparacionNadaYMaxEjercicio%>%
   filter(Sexo=="Ambos sexos")%>%
@@ -176,7 +220,11 @@ NadaFrenteMaxEjercicioAmbos
 
 
 DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercicioMujeres,NadaFrenteMaxEjercicioHombres, by = c("Comunidades_autonomas"))%>%
-  rename(`Porcentaje_Mujeres` =`Porcentaje nada y máximo ejercicio.x`, `Porcentaje_Hombres` =`Porcentaje nada y máximo ejercicio.y`, ` Mujeres: 7 días a la semana` =`7 días a la semana.x`, `Hombres: 7 días a la semana` =`7 días a la semana.y`, `Mujeres: Ninguno`= Ninguno.x, `Hombres: Ninguno`= Ninguno.y)%>%
+  rename(`Porcentaje_Mujeres` =`Porcentaje nada y máximo ejercicio.x`, 
+         `Porcentaje_Hombres` =`Porcentaje nada y máximo ejercicio.y`, 
+         ` Mujeres: 7 días a la semana` =`7 días a la semana.x`, 
+         `Hombres: 7 días a la semana` =`7 días a la semana.y`, 
+         `Mujeres: Ninguno`= Ninguno.x, `Hombres: Ninguno`= Ninguno.y)%>%
   select(-Sexo.x, -Sexo.y)%>%
   mutate(
     `Porcentaje deferido ningun ejercicio mujeres respecto hombres` = (`Mujeres: Ninguno`- `Hombres: Ninguno`)*100,
