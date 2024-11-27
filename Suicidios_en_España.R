@@ -1,5 +1,6 @@
 install.packages("mapSpain", dependencies = TRUE)
 install.packages("sf")
+install.packages("patchwork")
 library(dplyr)
 library(tidyverse)
 library(rjson)
@@ -7,6 +8,8 @@ library(tidyjson)
 library(ggplot2)
 library(mapSpain)
 library(sf)
+library(patchwork)
+
 
 suicidio <- fromJSON(file = "INPUT/DATA/Suicidios_por_comunidades.json")
 
@@ -41,7 +44,6 @@ suicidio3 <- suicidio1 %>%
               select(c("document.id","Nombre")),
             by = c("document.id"))
 
-#view(suicidio3)
 
 suicidio4 <- suicidio3 %>%
   mutate(
@@ -103,32 +105,32 @@ suicidio6 <- suicidio5 %>%
     )
   )
 
-#view(suicidio6)
+
 
 suicidio7 <- 
   as.data.frame(apply(suicidio6, 2, function(col) col[!is.na(col)])) 
   
 
-#view(suicidio7)
+
 
 suicidio7 <- suicidio7[, -3]
 
-#view(suicidio7)
+
 
 
 suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 3)]
-#view(suicidio7)
+
 
 suicidio7$Valor <- suicidio7$Valor[seq(1, length(suicidio7$Valor), by = 16)]
 
 suicidio7$sexo <- suicidio7$sexo[seq(1, length(suicidio7$sexo), by = 16)]
 
 suicidio7$comunidades_autonomas <- suicidio7$comunidades_autonomas[seq(1, length(suicidio7$comunidades_autonomas), by = 16)]
-#view(suicidio7)
+
 
 suicidio8 <- suicidio7%>%
   select(-años)
-#view(suicidio8)
+
 
 suicidio9 <- suicidio8 %>%
   mutate(
@@ -196,32 +198,32 @@ suicidio9 <- suicidio8 %>%
       TRUE ~ as.numeric(NA)
     )
   )
-#view(suicidio9)
+
 
 suicidio10 <- suicidio9 %>%
   mutate(
     porcentaje_suicidios = (as.numeric(Valor) / habitantes) * 100 
   )
-view(suicidio10)
+
 
 suicidio_por_sexo <- suicidio10 %>%
   group_by(sexo) %>%
   summarize(suicidio_medio_sexo=mean(as.numeric(porcentaje_suicidios), na.rm = TRUE))
 
-#view(suicidio_por_sexo)
+
 
 suicidio_por_comunidad <- suicidio10 %>%
   group_by(comunidades_autonomas) %>%
   summarize(suicidio_medio_comunidad=mean(as.numeric(porcentaje_suicidios), na.rm = TRUE))
 
-#view(suicidio_por_comunidad)
+
 
 
 suicidio_por_sexo_comunidad <- suicidio10 %>%
   group_by(sexo, comunidades_autonomas) %>%
   summarize(suicidio_medio_sexo_comunidad=mean(as.numeric(porcentaje_suicidios), na.rm = TRUE))
 
-#view(suicidio_por_sexo_comunidad_edad)
+
 
 ggplot(suicidio_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = suicidio_medio_sexo_comunidad,fill = sexo)) +
   geom_bar(stat = "identity",position = position_dodge()) +
@@ -243,7 +245,6 @@ codelist <- mapSpain::esp_codelist %>%
 
 census_ccaa <- census %>%
   left_join(codelist) %>%
-  # Summarize by CCAA
   group_by(codauto) %>%
   summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
   mutate(
@@ -253,7 +254,7 @@ census_ccaa <- census %>%
 ccaa_sf <- esp_get_ccaa() %>%
   left_join(census_ccaa)
 can <- esp_get_can_box()
-#view(ccaa_sf)
+
 
 suicidio10 <- suicidio10 %>%
   mutate(comunidades_autonomas = case_when(
@@ -268,20 +269,54 @@ suicidio10 <- suicidio10 %>%
     comunidades_autonomas == "La Rioja" ~ "Rioja, La",
     TRUE ~ comunidades_autonomas
   ))
-  
+
+suicidio_global <- suicidio10 %>%
+  filter(sexo == "Ambos sexos") %>%
+  group_by(comunidades_autonomas)%>%
+  summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
 
 suicidio_mujeres <- suicidio10 %>%
   filter(sexo == "Mujeres") %>%
   group_by(comunidades_autonomas) %>%
   summarize(
     porcentaje_mujeres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE)
-  )
+    )
+
+suicidio_hombres <- suicidio10 %>%
+  filter(sexo == "Hombres") %>%
+  group_by(comunidades_autonomas)%>%
+  summarize(porcentaje_hombres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(suicidio_mujeres$comunidades_autonomas))
 
 ccaa_sf <- esp_get_ccaa() %>%
   left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
 
-#view(ccaa_sf)
-ggplot(ccaa_sf) +
+ccaa_sm <- esp_get_ccaa() %>%
+  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sg <- esp_get_ccaa() %>%
+  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+grafico_suicidio_global <- ggplot(ccaa_sg) +
+  geom_sf(aes(fill = porcentaje_global_suicidios), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_global_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Greens", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Global Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_suicidio_global
+
+grafico_suicidio_mujeres <- ggplot(ccaa_sf) +
   geom_sf(aes(fill = porcentaje_mujeres_suicidios), color = "grey70", linewidth = .3) +
   geom_sf(data = can, color = "grey70") +
   geom_sf_label(aes(label = round(porcentaje_mujeres_suicidios, 4)),
@@ -290,8 +325,25 @@ ggplot(ccaa_sf) +
   ) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "Reds", rev = TRUE),
-    n.breaks = 10, labels = scales::label_percent(),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
     guide = guide_legend(title = "Porcentaje Mujeres Suicidios", position = "inside")
   ) +
   theme_void() +
   theme(legend.position = c(0.1, 0.6))
+
+grafico_suicidios_hombres <- ggplot(ccaa_sm) +
+  geom_sf(aes(fill = porcentaje_hombres_suicidios), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_hombres_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Blues", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Hombres Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_suicidio_mujeres + grafico_suicidios_hombres
