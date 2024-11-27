@@ -198,18 +198,27 @@ ExtremosUnion <- ExtremosUnion%>%
     Frecuencia_Ejercicio = case_when(
       Sexo == "Mujeres" ~ Ejercicio_fisico.y, 
       Sexo == "Hombres" ~ Ejercicio_fisico.x
-    ))%>%
-  select(-Ejercicio_fisico.x, -Ejercicio_fisico.y)
+    ))
   
 ExtremosUnion <- ExtremosUnion %>%
-  pivot_longer(
-    cols = starts_with("Ejercicio_fisico"),
+  pivot_longer(cols = starts_with("Ejercicio_fisico"),
     values_to = "FrecuenciasExtremo")%>%
   select(-`name`)
   
+ExtremosUnionFinal <- ExtremosUnion%>%
+  filter(`Frecuencia_Ejercicio` == `FrecuenciasExtremo`) %>%
+  distinct(Sexo,Valor,Frecuencia_Ejercicio,FrecuenciasExtremo, .keep_all = TRUE)%>%
+  select(-`Frecuencia_Ejercicio`)
 
-ggplot(ExtremosUnion, aes(Comunidades_autonomas,Valor))+geom_point(aes(colour=factor(Sexo), shape = factor(Frecuencia_Ejercicio)))
+ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Valor))+geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Valor,fill=Sexo))+
+  geom_bar(stat="identity", position = position_dodge())+
+  labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Ratio ejercicio físico")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
 
 NadaFrenteMaxEjercicioAmbos <- ComparacionNadaYMaxEjercicio%>%
