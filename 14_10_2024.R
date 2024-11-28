@@ -158,8 +158,12 @@ consumo_alcohol8 <- consumo_alcohol7 %>%
       TRUE ~ as.numeric(NA)
     )
   )
-
-#view(consumo_alcohol6)
+consumo_alcohol9 <- consumo_alcohol8 %>%
+  mutate(
+    porcentaje_consumo = (as.numeric(Valor) / habitantes) * 100 
+  )
+consumo_alcohol9
+view(consumo_alcohol6)
 
 
 consumo_por_sexo<- consumo_alcohol8 %>%
@@ -204,15 +208,21 @@ comparacion_datos <- full_join(x=consumo_alcohol8,y= ejercicioFisicoUnion,
 
 comparacion_datos
 
-#COMPARACIÓN CONSUMO DE ALCOHOL CON EL EJERCICIO FÍSICO POR SEXO (variable no importante)
 
-# Promedio de ejercicio físico y tasas de suicidio por comunidad autónoma y sexo
-resumen_suicidio_ejercicio <- comparacion_datos %>%
+
+# Promedio de ejercicio físico y consumo de alcohol por comunidad autónoma y sexo
+resumen_ejercicio_alcohol <- comparacion_datos %>%
   group_by(Comunidades_autonomas, Sexo) %>%
   summarize(
-    promedio_ejercicio = mean(, na.rm = TRUE),
-    promedio_suicidios = mean(, na.rm = TRUE)
+    promedio_ejercicio = mean(Miles_de_personas, na.rm = TRUE), 
+    promedio_personas_alcohol = mean(as.numeric(Valor), na.rm = TRUE) 
+    
   )
+
+resumen_ejercicio_alcohol
+
+
+
 
   
   
