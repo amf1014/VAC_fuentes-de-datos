@@ -346,4 +346,30 @@ grafico_suicidios_hombres <- ggplot(ccaa_sm) +
   theme_void() +
   theme(legend.position = c(0.1, 0.6))
 
-grafico_suicidio_mujeres + grafico_suicidios_hombres
+grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombres
+
+grafico_suicidio_por_sexos
+
+ggsave(
+  filename = "Suicidio_global.jpeg",
+  plot = grafico_suicidio_global ,
+  #path = paste(getwd(), "/OUTPUT/Figures", sep = ""), # ruta absoluta
+  path = "OUTPUT/Figures", # ruta relativa
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_sexos.jpeg",
+  plot = grafico_suicidio_por_sexos ,
+  #path = paste(getwd(), "/OUTPUT/Figures", sep = ""), # ruta absoluta
+  path = "OUTPUT/Figures", # ruta relativa
+  scale = 0.5,
+  width = 100,
+  height = 50,
+  units = "cm",
+  dpi = 320
+)
