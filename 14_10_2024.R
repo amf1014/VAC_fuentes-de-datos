@@ -109,8 +109,10 @@ consumo_alcohol8 <-
 consumo_alcohol8 <-consumo_alcohol8%>%
   mutate(
     `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
-    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`)
+    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`),
+    `No_ha_consumido` = as.numeric(`No_ha_consumido`)
   )
+
 
 
 consumo_alcohol9 <- consumo_alcohol8 %>%
@@ -119,9 +121,14 @@ consumo_alcohol9 <- consumo_alcohol8 %>%
   )
 
 
+consumo_alcohol10 <- consumo_alcohol9 %>%
+  mutate(
+    Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
 
-consumo_alcohol9 <- consumo_alcohol9[, -2]#Borra columna Nombre
-view(consumo_alcohol9)
+
+consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
+view(consumo_alcohol10)
 
 
 
