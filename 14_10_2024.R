@@ -81,23 +81,26 @@ consumo_alcohol6 <- consumo_alcohol5 %>%
   mutate(
     Consumido = case_when(
       Nombre == "TOTAL" ~ "Total consumido",
-      Nombre == "Si ha consumido" ~ "Si ha consumido",
+      Nombre == "Sí ha consumido" ~ "Si ha consumido",
       Nombre == "No ha consumido" ~ "No ha consumido",
       Nombre == "No consta" ~ "No consta",
       TRUE ~ as.character(NA)
     )
   )
+view(consumo_alcohol6)
 consumo_alcohol7 <- 
   as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
 
-consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3)]
+view(consumo_alcohol7)
+
+consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
 
 consumo_alcohol8 <- consumo_alcohol7 %>%
   mutate(
     habitantes = case_when(
-      Comunidades_autonomas == "Total nacional" & Sexo == "Ambos sexos" ~ 48592802,
-      Comunidades_autonomas == "Total nacional" & Sexo == "Hombres" ~ 23807546,
-      Comunidades_autonomas == "Total nacional" & Sexo == "Mujeres" ~ 24785363,
+      Comunidades_autonomas == "Total Nacional" & Sexo == "Ambos sexos" ~ 48592802,
+      Comunidades_autonomas == "Total Nacional" & Sexo == "Hombres" ~ 23807546,
+      Comunidades_autonomas == "Total Nacional" & Sexo == "Mujeres" ~ 24785363,
       Comunidades_autonomas == "Andalucía" & Sexo == "Ambos sexos" ~ 8620120,
       Comunidades_autonomas == "Andalucía" & Sexo == "Hombres" ~ 4238717,
       Comunidades_autonomas == "Andalucía" & Sexo == "Mujeres" ~ 4381403,
@@ -125,9 +128,9 @@ consumo_alcohol8 <- consumo_alcohol7 %>%
       Comunidades_autonomas == "Cataluña" & Sexo == "Ambos sexos" ~ 8021049,
       Comunidades_autonomas == "Cataluña" & Sexo == "Hombres" ~ 3948555,
       Comunidades_autonomas == "Cataluña" & Sexo == "Mujeres" ~ 4072494,
-      Comunidades_autonomas == "Comunidad Valenciana" & Sexo == "Ambos sexos" ~ 5316478,
-      Comunidades_autonomas == "Comunidad Valenciana" & Sexo == "Hombres" ~ 2613918,
-      Comunidades_autonomas == "Comunidad Valenciana" & Sexo == "Mujeres" ~ 2702560,
+      Comunidades_autonomas == "Comunitad Valenciana" & Sexo == "Ambos sexos" ~ 5316478,
+      Comunidades_autonomas == "Comunitad Valenciana" & Sexo == "Hombres" ~ 2613918,
+      Comunidades_autonomas == "Comunitad Valenciana" & Sexo == "Mujeres" ~ 2702560,
       Comunidades_autonomas == "Extremadura" & Sexo == "Ambos sexos" ~ 1053423,
       Comunidades_autonomas == "Extremadura" & Sexo == "Hombres" ~ 521005,
       Comunidades_autonomas == "Extremadura" & Sexo == "Mujeres" ~ 532418,
@@ -158,13 +161,16 @@ consumo_alcohol8 <- consumo_alcohol7 %>%
       TRUE ~ as.numeric(NA)
     )
   )
+view(consumo_alcohol8)
+
 consumo_alcohol9 <- consumo_alcohol8 %>%
   mutate(
-    porcentaje_consumo = (as.numeric(Valor) / habitantes) * 100 
+    porcentaje_consumo = (as.numeric(Valor) / habitantes)
   )
 consumo_alcohol9
-view(consumo_alcohol6)
+#view(consumo_alcohol9)
 
+consumo_alcohol9 <- consumo_alcohol9[, -3]  #Borra columna Nombre
 
 consumo_por_sexo<- consumo_alcohol8 %>%
   group_by(Sexo) %>%
