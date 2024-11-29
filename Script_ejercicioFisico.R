@@ -207,16 +207,49 @@ ExtremosUnion <- ExtremosUnion %>%
   
 ExtremosUnionFinal <- ExtremosUnion%>%
   filter(`Frecuencia_Ejercicio` == `FrecuenciasExtremo`) %>%
-  distinct(Sexo,Valor,Frecuencia_Ejercicio,FrecuenciasExtremo, .keep_all = TRUE)%>%
+  distinct()%>%
   select(-`Frecuencia_Ejercicio`)
 
-ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Valor))+geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
+ExtremosUnionFinal <- ExtremosUnionFinal%>%
+  mutate(
+    Porcentaje = Valor*100
+  )%>%
+  select(-`Valor`)
+
+
+
+RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje))+
+  geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
+  geom_smooth(method = "lm", se=TRUE) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+RepresentacionExtremosEjercicio
 
-ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Valor,fill=Sexo))+
+ExtremosUnionFinal
+
+#DOTPLOT
+#[URL]{https://plotly.com/r/getting-started/}
+
+install.packages("plotly")
+
+library(plotly)
+fig <- plot_ly(ExtremosUnionFinal, x = ~Porcentaje, y = ~Sexo, color = ~FrecuenciasExtremo, type = "box") +
+ 
+
+fig
+
+
+ggplot(ExtremosUnionFinal, aes(x =Porcentaje, y = FrecuenciasExtremo)) +
+  geom_boxplot(aes(fill = Sexo)) +
+  theme_minimal() +
+  labs(title = "Diferencias en Porcentaje por Sexo",
+       x = "Sexo",
+       y = "Porcentaje")
+
+ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje,fill=Sexo))+
   geom_bar(stat="identity", position = position_dodge())+
-  labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Ratio ejercicio físico")+
+  labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos ejercicio físico")+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
@@ -240,3 +273,18 @@ DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercici
     `Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres` = (` Mujeres: 7 días a la semana`-`Hombres: 7 días a la semana`)*100)%>%
   select(`Comunidades_autonomas`,`Porcentaje deferido ningun ejercicio mujeres respecto hombres`,`Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres`)
 
+
+grafico_ejercicio_hombres <- ggplot(ccaa_sm) +
+  geom_sf(aes(fill = porcentaje_hombres_ejercicio), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_hombres_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Blues", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Hombres Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
