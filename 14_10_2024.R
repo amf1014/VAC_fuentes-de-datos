@@ -79,10 +79,10 @@ consumo_alcohol5 <- consumo_alcohol4 %>%
 consumo_alcohol6 <- consumo_alcohol5 %>%
   mutate(
     Consumido = case_when(
-      Nombre == "TOTAL" ~ "Total personas encuestadas",
-      Nombre == "Sí ha consumido" ~ "Si ha consumido",
-      Nombre == "No ha consumido" ~ "No ha consumido",
-      Nombre == "No consta" ~ "No consta",
+      Nombre == "TOTAL" ~ "Total_personas_encuestadas",
+      Nombre == "Sí ha consumido" ~ "Si_ha_consumido",
+      Nombre == "No ha consumido" ~ "No_ha_consumido",
+      Nombre == "No consta" ~ "No_consta",
       TRUE ~ as.character(NA)
     )
   )
@@ -95,40 +95,60 @@ consumo_alcohol7 <-
 consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
 
 
-#HACER UN PORCENTAJE CON LAS PERSONAS ENCUESTADAS MIRAR PIVOT_LONGER.
 
-view(consumo_alcohol7)
-consumo_alcohol8 <- consumo_alcohol7 %>%
+#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
+
+consumo_alcohol8<-consumo_alcohol7%>%
+  pivot_wider(names_from = Consumido, values_from = Valor)
+
+#view(consumo_alcohol8)
+
+consumo_alcohol8 <- 
+  as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
+
+consumo_alcohol8 <-consumo_alcohol8%>%
   mutate(
-    porcentaje_consumo = (as.numeric(Valor) / habitantes)
+    `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
+    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`)
   )
-consumo_alcohol8
 
 
-consumo_alcohol8 <- consumo_alcohol8[, -3]  #Borra columna Nombre
+consumo_alcohol9 <- consumo_alcohol8 %>%
+  mutate(
+    Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
 
-consumo_por_sexo<- consumo_alcohol8 %>%
+
+
+consumo_alcohol9 <- consumo_alcohol9[, -2]#Borra columna Nombre
+view(consumo_alcohol9)
+
+
+
+#DATOS PARA GRÁFICAS(mirar)
+
+consumo_por_sexo <- consumo_alcohol9 %>%
   group_by(Sexo) %>%
-  summarize(consumo_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
-consumo_por_sexo
+  summarize(consumo_medio_sexo = mean(Porcentaje_consumo, na.rm = TRUE)) 
+
 #view(consumo_por_sexo)
 
-consumo_por_comunidad <- consumo_alcohol8 %>%
+consumo_por_comunidad <- consumo_alcohol9 %>%
   group_by(Comunidades_autonomas) %>%
-  summarize(consumo_medio_comunidad = mean(as.numeric(Valor), na.rm = TRUE))
+  summarize(consumo_medio_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
 
 #view(consumo_por_comunidad)
 
-consumo_por_sexo_comunidad <- consumo_alcohol8 %>%
+consumo_por_sexo_comunidad <- consumo_alcohol9 %>%
   group_by(Sexo, Comunidades_autonomas) %>%
-  summarize(consumo_medio_sexo_comunidad = mean(as.numeric(Valor), na.rm = TRUE))
+  summarize(consumo_medio_sexo_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
 
 #view(consumo_por_sexo_comunidad)
 
 
 ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_medio_sexo, fill = Sexo)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
-  labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (unidades)") +
+  labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (%)") +
   theme_minimal()
 
 
