@@ -3,6 +3,9 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 library(ggplot2)
+library(mapSpain)
+library(sf)
+library(patchwork)
 
 
 consumo_alcohol <- fromJSON(file = "INPUT/DATA/consumo_de_alcohol.json")
@@ -132,8 +135,139 @@ consumo_alcohol10 <- consumo_alcohol9 %>%
 consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
 view(consumo_alcohol10)
 
+#Gráficas de España
+census_2 <- mapSpain::pobmun19
 
+codelist_2 <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
 
+census_ccaa_2 <- census_2 %>%
+  left_join(codelist_2) %>%
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf_2 <- esp_get_ccaa() %>%
+  left_join(census_ccaa_2)
+can_2 <- esp_get_can_box()
+
+consumo_alcohol10 <- consumo_alcohol10 %>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+levels(factor(ccaa_sf_2$ine.ccaa.name))
+levels(factor(consumo_mujeres$Comunidades_autonomas))
+
+ccaa_sf_2 <- esp_get_ccaa() %>%
+  left_join(consumo_mujeres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+ccaa_sm_2 <- esp_get_ccaa() %>%
+  left_join(consumo_hombres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+ccaa_sg_2 <- esp_get_ccaa() %>%
+  left_join(consumo_global, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+grafico_consumo_global <- ggplot(ccaa_sg_2) +
+  geom_sf(aes(fill = Porcentaje_global_consumo), color = "grey70", linewidth = .3) +
+  geom_sf(data = can_2, color = "grey70") +
+  geom_sf_label(aes(label = round(Porcentaje_global_consumo, 2)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Greens", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Global Consumo", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_consumo_global
+
+grafico_consumo_mujeres <- ggplot(ccaa_sf_2) +
+  geom_sf(aes(fill = Porcentaje_mujeres_consumo), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(Porcentaje_mujeres_consumo, 2)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Reds", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Mujeres Consumo", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_consumo_hombres <- ggplot(ccaa_sm_2) +
+  geom_sf(aes(fill = Porcentaje_hombres_consumo), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(Porcentaje_hombres_consumo, 2)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Blues", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Hombres Consumo", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_consumo_por_sexos <- grafico_consumo_mujeres + grafico_consumo_hombres
+
+grafico_consumo_por_sexos
+
+#Guardo los graficos
+ggsave(
+  filename = "Consumo_global.jpeg",
+  plot = grafico_consumo_global ,
+  path = "OUTPUT/Figures", # ruta relativa
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Consumo_por_sexos.jpeg",
+  plot = grafico_consumo_por_sexos ,
+  path = "OUTPUT/Figures", # ruta relativa
+  scale = 0.5,
+  width = 100,
+  height = 50,
+  units = "cm",
+  dpi = 320
+)
 #DATOS PARA GRÁFICAS(mirar)
 
 consumo_por_sexo <- consumo_alcohol9 %>%
