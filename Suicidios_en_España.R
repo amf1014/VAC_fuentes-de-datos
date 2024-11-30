@@ -373,3 +373,15 @@ ggsave(
   units = "cm",
   dpi = 320
 )
+
+suicidio_global_mujeres <- suicidio_global %>%
+  left_join(suicidio_mujeres, by = "comunidades_autonomas")
+
+suicidio_final <- suicidio_global_mujeres %>%
+  left_join(suicidio_hombres, by = "comunidades_autonomas")
+view(suicidio_final)
+
+suicidio_alcohol <- suicidio_final %>%
+  left_join(consumo_alcohol10, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+
