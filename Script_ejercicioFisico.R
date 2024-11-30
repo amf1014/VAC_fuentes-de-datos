@@ -5,6 +5,10 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
+#DOTPLOT
+install.packages("plotly")
+library(plotly)
+
 ejercicioFisico <- fromJSON(file = "INPUT/DATA/Ejercicio_fisico.json")
 
 ejercicioFisico
@@ -127,6 +131,50 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   )%>%
   select(-`Total_personas_según_la_comunidad`)
 
+#Comparación de frecuencias de ejercicio por comunidad ¿cuál puede ser la causa?
+#EN HOMBRES
+ejercicioHombres <- ejercicioFisicoUnion%>%
+  filter(Sexo=="Hombres")%>%
+  select(-Ratio, -Miles_de_personas, -Sexo)
+
+ejercicioHombres <- ejercicioHombres%>%
+  filter(Comunidades_autonomas!="Total Nacional")%>%
+  filter(Frecuencia_de_ejercicio!="TOTAL")
+
+ejercicioHombres
+
+#Gráfico Hombres
+
+graficoHombres <- ggplot(ejercicioHombres, aes(Comunidades_autonomas, Porcentaje, fill=Frecuencia_de_ejercicio))+
+  geom_bar(stat="identity", position = position_dodge())+
+  labs(title = "Ejercicio físico hombres ", subtitle = "Porcentaje de frecuencia de ejercicio físico por comunidades autónomas",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+graficoHombres
+
+#EN MUJERES
+ejercicioMujeres <- ejercicioFisicoUnion%>%
+  filter(Sexo=="Mujeres")%>%
+  select(-Ratio, -Miles_de_personas, Sexo)
+
+ejercicioMujeres <- ejercicioMujeres%>%
+  filter(Comunidades_autonomas!="Total Nacional")%>%
+  filter(Frecuencia_de_ejercicio!="TOTAL")
+
+ejercicioMujeres
+
+#Gráfico Mujeres
+
+graficoMujeres <- ggplot(ejercicioMujeres, aes(Comunidades_autonomas, Porcentaje, fill=Frecuencia_de_ejercicio))+
+  geom_bar(stat="identity", position = position_dodge())+
+  labs(title = "Ejercicio físico mujeres", subtitle = "Porcentaje de frecuencia de ejercicio físico por comunidades autónomas",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+graficoMujeres
+
+#Comparación de los extremos de realización de ejercicio físico
 frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
   mutate(
     NadaMax = case_when(
@@ -139,6 +187,7 @@ frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
 
 frecuenciaNadaYMaxEjercicioComunidad
 
+#Con esto se genera una columna que el ratio de personas que realizan nada de ejercicio físico frente a las personas que realizan diariamente
 ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
   spread(`Frecuencia_de_ejercicio`, Ratio)%>%
   fill(`7 días a la semana`,`Ninguno`, .direction = "up")%>%
@@ -148,13 +197,26 @@ ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
   )%>%
   select(-NadaMax)
 
+#Con esto se genera una columna que muestra el porcentaje de personas que realizan nada de ejercicio físico frente a las personas que realizan diariamente
 ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio%>%
   mutate(
     `Porcentaje nada y máximo ejercicio` = ComparacionNadaYMaxEjercicio$`Comparacion nada y máximo ejercicio por comunidad y sexo`*100)
 
 ComparacionNadaYMaxEjercicio
 
-#Diferencias entre los valores extremos de realización de ejercicio físico comparado con el sexo
+#Eliminación de la fila Total Nacional y todas las de ambos sexos
+ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio %>%
+  filter(Comunidades_autonomas!="Total Nacional")%>%
+  filter(Sexo!="Ambos sexos")
+
+ggplot(ComparacionNadaYMaxEjercicio, aes(Comunidades_autonomas, `Porcentaje nada y máximo ejercicio`, fill=Sexo))+
+  geom_bar(stat="identity", position = position_dodge())+
+  labs(title = "Comparación ejercicio físico por sexo y comunidad", subtitle = "Porcentaje de personas que realizan nada de ejercicio en comparación con los que realizan diariamente",x = "Comunidad Autónoma",y = "Porcentaje nada frente a máximo ejercicio")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+
+##Diferencias entre los valores extremos de realización de ejercicio físico comparado con el sexo
 
 NadaFrenteMaxEjercicioHombres <- ComparacionNadaYMaxEjercicio%>%
   filter(Sexo=="Hombres")%>%
@@ -228,64 +290,19 @@ RepresentacionExtremosEjercicio
 
 ExtremosUnionFinal
 
-#DOTPLOT
+#DOTPLOT  para comparar el ejercicio físico maximo y mínimo realizado por hombres y mujeres de forma general
 #[URL]{https://plotly.com/r/getting-started/}
 
-install.packages("plotly")
+dotPlot_maxyminEjercicio <- plot_ly(ExtremosUnionFinal, x = ~Porcentaje, y = ~Sexo, color = ~FrecuenciasExtremo, type = "box") %>%
+  layout(
+    title = "Distribución de Ejercicio por Sexo y Frecuencia"
+  )
 
-library(plotly)
-fig <- plot_ly(ExtremosUnionFinal, x = ~Porcentaje, y = ~Sexo, color = ~FrecuenciasExtremo, type = "box") +
- 
-
-fig
-
-
-ggplot(ExtremosUnionFinal, aes(x =Porcentaje, y = FrecuenciasExtremo)) +
-  geom_boxplot(aes(fill = Sexo)) +
-  theme_minimal() +
-  labs(title = "Diferencias en Porcentaje por Sexo",
-       x = "Sexo",
-       y = "Porcentaje")
+dotPlot_maxyminEjercicio
 
 ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje,fill=Sexo))+
   geom_bar(stat="identity", position = position_dodge())+
   labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos ejercicio físico")+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
-
-
-NadaFrenteMaxEjercicioAmbos <- ComparacionNadaYMaxEjercicio%>%
-  filter(Sexo=="Ambos sexos")%>%
-  select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
-
-NadaFrenteMaxEjercicioAmbos
-
-
-DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercicioMujeres,NadaFrenteMaxEjercicioHombres, by = c("Comunidades_autonomas"))%>%
-  rename(`Porcentaje_Mujeres` =`Porcentaje nada y máximo ejercicio.x`, 
-         `Porcentaje_Hombres` =`Porcentaje nada y máximo ejercicio.y`, 
-         ` Mujeres: 7 días a la semana` =`7 días a la semana.x`, 
-         `Hombres: 7 días a la semana` =`7 días a la semana.y`, 
-         `Mujeres: Ninguno`= Ninguno.x, `Hombres: Ninguno`= Ninguno.y)%>%
-  select(-Sexo.x, -Sexo.y)%>%
-  mutate(
-    `Porcentaje deferido ningun ejercicio mujeres respecto hombres` = (`Mujeres: Ninguno`- `Hombres: Ninguno`)*100,
-    `Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres` = (` Mujeres: 7 días a la semana`-`Hombres: 7 días a la semana`)*100)%>%
-  select(`Comunidades_autonomas`,`Porcentaje deferido ningun ejercicio mujeres respecto hombres`,`Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres`)
-
-
-grafico_ejercicio_hombres <- ggplot(ccaa_sm) +
-  geom_sf(aes(fill = porcentaje_hombres_ejercicio), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_hombres_suicidios, 4)),
-                fill = "white", alpha = 0.5,
-                size = 3, label.size = 0
-  ) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "Blues", rev = TRUE),
-    n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Hombres Suicidios", position = "inside")
-  ) +
-  theme_void() +
-  theme(legend.position = c(0.1, 0.6))
 
