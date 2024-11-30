@@ -272,7 +272,7 @@ suicidio10 <- suicidio10 %>%
 
 suicidio_global <- suicidio10 %>%
   filter(sexo == "Ambos sexos") %>%
-  group_by(comunidades_autonomas)%>%
+  group_by(Comunidades_autonomas)%>%
   summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
 
 suicidio_mujeres <- suicidio10 %>%
