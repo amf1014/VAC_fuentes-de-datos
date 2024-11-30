@@ -2,6 +2,7 @@ library(dplyr)
 library(tidyverse)
 library(rjson)
 library(tidyjson)
+library(ggplot2)
 
 
 consumo_alcohol <- fromJSON(file = "INPUT/DATA/consumo_de_alcohol.json")
@@ -129,7 +130,7 @@ consumo_alcohol10 <- consumo_alcohol9 %>%
 
 
 consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
-#view(consumo_alcohol10)
+view(consumo_alcohol10)
 
 
 
@@ -156,39 +157,80 @@ consumo_por_sexo_comunidad <- consumo_alcohol9 %>%
 
 ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_medio_sexo, fill = Sexo)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
-  labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (%)") +
-  theme_minimal()
+  labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (%)") 
 
 
 ggplot(consumo_por_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_comunidad), y = consumo_medio_comunidad, fill = Comunidades_autonomas)) +
   geom_bar(stat = "identity", show.legend = FALSE) + 
-  labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") +theme_minimal() +theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Porcentaje Medio de Consumo") +theme_minimal() +theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggplot(consumo_por_sexo_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_sexo_comunidad), y = consumo_medio_sexo_comunidad, fill = Sexo)) +
   geom_bar(stat = "identity", position = position_dodge()) + 
   labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-#COMPARACIÓN CONSUMO DE ALCOHOL CON EL EJERCICIO FÍSICO POR COMUNIDAD AUTÓNÓNOMA(variable no importante)
 
+Porcentajes_alcohol_fila<- consumo_alcohol10 %>%
+  pivot_longer(data=.,names_to = "Porcentajes",values_to = "valor",cols= c(Porcentaje_consumo,Porcentaje_no_consumo))
+
+view(Porcentajes_alcohol_fila)
+
+#Revisar bien
+ggplot(Porcentajes_alcohol_fila, aes(x = Comunidades_autonomas, y = valor, color = Porcentajes)) +
+  geom_smooth(aes(group = Porcentajes), method = "loess") + 
+  labs(title = "Porcentaje de Consumo y No Consumo de Alcohol por Comunidad Autónoma",
+       x = "Comunidad Autónoma",
+       y = "Porcentaje",
+       color = "Tipo de Porcentaje") 
+
+ ggplot(Porcentajes_alcohol_fila, aes(Comunidades_autonomas,valor))+
+  geom_point(aes(colour=factor(Sexo), shape = factor(Porcentajes)))+
+  geom_smooth(method = "lm", se=TRUE) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ 
  
 
-comparacion_datos <- full_join(x=consumo_alcohol8,y= ejercicioFisicoUnion, 
+ #PREGUNTA NÚMERO 3 
+
+ExtremosUnionFinal2<-ExtremosUnionFinal %>%
+  pivot_wider(names_from =FrecuenciasExtremo,values_from = Porcentaje)
+
+View(ExtremosUnionFinal2)
+
+comparacion_datos <- full_join(x=consumo_alcohol10,y=ExtremosUnionFinal2,
                                by = c("Comunidades_autonomas", "Sexo"))
 
-comparacion_datos
+#view(comparacion_datos)
+
+comparacion_datos2<-full_join(x=Porcentajes_alcohol_fila,y=ExtremosUnionFinal,
+                              by = c("Comunidades_autonomas", "Sexo"))
+
+#view(comparacion_datos2)
 
 
 
-# Promedio de ejercicio físico y consumo de alcohol por comunidad autónoma y sexo
-resumen_ejercicio_alcohol <- comparacion_datos %>%
-  group_by(Comunidades_autonomas, Sexo) %>%
-  summarize(
-    promedio_ejercicio = mean(Miles_de_personas, na.rm = TRUE), 
-    promedio_personas_alcohol = mean(as.numeric(Valor), na.rm = TRUE) 
-    
+ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_consumo)) +
+  geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(
+    title = "Relación entre Porcentaje de Consumo de Alcohol y Ejercicio Físico (7 días a la semana)",
+    x = "Porcentaje de Ejercicio (7 días a la semana)",
+    y = "Porcentaje de Consumo de Alcohol",
+    color = "Sexo"
+  ) 
+
+
+
+ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_no_consumo)) +
+  geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(
+    title = "Relación entre Porcentaje de No Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
+    x = "Porcentaje de Falta de Ejercicio (Ninguno)",
+    y = "Porcentaje de No Consumo de Alcohol",
+    color = "Sexo"
   )
 
-resumen_ejercicio_alcohol
 
 
 

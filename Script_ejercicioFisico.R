@@ -288,3 +288,4 @@ grafico_ejercicio_hombres <- ggplot(ccaa_sm) +
   ) +
   theme_void() +
   theme(legend.position = c(0.1, 0.6))
+
