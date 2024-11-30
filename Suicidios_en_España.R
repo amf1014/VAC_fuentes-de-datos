@@ -272,7 +272,7 @@ suicidio10 <- suicidio10 %>%
 
 suicidio_global <- suicidio10 %>%
   filter(sexo == "Ambos sexos") %>%
-  group_by(Comunidades_autonomas)%>%
+  group_by(comunidades_autonomas)%>%
   summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
 
 suicidio_mujeres <- suicidio10 %>%
@@ -374,6 +374,7 @@ ggsave(
   dpi = 320
 )
 
+# Relacion con consumo de alcohol
 suicidio_global_mujeres <- suicidio_global %>%
   left_join(suicidio_mujeres, by = "comunidades_autonomas")
 
@@ -383,11 +384,51 @@ suicidio_final <- suicidio_global_mujeres %>%
 suicidio_alcohol <- suicidio_final %>%
   left_join(consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
 
-suicidio_alcohol_2 <- suicidio_alcohol %>%
+suicidio_alcohol2 <- suicidio_alcohol %>%
   left_join(consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
 
-suicidio_alcohol_3 <- suicidio_alcohol_2 %>%
+suicidio_alcohol3 <- suicidio_alcohol2 %>%
   left_join(consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
 
-view(suicidio_alcohol)
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
 
+no_consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+no_consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+suicidio_alcohol4 <- suicidio_alcohol3 %>%
+  left_join(no_consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol5 <- suicidio_alcohol4 %>%
+  left_join(no_consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol_final <- suicidio_alcohol5 %>%
+  left_join(no_consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+view(suicidio_alcohol_final)
+
+suicidio_alcohol_final_2 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_global_suicidios, Porcentaje_global_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+
+grafica_consumo_alcohol_global <- 
+  ggplot(suicidio_alcohol_final_2, aes(x = comunidades_autonomas, y = porcentaje))+
+  geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ tipo_de_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre suicidios y consumo de alcohol",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.y = element_text(size = 8))
+  
+
+grafica_consumo_alcohol_global

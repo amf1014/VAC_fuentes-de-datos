@@ -169,6 +169,7 @@ consumo_alcohol10 <- consumo_alcohol10 %>%
     Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
     Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
     Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
     TRUE ~ Comunidades_autonomas
   ))
 
