@@ -133,6 +133,10 @@ consumo_alcohol10 <- consumo_alcohol9 %>%
 
 
 consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
+
+
+consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
+consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
 view(consumo_alcohol10)
 
 #Gráficas de España
@@ -214,7 +218,7 @@ grafico_consumo_global
 
 grafico_consumo_mujeres <- ggplot(ccaa_sf_2) +
   geom_sf(aes(fill = Porcentaje_mujeres_consumo), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
+  geom_sf(data = can_2, color = "grey70") +
   geom_sf_label(aes(label = round(Porcentaje_mujeres_consumo, 2)),
                 fill = "white", alpha = 0.5,
                 size = 3, label.size = 0
@@ -229,7 +233,7 @@ grafico_consumo_mujeres <- ggplot(ccaa_sf_2) +
 
 grafico_consumo_hombres <- ggplot(ccaa_sm_2) +
   geom_sf(aes(fill = Porcentaje_hombres_consumo), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
+  geom_sf(data = can_2, color = "grey70") +
   geom_sf_label(aes(label = round(Porcentaje_hombres_consumo, 2)),
                 fill = "white", alpha = 0.5,
                 size = 3, label.size = 0

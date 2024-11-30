@@ -379,9 +379,15 @@ suicidio_global_mujeres <- suicidio_global %>%
 
 suicidio_final <- suicidio_global_mujeres %>%
   left_join(suicidio_hombres, by = "comunidades_autonomas")
-view(suicidio_final)
 
 suicidio_alcohol <- suicidio_final %>%
-  left_join(consumo_alcohol10, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+  left_join(consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
 
+suicidio_alcohol_2 <- suicidio_alcohol %>%
+  left_join(consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol_3 <- suicidio_alcohol_2 %>%
+  left_join(consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+view(suicidio_alcohol)
 
