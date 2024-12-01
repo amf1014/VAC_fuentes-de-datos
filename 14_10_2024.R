@@ -178,6 +178,13 @@ consumo_global <- consumo_alcohol10 %>%
   group_by(Comunidades_autonomas)%>%
   summarize(Porcentaje_global_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
 
+
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+
 consumo_mujeres <- consumo_alcohol10 %>%
   filter(Sexo == "Mujeres") %>%
   group_by(Comunidades_autonomas) %>%
@@ -346,7 +353,36 @@ comparacion_datos2<-full_join(x=Porcentajes_alcohol_fila,y=ExtremosUnionFinal,
 
 #view(comparacion_datos2)
 
+comparacion_cons_ej_mujeres<-consumo_global %>%
+  left_join(ejercicioMujeres,by = "Comunidades_autonomas")
 
+comparacion_cons_ej_mujeres
+
+comparacion_cons_ej_hombres<-consumo_global %>%
+  left_join(ejercicioHombres,by = "Comunidades_autonomas")
+
+comparacion_cons_ej_hombres
+
+comparacion_nocons_ej_mujeres<-no_consumo_mujeres %>%
+  left_join(ejercicioMujeres, by = "Comunidades_autonomas")
+
+comparacion_nocons_ej_mujeres
+
+comparacion_nocons_ej_hombres<-no_consumo_hombres %>%
+  left_join(ejercicioHombres, by = "Comunidades_autonomas")
+
+comparacion_nocons_ej_hombres
+
+
+comparacion_porcentajes <- consumo_global  %>%
+  left_join(realizacion_ejercicio_por_comunidad,by =c("Comunidades_autonomas" = "comunidades_autonomas") )
+
+comparacion_porcentajes 
+
+comparacion_no_porcentajes <- no_consumo_global %>%
+  left_join(nada_ejercicio_por_comunidad,by =c("Comunidades_autonomas" = "comunidades_autonomas") )
+  
+comparacion_no_porcentajes
 
 ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_consumo)) +
   geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
@@ -372,9 +408,36 @@ ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_no_consumo)) +
 
 
 
+comparacion_porcentajes_alargado <- comparacion_porcentajes %>%
+  select(Comunidades_autonomas, Porcentaje_global_consumo, ejercicio_medio_comunidad) %>%
+  pivot_longer(
+    cols = c(Porcentaje_global_consumo, ejercicio_medio_comunidad),
+    names_to = "Tipo",
+    values_to = "Porcentaje"
+  )
 
+comparacion_porcentajes_alargado
 
-  
+#mirar valores NA
+
+ggplot(comparacion_porcentajes_alargado, aes(
+  x = reorder(Comunidades_autonomas, Porcentaje),
+  y = Porcentaje,
+  fill = Tipo
+)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
+  labs(
+    title = "Comparación entre Consumo de Alcohol y Realización de Ejercicio",
+    x = "Comunidades Autónomas",
+    y = "Porcentaje",
+    fill = "Indicador"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"
+  )
+
   
 
 
