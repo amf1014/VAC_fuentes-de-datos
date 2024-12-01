@@ -510,6 +510,7 @@ ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad 
 
 
 
+
 ExtremosUnionFinal
 nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
   mutate(comunidades_autonomas = case_when(
@@ -739,7 +740,7 @@ mapa_nada_ejercicio_global <- ggplot(ccaa_nada) +
                 size = 3, label.size = 0
   ) +
   scale_fill_gradientn(
-    colors = hcl.colors(10, "Reds", rev = TRUE),
+    colors = hcl.colors(10, "Purples", rev = TRUE),
     n.breaks = 10, labels = scales::label_number(suffix = "%"),
     guide = guide_legend(title = "Porcentaje Global Nada Ejercicio", position = "inside")
   ) +
@@ -777,7 +778,7 @@ mapa_ejecicio_mujeres <- ggplot(ccaa_m_ejercicio) +
                 size = 3, label.size = 0
   ) +
   scale_fill_gradientn(
-    colors = hcl.colors(10, "Purples", rev = TRUE),
+    colors = hcl.colors(10, "Reds", rev = TRUE),
     n.breaks = 10, labels = scales::label_number(suffix = "%"),
     guide = guide_legend(title = "Porcentaje Mujeres Ejercicio", position = "inside")
   ) +
@@ -805,3 +806,16 @@ mapas_ejercicio_por_sexos <- mapa_ejecicio_mujeres + mapa_ejecicio_hombres
 mapas_ejercicio_por_sexos
 
 
+
+#Guardo los gráficos
+
+ggsave(
+  filename = "Mapa_nada_ejercicio_vs_mínimo_un_día_ejercicio.jpeg",
+  plot =  comparacion_mapas_nada_vs_ejercicio,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 110,
+  height = 50,
+  units = "cm",
+  dpi = 320
+)
