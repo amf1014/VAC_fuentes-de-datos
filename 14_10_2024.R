@@ -362,6 +362,20 @@ Porcentajes_alcohol_fila<- consumo_alcohol10 %>%
 
  #PREGUNTA NÚMERO 3 
 
+ no_consumo_global <- consumo_alcohol10 %>%
+   filter(Sexo == "Ambos sexos") %>%
+   group_by(Comunidades_autonomas)%>%
+   summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+ 
+ no_consumo_mujeres <- consumo_alcohol10 %>%
+   filter(Sexo == "Mujeres") %>%
+   group_by(Comunidades_autonomas) %>%
+   summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+ 
+ no_consumo_hombres <- consumo_alcohol10 %>%
+   filter(Sexo == "Hombres") %>%
+   group_by(Comunidades_autonomas)%>%
+   summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
 
 frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
   pivot_wider(names_from =Frecuencia_de_ejercicio,values_from = Porcentaje)
@@ -379,7 +393,7 @@ comparacion_cons_no_ej_mujeres<-consumo_global %>%
 
 
 #comparacion no consumo con ejercicio
-comparacion_no_cons_ej_mujeres<-consumo_global %>%
+comparacion_no_cons_ej_mujeres<- no_consumo_global  %>%
   left_join(ejercicioMujeresEjercicio ,by = "Comunidades_autonomas")
 
 
@@ -388,7 +402,7 @@ comparacion_cons_no_ej_hombres<-consumo_global %>%
   left_join(ejercicioHombresNinguno,by = "Comunidades_autonomas")
 
 
-comparacion_no_cons_ej_hombres<-consumo_global %>%
+comparacion_no_cons_ej_hombres<- no_consumo_global  %>%
   left_join(ejercicioHombresEjercicio,by = "Comunidades_autonomas")
 
 
@@ -425,7 +439,7 @@ ggsave(
 )
 
 
-comparacion_no_cons_ej_ambos_sexos<-consumo_global %>%
+comparacion_no_cons_ej_ambos_sexos<- no_consumo_global  %>%
   left_join(ejercicioAmbosSexosEjercicio,by = "Comunidades_autonomas")
 
 comparacion_no_cons_ej_ambos_sexos<-comparacion_no_cons_ej_ambos_sexos%>%
@@ -435,7 +449,7 @@ comparacion_no_cons_ej_ambos_sexos<-comparacion_no_cons_ej_ambos_sexos%>%
 
 consumo_no_alcohol_ej_ambos_sexos_largo <-comparacion_no_cons_ej_ambos_sexos %>%
   pivot_longer(
-    cols = c(Porcentaje_global_consumo, Porcentaje_ejercicio_7_dias ), 
+    cols = c(Porcentaje_global_no_consumo, Porcentaje_ejercicio_7_dias ), 
     names_to = "Tipo_porcentaje",                 
     values_to = "valor"                              
   )
@@ -450,7 +464,16 @@ grafica_no_consumo_ej_ambos_sexos <-
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
 
-
+ggsave(
+  filename = "ggrafica_no_consumo_ej_ambos_sexos.jpeg",
+  plot = grafica_no_consumo_ej_ambos_sexos ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
 
 
 Grafica_ejercicio_no_consumo_puntos<-ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_no_consumo)) +
