@@ -1,6 +1,7 @@
 install.packages("mapSpain", dependencies = TRUE)
 install.packages("sf")
 install.packages("patchwork")
+install.packages('DT')
 library(dplyr)
 library(tidyverse)
 library(rjson)
@@ -9,7 +10,7 @@ library(ggplot2)
 library(mapSpain)
 library(sf)
 library(patchwork)
-
+library(DT)
 
 suicidio <- fromJSON(file = "INPUT/DATA/Suicidios_por_comunidades.json")
 
@@ -104,7 +105,6 @@ suicidio6 <- suicidio5 %>%
       TRUE ~ as.character(NA)
     )
   )
-
 
 
 suicidio7 <- 
@@ -205,6 +205,7 @@ suicidio10 <- suicidio9 %>%
     porcentaje_suicidios = (as.numeric(Valor) / habitantes) * 100 
   )
 
+suicidio10 <- suicidio10 %>% slice(1:60)
 
 suicidio_por_sexo <- suicidio10 %>%
   group_by(sexo) %>%
@@ -225,17 +226,29 @@ suicidio_por_sexo_comunidad <- suicidio10 %>%
 
 
 
-ggplot(suicidio_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = suicidio_medio_sexo_comunidad,fill = sexo)) +
+graf_suicidio_por_sexo_comunidad <- ggplot(suicidio_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = suicidio_medio_sexo_comunidad,fill = sexo)) +
   geom_bar(stat = "identity",position = position_dodge()) +
   labs(title = "Suicidio medio por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Suicidio Medio (unidades)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
-ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_medio_comunidad), y = suicidio_medio_comunidad, fill = comunidades_autonomas)) +
+graf_suicidio_por_sexo_comunidad
+
+graf_suicidio_por_comunidad <- ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_medio_comunidad), y = suicidio_medio_comunidad, fill = comunidades_autonomas)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
   labs(title = "Suicidio Medio por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Suicidio Medio (unidades)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+graf_suicidio_por_comunidad
+
+graf_suicidio_por_sexo <- ggplot(suicidio_por_sexo, aes(x = reorder(sexo, suicidio_medio_sexo), y = suicidio_medio_sexo, fill = sexo)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(title = "Suicidio Medio por sexo", x = "Sexo", y = "Suicidio Medio (unidades)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+graf_suicidio_por_sexo
 
 census <- mapSpain::pobmun19
 
@@ -351,7 +364,7 @@ grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombr
 grafico_suicidio_por_sexos
 
 ggsave(
-  filename = "Suicidio_global.jpeg",
+  filename = "Suicidio_global_mapa.jpeg",
   plot = grafico_suicidio_global ,
   path = "OUTPUT/Figures", 
   scale = 0.5,
@@ -362,7 +375,7 @@ ggsave(
 )
 
 ggsave(
-  filename = "Suicidio_por_sexos.jpeg",
+  filename = "Suicidio_por_sexos_mapa.jpeg",
   plot = grafico_suicidio_por_sexos ,
   path = "OUTPUT/Figures",
   scale = 0.5,
@@ -470,7 +483,7 @@ grafica_suicidio_alcohol_hombres
 ggsave(
   filename = "Suicidio_alcohol_global.jpeg",
   plot = grafica_suicidio_alcohol_global ,
-  path = "OUTPUT/Figures", # ruta relativa
+  path = "OUTPUT/Figures", 
   scale = 0.5,
   width = 40,
   height = 20,
@@ -492,6 +505,39 @@ ggsave(
 ggsave(
   filename = "Suicidio_alcohol_hombres.jpeg",
   plot = grafica_suicidio_alcohol_hombres ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_sexo_comunidad.jpeg",
+  plot = graf_suicidio_por_sexo_comunidad ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_comunidad.jpeg",
+  plot = graf_suicidio_por_comunidad ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_sexo.jpeg",
+  plot = graf_suicidio_por_sexo ,
   path = "OUTPUT/Figures", 
   scale = 0.5,
   width = 40,
