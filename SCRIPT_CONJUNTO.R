@@ -989,7 +989,7 @@ ejercicioHombres
 
 graficoHombres <- ggplot(ejercicioHombres, aes(Comunidades_autonomas, Porcentaje, fill=Frecuencia_de_ejercicio))+
   geom_bar(stat="identity", position = position_dodge())+
-  labs(title = "Ejercicio físico hombres ", subtitle = "Porcentaje de frecuencia de ejercicio físico por comunidades autónomas",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
+  labs(title = "Ejercicio físico hombres ", subtitle = "Porcentaje de personas según la frecuencia de ejercicio físico por cada comunidad autónoma",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
@@ -1009,7 +1009,7 @@ ejercicioMujeres
 
 graficoMujeres <- ggplot(ejercicioMujeres, aes(Comunidades_autonomas, Porcentaje, fill=Frecuencia_de_ejercicio))+
   geom_bar(stat="identity", position = position_dodge())+
-  labs(title = "Ejercicio físico mujeres", subtitle = "Porcentaje de frecuencia de ejercicio físico por comunidades autónomas",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
+  labs(title = "Ejercicio físico mujeres", subtitle = "Porcentaje de personas según la frecuencia de ejercicio físico por cada comunidad autónoma",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 
@@ -1149,11 +1149,13 @@ ExtremosUnionFinal <- ExtremosUnionFinal%>%
 
 RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje))+
   geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
-  geom_smooth(method = "lm", se=TRUE) +
+  labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos", colour = "Sexo", shape = "Frecuencias de ejercicio") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 RepresentacionExtremosEjercicio
+
+#geom_smooth(method = "lm", se=TRUE) +
 
 ExtremosUnionFinal
 
@@ -1982,10 +1984,126 @@ grafico_interactivo_comunidad_ejercicio_suicidio
 
 #Realización nada ejercicio físico frente a suicidio por comunidades 
 
-nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+ejercicio_max_por_sexo <- ejercicio_max_por_sexo%>%
+  rename(sexo=Sexo)
+ejercicio_min_por_sexo <- ejercicio_min_por_sexo%>%
+  rename(sexo=Sexo)
+suicidio_por_sexo
+
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = "sexo")
+
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
+         Nada_de_ejercicio = Nada_de_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+grafico_suicidio_ejer_sexo <- ggplot(ejercicio_fisico_suicidio_sexo) +
+  geom_point(aes(x = Maximo_ejercicio, y = suicidio_medio_sexo, color = sexo, shape = "Máximo ejercicio"), size = 3) +
+  geom_point(aes(x = Nada_de_ejercicio, y = suicidio_medio_sexo, color = sexo, shape = "Nada de ejercicio"), size = 3) +
+  labs(title = "Relación entre la actividad física y el suicidio según el sexo",
+       x = "Porcentaje de individuos realizan o no ejercicio físico",
+       y = "Porcentaje de suicidio medio",
+       color = "Sexo",
+       shape = "Tipo de ejercicio") +
+  theme_minimal()
+
+grafico_suicidio_ejer_sexo
+
+# Convertir el gráfico a interactivo con ggplotly
+grafico_interactivo_suicidio_ejer_sexo <- ggplotly(grafico_suicidio_ejer_sexo)
+
+grafico_interactivo_suicidio_ejer_sexo
+
+#Realización máxima de ejercicio frente a suicidio
+ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+grafico_max_ejer_suicidio_sexo <-ggplot(ejercicioMax_suicidio_por_sexo, aes(x = Maximo_ejercicio, y = suicidio_medio_sexo, color = sexo)) +
+  geom_point(size = 3) +
+  labs(title = "Relación la realización de ejercicio diario y el suicidio",
+       x = "Porcentaje de individuos medio que realizan ejercicio 7 veces a la semana",
+       y = "Porcentaje de suicidio medio",
+       color = "Sexo") +
+  theme_minimal()
+
+# Convertir el gráfico a interactivo con ggplotly
+interactive_graph_max <- ggplotly(grafico_max_ejer_suicidio_sexo)
+
+# Mostrar el gráfico interactivo
+interactive_graph_max
+
+
+#Realización mínima de ejercicio frente a suicidio
+ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Nada_de_ejercicio = Nada_de_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+grafico_minimoejer_suicidio_sexo <- ggplot(ejercicioMin_suicidio_por_sexo, aes(x = Nada_de_ejercicio, y = suicidio_medio_sexo, color = sexo)) +
+  geom_point(size = 3) +
+  labs(title = "Relación no realización de ejercicio físico y el suicidio",
+       x = "Porcentaje de individuos medio que no realiza nada de ejercicio",
+       y = "Porcentaje de suicidio medio",
+       color = "Sexo") +
+  theme_minimal()
+
+# Convertir el gráfico a interactivo con ggplotly
+interactive_graph_min <- ggplotly(grafico_minimoejer_suicidio_sexo)
+
+# Mostrar el gráfico interactivo
+interactive_graph_min
+
+
+#Realización de ejercicio físico mínimo una vez por semana frente a suicidio por sexo 
+
+realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(ejercicio_medio_sexo = ejercicio_medio_sexo * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+
+ggplot(realizacion_ejercicio_suicidio_sexo, aes(x = ejercicio_medio_sexo, y = suicidio_medio_sexo, color = sexo)) +
+  geom_point(size = 5) +
+  labs(title = "Relación de realización de ejercicio y el suicidio",
+       subtitle = "Se relaciona la realización de ejercicio físico mínimo una vez por semana y el suicidio por sexo",
+       x = "Porcentaje de individuos medio que realiza mínimo 1 vez por semana ejercicio físico ",
+       y = "Porcentaje de suicidio medio",
+       color = "Sexo") +
+  theme_minimal()
+
+#Realización de ejercicio físico mínimo una vez por semana frente a suicidio por comunidades 
+
+realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
   filter(comunidades_autonomas!="Total nacional")%>%
   mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
          suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
+
+
+grafico_comunidad_ejercicio_suicidio <- ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
+  geom_point(size = 2) +
+  labs(title = "Relación de realización de ejercicio y el suicidio",
+       subtitle = "Se relaciona la realización de ejercicio físico mínimo una vez por semana y el suicidio por comunidades autónomas",
+       x = "Porcentaje de individuos medio que realiza mínimo 1 vez por semana ejercicio físico ",
+       y = "Porcentaje de suicidio medio",
+       color = "Comunidades/Ciudades autónomas") +
+  theme_minimal() +
+  geom_smooth(method = "loess", se = TRUE, aes(group = 1))
+
+# Convertir el gráfico a interactivo con ggplotly
+grafico_interactivo_comunidad_ejercicio_suicidio <- ggplotly(grafico_comunidad_ejercicio_suicidio)
+
+grafico_interactivo_comunidad_ejercicio_suicidio
+
+#Realización nada ejercicio físico frente a suicidio por comunidades 
+
+nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+  filter(comunidades_autonomas!="Total nacional")%>%
+  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
+         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)+
+  theme(legend.position = "none")
 
 
 ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
@@ -1997,3 +2115,75 @@ ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad 
        color = "Comunidades/Ciudades autónomas") +
   theme_minimal() +
   geom_smooth(method = "loess", se = TRUE, aes(group = 1)) 
+
+
+
+#Guardo los gráficos
+
+
+ggsave(
+  filename = "Ejercicio_físico_hombres_por_comunidad.jpeg",
+  plot = graficoHombres,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Ejercicio_físico_mujeres_por_comunidad.jpeg",
+  plot = graficoMujeres,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Ejercicio_físico_mujeres_por_comunidad.jpeg",
+  plot = graficoMujeres,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Extremos_ejercicio_por_comunidad_y_sexo.jpeg",
+  plot = RepresentacionExtremosEjercicio ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+
+ggsave(
+  filename = "Mapa_nada_ejercicio_vs_mínimo_un_día_ejercicio.jpeg",
+  plot =  comparacion_mapas_nada_vs_ejercicio,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 110,
+  height = 50,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Mapa_mínimo_un_día_ejercicio_por_sexo_y_comunidad.jpeg",
+  plot =  mapas_ejercicio_por_sexos,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 110,
+  height = 50,
+  units = "cm",
+  dpi = 320
+)

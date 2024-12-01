@@ -880,5 +880,4 @@ ggsave(
   dpi = 320
 )
 
-#Gráficos de comparación ejercicio fisico y suicidio
 
