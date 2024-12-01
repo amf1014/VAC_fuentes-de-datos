@@ -165,7 +165,6 @@ ejercicioHombres <- ejercicioFisicoUnion%>%
   select(-Ratio, -Miles_de_personas, -Sexo)
 
 ejercicioHombres <- ejercicioHombres%>%
-  filter(Comunidades_autonomas!="Total Nacional")%>%
   filter(Frecuencia_de_ejercicio!="TOTAL")
 
 ejercicioHombres
@@ -186,7 +185,6 @@ ejercicioMujeres <- ejercicioFisicoUnion%>%
   select(-Ratio, -Miles_de_personas, Sexo)
 
 ejercicioMujeres <- ejercicioMujeres%>%
-  filter(Comunidades_autonomas!="Total Nacional")%>%
   filter(Frecuencia_de_ejercicio!="TOTAL")
 
 ejercicioMujeres
@@ -504,6 +502,14 @@ ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad 
 
 
 
+
+
+
+
+
+
+
+
 ExtremosUnionFinal
 nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
   mutate(comunidades_autonomas = case_when(
@@ -583,6 +589,7 @@ ejercicioMujeres <- ejercicioMujeres%>%
     Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
     Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
     Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
     TRUE ~ Comunidades_autonomas
   ))
 
@@ -608,6 +615,7 @@ ejercicioHombres <- ejercicioHombres%>%
     Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
     Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
     Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
     TRUE ~ Comunidades_autonomas
   ))
 
@@ -620,6 +628,46 @@ ejercicioHombresEjercicio <- ejercicioHombres%>%
   filter(Frecuencia_de_ejercicio!="Ninguno")%>%
   group_by(Comunidades_autonomas) %>%
   summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+
+
+ejercicioAmbosSexos <- ejercicioFisicoUnion%>%
+  filter(Sexo=="Ambos sexos")%>%
+  select(-Ratio, -Miles_de_personas, Sexo)
+
+ejercicioAmbosSexos <- ejercicioAmbosSexos%>%
+  filter(Frecuencia_de_ejercicio!="TOTAL")
+
+ejercicioAmbosSexos <- ejercicioAmbosSexos%>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+
+ejercicioAmbosSexosNinguno <- ejercicioAmbosSexos%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")%>%
+  select(-Frecuencia_de_ejercicio)%>%
+  rename(Ninguno = Porcentaje)
+
+ejercicioAmbosSexosEjercicio <- ejercicioAmbosSexos%>%
+  filter(Frecuencia_de_ejercicio!="Ninguno")%>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+
+
+
+
+
+
 
 
 
