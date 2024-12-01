@@ -521,91 +521,208 @@ realizacion_ejercicio_por_comunidad <- realizacion_ejercicio_por_comunidad%>%
     TRUE ~ comunidades_autonomas
   ))
 
+ejercicioMinimoUnaVez <- ejercicioMinimoUnaVez%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
 ##MAPAS
 
 
-nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad %>%
-  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)
+porcentaje_nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad %>%
+  mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
+  select(-ejercicio_medio_comunidad)
 
-census <- mapSpain::pobmun19
+porcentaje_realizacion_ejercicio_por_comunidad <- realizacion_ejercicio_por_comunidad %>%
+  mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
+  select(-ejercicio_medio_comunidad)
 
-codelist <- mapSpain::esp_codelist %>%
-  select(cpro, codauto) %>%
-  distinct()
+porcentaje_realizacion_ejercicio_sexo_comunidad <- ejercicioMinimoUnaVez%>%
+  group_by(comunidades_autonomas,sexo) %>%
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE))%>%
+  mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
+  select(-ejercicio_medio_comunidad)
 
-census_ccaa <- census %>%
-  left_join(codelist) %>%
-  group_by(codauto) %>%
-  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
-  mutate(
-    porc_women = women / pob19,
-    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
-  )
-ccaa_sf <- esp_get_ccaa() %>%
-  left_join(census_ccaa)
-can <- esp_get_can_box()
+mujeres_ejercicio_comunidad <- porcentaje_realizacion_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Mujeres")
+
+hombres_ejercicio_comunidad <- porcentaje_realizacion_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Hombres")
+
+porcentaje_realizacion_nada_ejercicio_sexo_comunidad <- ejercicioNada%>%
+  group_by(comunidades_autonomas,sexo) %>%
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE))
+
+mujeres_nada_ejercicio_comunidad <- porcentaje_realizacion_nada_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Mujeres")
+
+hombres_nada_ejercicio_comunidad <- porcentaje_realizacion_nada_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Hombres")
+
 
 levels(factor(ccaa_sf$ine.ccaa.name))
-levels(factor(nada_ejercicio_por_comunidad$comunidades_autonomas))
+levels(factor(porcentaje_nada_ejercicio_por_comunidad$comunidades_autonomas))
 
-ccaa_sf <- esp_get_ccaa() %>%
-  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+ccaa_nada <- esp_get_ccaa() %>%
+  left_join(porcentaje_nada_ejercicio_por_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
 
-ccaa_sm <- esp_get_ccaa() %>%
-  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+ccaa_ejercicio <- esp_get_ccaa() %>%
+  left_join(porcentaje_realizacion_ejercicio_por_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
 
-ccaa_sg <- esp_get_ccaa() %>%
-  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
 
-grafico_suicidio_global <- ggplot(ccaa_sg) +
-  geom_sf(aes(fill = porcentaje_global_suicidios), color = "grey70", linewidth = .3) +
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(mujeres_ejercicio_comunidad$comunidades_autonomas))
+
+ccaa_m_ejercicio <- esp_get_ccaa() %>%
+  left_join(mujeres_ejercicio_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(hombres_ejercicio_comunidad$comunidades_autonomas))
+
+ccaa_h_ejercicio <- esp_get_ccaa() %>%
+  left_join(hombres_ejercicio_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+
+
+mapa_nada_ejercicio_global <- ggplot(ccaa_nada) +
+  geom_sf(aes(fill = porcentaje_ejercicio_medio_comunidad), color = "grey70", linewidth = .3) +
   geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_global_suicidios, 4)),
-                fill = "white", alpha = 0.5,
-                size = 3, label.size = 0
-  ) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "Greens", rev = TRUE),
-    n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Global Suicidios", position = "inside")
-  ) +
-  theme_void() +
-  theme(legend.position = c(0.1, 0.6))
-
-grafico_suicidio_global
-
-grafico_suicidio_mujeres <- ggplot(ccaa_sf) +
-  geom_sf(aes(fill = porcentaje_mujeres_suicidios), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_mujeres_suicidios, 4)),
+  geom_sf_label(aes(label = round(porcentaje_ejercicio_medio_comunidad, 4)),
                 fill = "white", alpha = 0.5,
                 size = 3, label.size = 0
   ) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "Reds", rev = TRUE),
     n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Mujeres Suicidios", position = "inside")
+    guide = guide_legend(title = "Porcentaje Global Nada Ejercicio", position = "inside")
   ) +
   theme_void() +
   theme(legend.position = c(0.1, 0.6))
 
-grafico_suicidios_hombres <- ggplot(ccaa_sm) +
-  geom_sf(aes(fill = porcentaje_hombres_suicidios), color = "grey70", linewidth = .3) +
+mapa_nada_ejercicio_global
+
+mapa_ejercicio_medio_global <- ggplot(ccaa_ejercicio) +
+  geom_sf(aes(fill = porcentaje_ejercicio_medio_comunidad), color = "grey70", linewidth = .3) +
   geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_hombres_suicidios, 4)),
+  geom_sf_label(aes(label = round(porcentaje_ejercicio_medio_comunidad, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Greens", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Global Ejercicio Medio", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+mapa_ejercicio_medio_global
+
+comparacion_mapas_nada_vs_ejercicio <- mapa_nada_ejercicio_global + mapa_ejercicio_medio_global
+
+
+
+mapa_ejecicio_mujeres <- ggplot(ccaa_m_ejercicio) +
+  geom_sf(aes(fill = porcentaje_ejercicio_medio_comunidad), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_ejercicio_medio_comunidad, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Purples", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Mujeres Ejercicio", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+
+mapa_ejecicio_hombres <- ggplot(ccaa_h_ejercicio) +
+  geom_sf(aes(fill = porcentaje_ejercicio_medio_comunidad), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_ejercicio_medio_comunidad, 4)),
                 fill = "white", alpha = 0.5,
                 size = 3, label.size = 0
   ) +
   scale_fill_gradientn(
     colors = hcl.colors(10, "Blues", rev = TRUE),
     n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Hombres Suicidios", position = "inside")
+    guide = guide_legend(title = "Porcentaje Hombres Ejercicio", position = "inside")
   ) +
   theme_void() +
   theme(legend.position = c(0.1, 0.6))
 
-grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombres
+mapas_ejercicio_por_sexos <- mapa_ejecicio_mujeres + mapa_ejecicio_hombres
 
-grafico_suicidio_por_sexos
+mapas_ejercicio_por_sexos
 
+'''
+library(leaflet)
+
+mapa_interactivo_mujeres <- leaflet(data = ccaa_m_ejercicio) %>%
+  addProviderTiles("CartoDB.Positron") %>% # Fondo claro para el mapa
+  addPolygons(
+    fillColor = ~colorNumeric(
+      palette = "Purples",
+      domain = ccaa_m_ejercicio$porcentaje_ejercicio_medio_comunidad
+    )(porcentaje_ejercicio_medio_comunidad),
+    weight = 1, # Ancho del borde
+    color = "grey", # Color del borde
+    fillOpacity = 0.7, # Opacidad del relleno
+    popup = ~paste0(
+      "<strong>Comunidad: </strong>", ine.ccaa.name, "<br>",
+      "<strong>Porcentaje Mujeres Ejercicio: </strong>", round(porcentaje_ejercicio_medio_comunidad, 2), "%"
+    ) # Información emergente al pasar el ratón
+  ) %>%
+  addLegend(
+    pal = colorNumeric(
+      palette = "Purples",
+      domain = ccaa_m_ejercicio$porcentaje_ejercicio_medio_comunidad
+    ),
+    values = ~porcentaje_ejercicio_medio_comunidad,
+    title = "Porcentaje Mujeres Ejercicio",
+    position = "bottomright"
+  )
+
+mapa_interactivo_mujeres
+
+
+mapa_interactivo_hombres <- leaflet(data = ccaa_h_ejercicio) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(
+    fillColor = ~colorNumeric(
+      palette = "Blues",
+      domain = ccaa_h_ejercicio$porcentaje_ejercicio_medio_comunidad
+    )(porcentaje_ejercicio_medio_comunidad),
+    weight = 1,
+    color = "grey",
+    fillOpacity = 0.7,
+    popup = ~paste0(
+      "<strong>Comunidad: </strong>", ine.ccaa.name, "<br>",
+      "<strong>Porcentaje Hombres Ejercicio: </strong>", round(porcentaje_ejercicio_medio_comunidad, 2), "%"
+    )
+  ) %>%
+  addLegend(
+    pal = colorNumeric(
+      palette = "Blues",
+      domain = ccaa_h_ejercicio$porcentaje_ejercicio_medio_comunidad
+    ),
+    values = ~porcentaje_ejercicio_medio_comunidad,
+    title = "Porcentaje Hombres Ejercicio",
+    position = "bottomright"
+  )
+
+mapa_interactivo_hombres
+'''
 
