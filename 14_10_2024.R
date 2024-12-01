@@ -105,7 +105,6 @@ consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$
 consumo_alcohol8<-consumo_alcohol7%>%
   pivot_wider(names_from = Consumido, values_from = Valor)
 
-#view(consumo_alcohol8)
 
 consumo_alcohol8 <- 
   as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
@@ -135,9 +134,11 @@ consumo_alcohol10 <- consumo_alcohol9 %>%
 consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
 
 
+
+
 consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
 consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
-view(consumo_alcohol10)
+
 
 #Gráficas de España
 census_2 <- mapSpain::pobmun19

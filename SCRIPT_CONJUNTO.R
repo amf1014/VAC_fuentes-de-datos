@@ -692,7 +692,6 @@ ggsave(
 
 ##Analisis de datos del consumo de alcohol con gráficas
 
-
 consumo_alcohol7 <- 
   as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
 
@@ -738,7 +737,7 @@ consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
 
 consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
 consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
-
+view(consumo_alcohol10)
 
 #Gráficas de España
 census_2 <- mapSpain::pobmun19
@@ -773,6 +772,7 @@ consumo_alcohol10 <- consumo_alcohol10 %>%
     Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
     TRUE ~ Comunidades_autonomas
   ))
+
 consumo_global <- consumo_alcohol10 %>%
   filter(Sexo == "Ambos sexos") %>%
   group_by(Comunidades_autonomas)%>%
@@ -880,37 +880,66 @@ ggsave(
   units = "cm",
   dpi = 320
 )
-###DATOS PARA GRÁFICAS
+#DATOS PARA GRÁFICAS
 
-consumo_por_sexo <- consumo_alcohol9 %>%
+consumo_por_sexo <- consumo_alcohol10 %>%
   group_by(Sexo) %>%
   summarize(consumo_medio_sexo = mean(Porcentaje_consumo, na.rm = TRUE)) 
 
 
-consumo_por_comunidad <- consumo_alcohol9 %>%
+consumo_por_comunidad <- consumo_alcohol10 %>%
   group_by(Comunidades_autonomas) %>%
   summarize(consumo_medio_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
 
 
-consumo_por_sexo_comunidad <- consumo_alcohol9 %>%
+consumo_por_sexo_comunidad <- consumo_alcohol10 %>%
   group_by(Sexo, Comunidades_autonomas) %>%
   summarize(consumo_medio_sexo_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
 
 
 
-ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_medio_sexo, fill = Sexo)) +
+Grafica_consumo_por_sexo<-ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_medio_sexo, fill = Sexo)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
   labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (%)") 
 
-
-ggplot(consumo_por_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_comunidad), y = consumo_medio_comunidad, fill = Comunidades_autonomas)) +
+ggsave(
+  filename = "Grafica_consumo_por_sexo.jpeg",
+  plot = Grafica_consumo_por_sexo ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+Grafica_consumo_por_comunidad<-ggplot(consumo_por_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_comunidad), y = consumo_medio_comunidad, fill = Comunidades_autonomas)) +
   geom_bar(stat = "identity", show.legend = FALSE) + 
   labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Porcentaje Medio de Consumo") +theme_minimal() +theme(axis.text.x = element_text(angle = 45, hjust = 1))
+ggsave(
+  filename = "Grafica_consumo_por_comunidad.jpeg",
+  plot = Grafica_consumo_por_comunidad,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
 
-ggplot(consumo_por_sexo_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_sexo_comunidad), y = consumo_medio_sexo_comunidad, fill = Sexo)) +
+Grafica_consumo_por_comunidad_y_sexo<-ggplot(consumo_por_sexo_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_sexo_comunidad), y = consumo_medio_sexo_comunidad, fill = Sexo)) +
   geom_bar(stat = "identity", position = position_dodge()) + 
   labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+ggsave(
+  filename = "Grafica_consumo_por_comunidad_y_sexo.jpeg",
+  plot = Grafica_consumo_por_comunidad_y_sexo,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
 
 Porcentajes_alcohol_fila<- consumo_alcohol10 %>%
   pivot_longer(data=.,names_to = "Porcentajes",values_to = "valor",cols= c(Porcentaje_consumo,Porcentaje_no_consumo))
@@ -1437,6 +1466,165 @@ mapas_ejercicio_por_sexos
 
 
 ##Relación de ejercicio físico con consumo de alcohol
+
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+no_consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+no_consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
+  pivot_wider(names_from =Frecuencia_de_ejercicio,values_from = Porcentaje)
+
+
+comparacion_datos <- full_join(x=consumo_alcohol10,y=frecuenciaNadaYMaxEjercicioComunidad2,
+                               by = c("Comunidades_autonomas", "Sexo"))
+
+
+#comparacion consumo con no ejercicio
+
+comparacion_cons_no_ej_mujeres<-consumo_global %>%
+  left_join(ejercicioMujeresNinguno ,by = "Comunidades_autonomas")
+
+
+
+#comparacion no consumo con ejercicio
+comparacion_no_cons_ej_mujeres<- no_consumo_global  %>%
+  left_join(ejercicioMujeresEjercicio ,by = "Comunidades_autonomas")
+
+
+
+comparacion_cons_no_ej_hombres<-consumo_global %>%
+  left_join(ejercicioHombresNinguno,by = "Comunidades_autonomas")
+
+
+comparacion_no_cons_ej_hombres<- no_consumo_global  %>%
+  left_join(ejercicioHombresEjercicio,by = "Comunidades_autonomas")
+
+
+
+comparacion_cons_no_ej_ambos_sexos<-consumo_global %>%
+  left_join(ejercicioAmbosSexosNinguno,by = "Comunidades_autonomas")
+
+
+consumo_alcohol_no_ej_ambos_sexos_largo <- comparacion_cons_no_ej_ambos_sexos %>%
+  pivot_longer(
+    cols = c(Porcentaje_global_consumo,Ninguno), 
+    names_to = "Tipo_porcentaje",                 
+    values_to = "valor"                              
+  )
+grafica_consumo_no_ej_ambos_sexos <- 
+  ggplot(consumo_alcohol_no_ej_ambos_sexos_largo, aes(x = Comunidades_autonomas, y = valor))+
+  geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre suicidios y consumo de alcohol en ambos sexos",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+ggsave(
+  filename = "grafica_consumo_no_ej_ambos_sexos.jpeg",
+  plot = grafica_consumo_no_ej_ambos_sexos ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+
+comparacion_no_cons_ej_ambos_sexos<- no_consumo_global  %>%
+  left_join(ejercicioAmbosSexosEjercicio,by = "Comunidades_autonomas")
+
+comparacion_no_cons_ej_ambos_sexos<-comparacion_no_cons_ej_ambos_sexos%>%
+  rename(Porcentaje_ejercicio_7_dias = Porcentaje)
+
+
+
+consumo_no_alcohol_ej_ambos_sexos_largo <-comparacion_no_cons_ej_ambos_sexos %>%
+  pivot_longer(
+    cols = c(Porcentaje_global_no_consumo, Porcentaje_ejercicio_7_dias ), 
+    names_to = "Tipo_porcentaje",                 
+    values_to = "valor"                              
+  )
+
+grafica_no_consumo_ej_ambos_sexos <- 
+  ggplot(consumo_no_alcohol_ej_ambos_sexos_largo , aes(x = Comunidades_autonomas, y = valor))+
+  geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre suicidios y consumo de alcohol en ambos sexos",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+ggsave(
+  filename = "ggrafica_no_consumo_ej_ambos_sexos.jpeg",
+  plot = grafica_no_consumo_ej_ambos_sexos ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+
+Grafica_ejercicio_no_consumo_puntos<-ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_no_consumo)) +
+  geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(
+    title = "Relación entre Porcentaje de Consumo de Alcohol y Ejercicio Físico (7 días a la semana)",
+    x = "Porcentaje de Ejercicio (7 días a la semana)",
+    y = "Porcentaje de Consumo de Alcohol",
+    color = "Sexo"
+  ) 
+
+
+
+Grafica_no_ejercicio_consumo_puntos<-ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_consumo)) +
+  geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(
+    title = "Relación entre Porcentaje de No Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
+    x = "Porcentaje de Falta de Ejercicio (Ninguno)",
+    y = "Porcentaje de No Consumo de Alcohol",
+    color = "Sexo"
+  )
+
+ggsave(
+  filename = "Grafica ejercicio y no consumo puntos.jpeg",
+  plot = Grafica_ejercicio_no_consumo_puntos ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Grafica no ejercicio y consumo puntos.jpeg",
+  plot = Grafica_no_ejercicio_consumo_puntos,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
 
 
 
