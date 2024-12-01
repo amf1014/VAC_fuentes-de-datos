@@ -1764,12 +1764,12 @@ grafica_consumo_no_ej_ambos_sexos <-
   ggplot(consumo_alcohol_no_ej_ambos_sexos_largo, aes(x = Comunidades_autonomas, y = valor))+
   geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
   facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
-  labs(title = "Relación entre suicidios y consumo de alcohol en ambos sexos",
+  labs(title = "Relación entre ejercicio fisico y consumo de alcohol en ambos sexos",
        x = "Porcentajes",
        y = "Comunidades autónomas")+
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
-grafica_consumo_no_ej_ambos_sexos
+
 ggsave(
   filename = "grafica_consumo_no_ej_ambos_sexos.jpeg",
   plot = grafica_consumo_no_ej_ambos_sexos ,
@@ -1801,12 +1801,12 @@ grafica_no_consumo_ej_ambos_sexos <-
   ggplot(consumo_no_alcohol_ej_ambos_sexos_largo , aes(x = Comunidades_autonomas, y = valor))+
   geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
   facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
-  labs(title = "Relación entre suicidios y consumo de alcohol en ambos sexos",
+  labs(title = "Relación entre ejercicio y consumo de alcohol en ambos sexos",
        x = "Porcentajes",
        y = "Comunidades autónomas")+
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
-grafica_no_consumo_ej_ambos_sexos
+
 ggsave(
   filename = "ggrafica_no_consumo_ej_ambos_sexos.jpeg",
   plot = grafica_no_consumo_ej_ambos_sexos ,
@@ -1823,24 +1823,24 @@ Grafica_ejercicio_no_consumo_puntos<-ggplot(comparacion_datos, aes(x = `7 días 
   geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE, color = "blue") +
   labs(
-    title = "Relación entre Porcentaje de Consumo de Alcohol y Ejercicio Físico (7 días a la semana)",
+    title = "Relación entre Porcentaje de no Consumo de Alcohol y Ejercicio Físico (7 días a la semana)",
     x = "Porcentaje de Ejercicio (7 días a la semana)",
-    y = "Porcentaje de Consumo de Alcohol",
+    y = "Porcentaje de  no Consumo de Alcohol",
     color = "Sexo"
   ) 
-Grafica_ejercicio_no_consumo_puntos
+
 
 
 Grafica_no_ejercicio_consumo_puntos<-ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_consumo)) +
   geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE, color = "red") +
   labs(
-    title = "Relación entre Porcentaje de No Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
+    title = "Relación entre Porcentaje de Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
     x = "Porcentaje de Falta de Ejercicio (Ninguno)",
-    y = "Porcentaje de No Consumo de Alcohol",
+    y = "Porcentaje de Consumo de Alcohol",
     color = "Sexo"
   )
-Grafica_no_ejercicio_consumo_puntos
+
 ggsave(
   filename = "Grafica ejercicio y no consumo puntos.jpeg",
   plot = Grafica_ejercicio_no_consumo_puntos ,
@@ -1862,10 +1862,6 @@ ggsave(
   units = "cm",
   dpi = 320
 )
-
-
-
-
 
 ##Relación de ejercicio físico con suicidios
 

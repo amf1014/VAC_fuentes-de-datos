@@ -422,7 +422,7 @@ grafica_consumo_no_ej_ambos_sexos <-
   ggplot(consumo_alcohol_no_ej_ambos_sexos_largo, aes(x = Comunidades_autonomas, y = valor))+
   geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
   facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
-  labs(title = "Relación entre suicidios y consumo de alcohol en ambos sexos",
+  labs(title = "Relación entre ejercicio fisico y consumo de alcohol en ambos sexos",
        x = "Porcentajes",
        y = "Comunidades autónomas")+
   theme_minimal()+
@@ -459,7 +459,7 @@ grafica_no_consumo_ej_ambos_sexos <-
   ggplot(consumo_no_alcohol_ej_ambos_sexos_largo , aes(x = Comunidades_autonomas, y = valor))+
   geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
   facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
-  labs(title = "Relación entre suicidios y consumo de alcohol en ambos sexos",
+  labs(title = "Relación entre ejercicio y consumo de alcohol en ambos sexos",
        x = "Porcentajes",
        y = "Comunidades autónomas")+
   theme_minimal()+
