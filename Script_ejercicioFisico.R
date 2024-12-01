@@ -141,12 +141,12 @@ ejercicioNada <- ejercicioFisicoUnion%>%
   filter(sexo!="Ambos sexos", Frecuencia_de_ejercicio=='Ninguno', comunidades_autonomas!='Total Nacional')%>%
   select(-Miles_de_personas,-Porcentaje)
 
-#Tabla de ejercicio_por_comunidad para comparar con suicidio
+#Tabla de ejercicio_por_comunidad para comparar 
 realizacion_ejercicio_por_comunidad <- ejercicioMinimoUnaVez %>%
   group_by(comunidades_autonomas) %>%
   summarize(ejercicio_medio_comunidad=mean(as.numeric(Ratio), na.rm = TRUE))
 
-#Tabla de nada_ejercicio_por_comunidad comparar con suicidio
+#Tabla de nada_ejercicio_por_comunidad comparar 
 nada_ejercicio_por_comunidad <- ejercicioNada %>%
   group_by(comunidades_autonomas) %>%
   summarize(ejercicio_medio_comunidad=mean(as.numeric(Ratio), na.rm = TRUE))
@@ -367,15 +367,15 @@ ejercicio_min_por_sexo <- ejercicio_min_por_sexo%>%
   rename(sexo=Sexo)
 suicidio_por_sexo
 
-ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = join_by(sexo))
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = "sexo")
 
-ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = join_by(sexo))%>%
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = "sexo")%>%
   filter(sexo!="Ambos sexos")%>%
   mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
          Nada_de_ejercicio = Nada_de_ejercicio * 100,
          suicidio_medio_sexo = suicidio_medio_sexo * 100)
 
-grafico_suicidio_sexo <- ggplot(ejercicio_fisico_suicidio_sexo) +
+grafico_suicidio_ejer_sexo <- ggplot(ejercicio_fisico_suicidio_sexo) +
   geom_point(aes(x = Maximo_ejercicio, y = suicidio_medio_sexo, color = sexo, shape = "Máximo ejercicio"), size = 3) +
   geom_point(aes(x = Nada_de_ejercicio, y = suicidio_medio_sexo, color = sexo, shape = "Nada de ejercicio"), size = 3) +
   labs(title = "Relación entre la actividad física y el suicidio según el sexo",
@@ -385,11 +385,15 @@ grafico_suicidio_sexo <- ggplot(ejercicio_fisico_suicidio_sexo) +
        shape = "Tipo de ejercicio") +
   theme_minimal()
 
-grafico_suicidio_sexo
+grafico_suicidio_ejer_sexo
 
+# Convertir el gráfico a interactivo con ggplotly
+grafico_interactivo_suicidio_ejer_sexo <- ggplotly(grafico_suicidio_ejer_sexo)
+
+grafico_interactivo_suicidio_ejer_sexo
 
 #Realización máxima de ejercicio frente a suicidio
-ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = join_by(sexo))%>%
+ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = "sexo")%>%
   filter(sexo!="Ambos sexos")%>%
   mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
          suicidio_medio_sexo = suicidio_medio_sexo * 100)
@@ -410,7 +414,7 @@ interactive_graph_max
 
 
 #Realización mínima de ejercicio frente a suicidio
-ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = join_by(sexo))%>%
+ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = "sexo")%>%
   filter(sexo!="Ambos sexos")%>%
   mutate(Nada_de_ejercicio = Nada_de_ejercicio * 100,
          suicidio_medio_sexo = suicidio_medio_sexo * 100)
@@ -432,7 +436,7 @@ interactive_graph_min
 
 #Realización de ejercicio físico mínimo una vez por semana frente a suicidio por sexo 
 
-realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = join_by(sexo))%>%
+realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = "sexo")%>%
   filter(sexo!="Ambos sexos")%>%
   mutate(ejercicio_medio_sexo = ejercicio_medio_sexo * 100,
          suicidio_medio_sexo = suicidio_medio_sexo * 100)
@@ -449,7 +453,7 @@ ggplot(realizacion_ejercicio_suicidio_sexo, aes(x = ejercicio_medio_sexo, y = su
 
 #Realización de ejercicio físico mínimo una vez por semana frente a suicidio por comunidades 
 
-realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = join_by(comunidades_autonomas))%>%
+realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
   filter(comunidades_autonomas!="Total nacional")%>%
   mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
          suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
@@ -468,7 +472,7 @@ ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_com
 
 #Realización nada ejercicio físico frente a suicidio por comunidades 
 
-nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = join_by(comunidades_autonomas))%>%
+nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
   filter(comunidades_autonomas!="Total nacional")%>%
   mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
          suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
@@ -483,5 +487,121 @@ ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad 
        color = "Comunidades/Ciudades autónomas") +
   theme_minimal() +
   geom_smooth(method = "loess", se = TRUE, aes(group = 1)) 
+
+
+nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+realizacion_ejercicio_por_comunidad <- realizacion_ejercicio_por_comunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+##MAPAS
+
+
+nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad %>%
+  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)
+
+census <- mapSpain::pobmun19
+
+codelist <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
+
+census_ccaa <- census %>%
+  left_join(codelist) %>%
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(census_ccaa)
+can <- esp_get_can_box()
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(nada_ejercicio_por_comunidad$comunidades_autonomas))
+
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sm <- esp_get_ccaa() %>%
+  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sg <- esp_get_ccaa() %>%
+  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+grafico_suicidio_global <- ggplot(ccaa_sg) +
+  geom_sf(aes(fill = porcentaje_global_suicidios), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_global_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Greens", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Global Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_suicidio_global
+
+grafico_suicidio_mujeres <- ggplot(ccaa_sf) +
+  geom_sf(aes(fill = porcentaje_mujeres_suicidios), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_mujeres_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Reds", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Mujeres Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_suicidios_hombres <- ggplot(ccaa_sm) +
+  geom_sf(aes(fill = porcentaje_hombres_suicidios), color = "grey70", linewidth = .3) +
+  geom_sf(data = can, color = "grey70") +
+  geom_sf_label(aes(label = round(porcentaje_hombres_suicidios, 4)),
+                fill = "white", alpha = 0.5,
+                size = 3, label.size = 0
+  ) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "Blues", rev = TRUE),
+    n.breaks = 10, labels = scales::label_number(suffix = "%"),
+    guide = guide_legend(title = "Porcentaje Hombres Suicidios", position = "inside")
+  ) +
+  theme_void() +
+  theme(legend.position = c(0.1, 0.6))
+
+grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombres
+
+grafico_suicidio_por_sexos
 
 
