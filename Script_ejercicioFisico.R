@@ -144,17 +144,17 @@ ejercicioNada <- ejercicioFisicoUnion%>%
 #Tabla de ejercicio_por_comunidad para comparar 
 realizacion_ejercicio_por_comunidad <- ejercicioMinimoUnaVez %>%
   group_by(comunidades_autonomas) %>%
-  summarize(ejercicio_medio_comunidad=mean(as.numeric(Ratio), na.rm = TRUE))
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE)/2)
 
 #Tabla de nada_ejercicio_por_comunidad comparar 
 nada_ejercicio_por_comunidad <- ejercicioNada %>%
   group_by(comunidades_autonomas) %>%
-  summarize(ejercicio_medio_comunidad=mean(as.numeric(Ratio), na.rm = TRUE))
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE)/2)
 
 #Tabla de realizacion_ejercicio_por_sexo
 realizacion_ejercicio_por_sexo <- ejercicioMinimoUnaVez %>%
   group_by(sexo) %>%
-  summarize(ejercicio_medio_sexo=mean(as.numeric(Ratio), na.rm = TRUE))
+  summarize(ejercicio_medio_sexo=sum(as.numeric(Ratio), na.rm = TRUE)/19)
 
 
 #Comparación de frecuencias de ejercicio por comunidad ¿cuál puede ser la causa?
@@ -227,7 +227,7 @@ NadaEjercicioSexoSinNacional <- NadaYMaxEjercicioSexoSinNacional%>%
 
 ejercicio_min_por_sexo <- NadaEjercicioSexoSinNacional %>%
   group_by(Sexo) %>%
-  summarize(Nada_de_ejercicio=mean(as.numeric(Ratio), na.rm = TRUE))
+  summarize(Nada_de_ejercicio=sum(as.numeric(Ratio), na.rm = TRUE)/19)
 
 #7 días a la semana ejercicio físico
 MaxEjercicioSexoSinNacional <- NadaYMaxEjercicioSexoSinNacional%>%
@@ -459,7 +459,7 @@ realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_
          suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
 
 
-ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
+grafico_comunidad_ejercicio_suicidio <- ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
   geom_point(size = 3) +
   labs(title = "Relación de realización de ejercicio y el suicidio",
        subtitle = "Se relaciona la realización de ejercicio físico mínimo una vez por semana y el suicidio por comunidades autónomas",
@@ -469,6 +469,10 @@ ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_com
   theme_minimal() +
   geom_smooth(method = "loess", se = TRUE, aes(group = 1)) 
 
+# Convertir el gráfico a interactivo con ggplotly
+grafico_interactivo_comunidad_ejercicio_suicidio <- ggplotly(grafico_comunidad_ejercicio_suicidio)
+
+grafico_interactivo_comunidad_ejercicio_suicidio
 
 #Realización nada ejercicio físico frente a suicidio por comunidades 
 
