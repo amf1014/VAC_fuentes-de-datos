@@ -5,12 +5,10 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
-#DOTPLOT
-install.packages("plotly")
-library(plotly)
+
 
 ejercicioFisico <- fromJSON(file = "INPUT/DATA/Ejercicio_fisico.json")
-  
+
 ejercicioFisico
 
 tiposEjercicioFisico_visiongeneral<-ejercicioFisico%>% 
@@ -492,7 +490,7 @@ ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad 
   theme_minimal() +
   geom_smooth(method = "loess", se = TRUE, aes(group = 1)) 
 
-
+ExtremosUnionFinal
 nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
   mutate(comunidades_autonomas = case_when(
     comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
@@ -534,6 +532,27 @@ ejercicioMinimoUnaVez <- ejercicioMinimoUnaVez%>%
     comunidades_autonomas == "La Rioja" ~ "Rioja, La",
     TRUE ~ comunidades_autonomas
   ))
+
+
+
+frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  mutate(Porcentaje = Ratio * 100) %>%
+  select(-Ratio,-NadaMax)
+
 
 ##MAPAS
 
@@ -667,62 +686,4 @@ mapas_ejercicio_por_sexos <- mapa_ejecicio_mujeres + mapa_ejecicio_hombres
 
 mapas_ejercicio_por_sexos
 
-'''
-library(leaflet)
-
-mapa_interactivo_mujeres <- leaflet(data = ccaa_m_ejercicio) %>%
-  addProviderTiles("CartoDB.Positron") %>% # Fondo claro para el mapa
-  addPolygons(
-    fillColor = ~colorNumeric(
-      palette = "Purples",
-      domain = ccaa_m_ejercicio$porcentaje_ejercicio_medio_comunidad
-    )(porcentaje_ejercicio_medio_comunidad),
-    weight = 1, # Ancho del borde
-    color = "grey", # Color del borde
-    fillOpacity = 0.7, # Opacidad del relleno
-    popup = ~paste0(
-      "<strong>Comunidad: </strong>", ine.ccaa.name, "<br>",
-      "<strong>Porcentaje Mujeres Ejercicio: </strong>", round(porcentaje_ejercicio_medio_comunidad, 2), "%"
-    ) # Información emergente al pasar el ratón
-  ) %>%
-  addLegend(
-    pal = colorNumeric(
-      palette = "Purples",
-      domain = ccaa_m_ejercicio$porcentaje_ejercicio_medio_comunidad
-    ),
-    values = ~porcentaje_ejercicio_medio_comunidad,
-    title = "Porcentaje Mujeres Ejercicio",
-    position = "bottomright"
-  )
-
-mapa_interactivo_mujeres
-
-
-mapa_interactivo_hombres <- leaflet(data = ccaa_h_ejercicio) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(
-    fillColor = ~colorNumeric(
-      palette = "Blues",
-      domain = ccaa_h_ejercicio$porcentaje_ejercicio_medio_comunidad
-    )(porcentaje_ejercicio_medio_comunidad),
-    weight = 1,
-    color = "grey",
-    fillOpacity = 0.7,
-    popup = ~paste0(
-      "<strong>Comunidad: </strong>", ine.ccaa.name, "<br>",
-      "<strong>Porcentaje Hombres Ejercicio: </strong>", round(porcentaje_ejercicio_medio_comunidad, 2), "%"
-    )
-  ) %>%
-  addLegend(
-    pal = colorNumeric(
-      palette = "Blues",
-      domain = ccaa_h_ejercicio$porcentaje_ejercicio_medio_comunidad
-    ),
-    values = ~porcentaje_ejercicio_medio_comunidad,
-    title = "Porcentaje Hombres Ejercicio",
-    position = "bottomright"
-  )
-
-mapa_interactivo_hombres
-'''
 
