@@ -318,15 +318,10 @@ ggplot(consumo_por_sexo_comunidad, aes(x = reorder(Comunidades_autonomas, consum
 Porcentajes_alcohol_fila<- consumo_alcohol10 %>%
   pivot_longer(data=.,names_to = "Porcentajes",values_to = "valor",cols= c(Porcentaje_consumo,Porcentaje_no_consumo))
 
-view(Porcentajes_alcohol_fila)
+#view(Porcentajes_alcohol_fila)
 
 #Revisar bien
-ggplot(Porcentajes_alcohol_fila, aes(x = Comunidades_autonomas, y = valor, color = Porcentajes)) +
-  geom_smooth(aes(group = Porcentajes), method = "loess") + 
-  labs(title = "Porcentaje de Consumo y No Consumo de Alcohol por Comunidad Autónoma",
-       x = "Comunidad Autónoma",
-       y = "Porcentaje",
-       color = "Tipo de Porcentaje") 
+
 
  ggplot(Porcentajes_alcohol_fila, aes(Comunidades_autonomas,valor))+
   geom_point(aes(colour=factor(Sexo), shape = factor(Porcentajes)))+
@@ -347,9 +342,12 @@ comparacion_datos <- full_join(x=consumo_alcohol10,y=ExtremosUnionFinal2,
                                by = c("Comunidades_autonomas", "Sexo"))
 
 #view(comparacion_datos)
+comparacion_datos
 
 comparacion_datos2<-full_join(x=Porcentajes_alcohol_fila,y=ExtremosUnionFinal,
                               by = c("Comunidades_autonomas", "Sexo"))
+
+comparacion_datos2
 
 #view(comparacion_datos2)
 
@@ -375,7 +373,7 @@ comparacion_nocons_ej_hombres
 
 
 comparacion_porcentajes <- consumo_global  %>%
-  left_join(realizacion_ejercicio_por_comunidad,by =c("Comunidades_autonomas" = "comunidades_autonomas") )
+  left_join(porcentaje_realizacion_ejercicio_por_comunidad,by =c("Comunidades_autonomas" = "comunidades_autonomas") )
 
 comparacion_porcentajes 
 

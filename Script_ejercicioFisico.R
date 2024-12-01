@@ -10,7 +10,7 @@ install.packages("plotly")
 library(plotly)
 
 ejercicioFisico <- fromJSON(file = "INPUT/DATA/Ejercicio_fisico.json")
-
+  
 ejercicioFisico
 
 tiposEjercicioFisico_visiongeneral<-ejercicioFisico%>% 
