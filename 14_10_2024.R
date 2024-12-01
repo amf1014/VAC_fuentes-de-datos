@@ -332,7 +332,7 @@ Porcentajes_alcohol_fila<- consumo_alcohol10 %>%
  
 
  #PREGUNTA NÚMERO 3 
-frecuenciaNadaYMaxEjercicioComunidad 
+
 
 frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
   pivot_wider(names_from =Frecuencia_de_ejercicio,values_from = Porcentaje)
@@ -341,48 +341,39 @@ frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
 comparacion_datos <- full_join(x=consumo_alcohol10,y=frecuenciaNadaYMaxEjercicioComunidad2,
                                by = c("Comunidades_autonomas", "Sexo"))
 
-view(comparacion_datos)
-comparacion_datos
 
-comparacion_datos2<-full_join(x=Porcentajes_alcohol_fila,y=ExtremosUnionFinal,
-                              by = c("Comunidades_autonomas", "Sexo"))
+#comparacion consumo con no ejercicio
 
-comparacion_datos2
-
-#view(comparacion_datos2)
-
-comparacion_cons_ej_mujeres<-consumo_global %>%
-  left_join(ejercicioMujeres,by = "Comunidades_autonomas")
+comparacion_cons_no_ej_mujeres<-consumo_global %>%
+  left_join(ejercicioMujeresNinguno ,by = "Comunidades_autonomas")
 
 comparacion_cons_ej_mujeres
 
-comparacion_cons_ej_hombres<-consumo_global %>%
+#comparacion no consumo con ejercicio
+comparacion_no_cons_ej_mujeres<-consumo_global %>%
+  left_join(ejercicioMujeresEjercicio ,by = "Comunidades_autonomas")
+
+
+
+comparacion_cons_no_ej_hombres<-consumo_global %>%
+  left_join(ejercicioHombresNinguno,by = "Comunidades_autonomas")
+
+
+comparacion_no_cons_ej_hombres<-consumo_global %>%
+  left_join(ejercicioHombresEjercicio,by = "Comunidades_autonomas")
+
+
+comparacion_cons_no_ej_ambos_sexos<-consumo_global %>%
   left_join(ejercicioHombres,by = "Comunidades_autonomas")
 
-comparacion_cons_ej_hombres
-
-comparacion_nocons_ej_mujeres<-no_consumo_mujeres %>%
-  left_join(ejercicioMujeres, by = "Comunidades_autonomas")
-
-comparacion_nocons_ej_mujeres
-
-comparacion_nocons_ej_hombres<-no_consumo_hombres %>%
-  left_join(ejercicioHombres, by = "Comunidades_autonomas")
-
-comparacion_nocons_ej_hombres
+comparacion_no_cons_ej_ambos_sexos<-consumo_global %>%
+  left_join(ejercicioHombres,by = "Comunidades_autonomas")
 
 
-comparacion_porcentajes <- consumo_global  %>%
-  left_join(porcentaje_realizacion_ejercicio_por_comunidad,by =c("Comunidades_autonomas" = "comunidades_autonomas") )
 
-comparacion_porcentajes 
 
-comparacion_no_porcentajes <- no_consumo_global %>%
-  left_join(nada_ejercicio_por_comunidad,by =c("Comunidades_autonomas" = "comunidades_autonomas") )
-  
-comparacion_no_porcentajes
 
-ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_consumo)) +
+ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_no_consumo)) +
   geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE, color = "blue") +
   labs(
@@ -394,7 +385,7 @@ ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_consumo)
 
 
 
-ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_no_consumo)) +
+ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_consumo)) +
   geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE, color = "red") +
   labs(
@@ -405,37 +396,6 @@ ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_no_consumo)) +
   )
 
 
-
-comparacion_porcentajes_alargado <- comparacion_porcentajes %>%
-  select(Comunidades_autonomas, Porcentaje_global_consumo, ejercicio_medio_comunidad) %>%
-  pivot_longer(
-    cols = c(Porcentaje_global_consumo, ejercicio_medio_comunidad),
-    names_to = "Tipo",
-    values_to = "Porcentaje"
-  )
-
-comparacion_porcentajes_alargado
-
-#mirar valores NA
-
-ggplot(comparacion_porcentajes_alargado, aes(
-  x = reorder(Comunidades_autonomas, Porcentaje),
-  y = Porcentaje,
-  fill = Tipo
-)) +
-  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
-  labs(
-    title = "Comparación entre Consumo de Alcohol y Realización de Ejercicio",
-    x = "Comunidades Autónomas",
-    y = "Porcentaje",
-    fill = "Indicador"
-  ) +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),
-    legend.position = "top"
-  )
-
-  
 
 
 
