@@ -737,7 +737,7 @@ consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
 
 consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
 consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
-view(consumo_alcohol10)
+
 
 #Gráficas de España
 census_2 <- mapSpain::pobmun19
@@ -1460,7 +1460,243 @@ mapas_ejercicio_por_sexos <- mapa_ejecicio_mujeres + mapa_ejecicio_hombres
 mapas_ejercicio_por_sexos
 
 #Relaciones
-##Relación con consumo de alcohol
+##Relación suicidio con consumo de alcohol
+suicidio_global_mujeres <- suicidio_global %>%
+  left_join(suicidio_mujeres, by = "comunidades_autonomas")
+
+suicidio_final <- suicidio_global_mujeres %>%
+  left_join(suicidio_hombres, by = "comunidades_autonomas")
+
+suicidio_alcohol <- suicidio_final %>%
+  left_join(consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol2 <- suicidio_alcohol %>%
+  left_join(consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol3 <- suicidio_alcohol2 %>%
+  left_join(consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+ no_consumo_global <- consumo_alcohol10 %>%
+   filter(Sexo == "Ambos sexos") %>%
+   group_by(Comunidades_autonomas)%>%
+   summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+ 
+ no_consumo_mujeres <- consumo_alcohol10 %>%
+   filter(Sexo == "Mujeres") %>%
+   group_by(Comunidades_autonomas) %>%
+   summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+ 
+ no_consumo_hombres <- consumo_alcohol10 %>%
+   filter(Sexo == "Hombres") %>%
+   group_by(Comunidades_autonomas)%>%
+   summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+suicidio_alcohol4 <- suicidio_alcohol3 %>%
+  left_join(no_consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol5 <- suicidio_alcohol4 %>%
+  left_join(no_consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol_final <- suicidio_alcohol5 %>%
+  left_join(no_consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+
+suicidio_alcohol_final_2 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_global_suicidios, Porcentaje_global_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+
+grafica_suicidio_alcohol_global_barras <- 
+  ggplot(suicidio_alcohol_final_2, aes(x = comunidades_autonomas, y = porcentaje))+
+  geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ tipo_de_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre suicidios y consumo de alcohol",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_suicidio_alcohol_global_barras
+
+grafica_suicidio_alcohol_global_puntos <- 
+  ggplot(suicidio_alcohol_final, aes(x = porcentaje_global_suicidios, y = Porcentaje_global_consumo))+
+  geom_point(aes(color = comunidades_autonomas), size = 3, alpha = 0.7)+
+  geom_smooth(method = "lm", se = TRUE, color = "blue")+
+  labs(
+    title = "Relación entre suicidios y consumo de alcohol",
+    x = "Porcentaje_global_suicidios",
+    y = "Porcentaje_global_consumo"
+  )+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+ggplotly(grafica_suicidio_alcohol_global_puntos)
+
+
+suicidio_alcohol_final_3 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_mujeres_suicidios, Porcentaje_mujeres_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+
+grafica_suicidio_alcohol_mujeres_barras <- 
+  ggplot(suicidio_alcohol_final_3, aes(x = comunidades_autonomas, y = porcentaje))+
+  geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ tipo_de_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre suicidios y consumo de alcohol en mujeres",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_suicidio_alcohol_mujeres_barras
+
+grafica_suicidio_alcohol_mujeres_puntos <- 
+  ggplot(suicidio_alcohol_final, aes(x = porcentaje_mujeres_suicidios, y = Porcentaje_mujeres_consumo))+
+  geom_point(aes(color = comunidades_autonomas), size = 3, alpha = 0.7)+
+  geom_smooth(method = "lm", se = TRUE, color = "blue")+
+  labs(
+    title = "Relación entre suicidios y consumo de alcohol en mujeres",
+    x = "Porcentaje_global_suicidios",
+    y = "Porcentaje_global_consumo"
+  )+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+ggplotly(grafica_suicidio_alcohol_mujeres_puntos)
+
+suicidio_alcohol_final_4 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_hombres_suicidios, Porcentaje_hombres_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+
+grafica_suicidio_alcohol_hombres_barras <- 
+  ggplot(suicidio_alcohol_final_4, aes(x = comunidades_autonomas, y = porcentaje))+
+  geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ tipo_de_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre suicidios y consumo de alcohol en hombres",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_suicidio_alcohol_hombres_barras
+
+grafica_suicidio_alcohol_hombres_puntos <- 
+  ggplot(suicidio_alcohol_final, aes(x = porcentaje_hombres_suicidios, y = Porcentaje_hombres_consumo))+
+  geom_point(aes(color = comunidades_autonomas), size = 3, alpha = 0.7)+
+  geom_smooth(method = "lm", se = TRUE, color = "blue")+
+  labs(
+    title = "Relación entre suicidios y consumo de alcohol en hombres",
+    x = "Porcentaje_global_suicidios",
+    y = "Porcentaje_global_consumo"
+  )+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+ggplotly(grafica_suicidio_alcohol_hombres_puntos)
+
+
+#Guardo los gráficos
+
+ggsave(
+  filename = "Suicidio_alcohol_global_barras.jpeg",
+  plot = grafica_suicidio_alcohol_global_barras ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_alcohol_global_puntos.jpeg",
+  plot = grafica_suicidio_alcohol_global_puntos ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_alcohol_mujeres_barras.jpeg",
+  plot = grafica_suicidio_alcohol_mujeres_barras ,
+  path = "OUTPUT/Figures",
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_alcohol_mujeres_puntos.jpeg",
+  plot = grafica_suicidio_alcohol_mujeres_puntos ,
+  path = "OUTPUT/Figures",
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_alcohol_hombres_barras.jpeg",
+  plot = grafica_suicidio_alcohol_hombres_barras ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_alcohol_hombres_puntos.jpeg",
+  plot = grafica_suicidio_alcohol_hombres_puntos ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_sexo_comunidad.jpeg",
+  plot = graf_suicidio_por_sexo_comunidad ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_comunidad.jpeg",
+  plot = graf_suicidio_por_comunidad ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
+ggsave(
+  filename = "Suicidio_por_sexo.jpeg",
+  plot = graf_suicidio_por_sexo ,
+  path = "OUTPUT/Figures", 
+  scale = 0.5,
+  width = 40,
+  height = 20,
+  units = "cm",
+  dpi = 320
+)
+
 
 
 
@@ -1531,7 +1767,7 @@ grafica_consumo_no_ej_ambos_sexos <-
        y = "Comunidades autónomas")+
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
-
+grafica_consumo_no_ej_ambos_sexos
 ggsave(
   filename = "grafica_consumo_no_ej_ambos_sexos.jpeg",
   plot = grafica_consumo_no_ej_ambos_sexos ,
@@ -1568,7 +1804,7 @@ grafica_no_consumo_ej_ambos_sexos <-
        y = "Comunidades autónomas")+
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
-
+grafica_no_consumo_ej_ambos_sexos
 ggsave(
   filename = "ggrafica_no_consumo_ej_ambos_sexos.jpeg",
   plot = grafica_no_consumo_ej_ambos_sexos ,
@@ -1590,7 +1826,7 @@ Grafica_ejercicio_no_consumo_puntos<-ggplot(comparacion_datos, aes(x = `7 días 
     y = "Porcentaje de Consumo de Alcohol",
     color = "Sexo"
   ) 
-
+Grafica_ejercicio_no_consumo_puntos
 
 
 Grafica_no_ejercicio_consumo_puntos<-ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_consumo)) +
@@ -1602,7 +1838,7 @@ Grafica_no_ejercicio_consumo_puntos<-ggplot(comparacion_datos, aes(x = Ninguno, 
     y = "Porcentaje de No Consumo de Alcohol",
     color = "Sexo"
   )
-
+Grafica_no_ejercicio_consumo_puntos
 ggsave(
   filename = "Grafica ejercicio y no consumo puntos.jpeg",
   plot = Grafica_ejercicio_no_consumo_puntos ,
