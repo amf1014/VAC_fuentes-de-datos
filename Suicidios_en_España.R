@@ -366,7 +366,7 @@ grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombr
 grafico_suicidio_por_sexos
 
 ggsave(
-  filename = "Suicidio_global_mapa.jpeg",
+  filename = "Suicidio_global_mapa.png",
   plot = grafico_suicidio_global ,
   path = "OUTPUT/Figures", 
   scale = 0.5,

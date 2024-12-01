@@ -64,62 +64,62 @@ Una vez analizado por separado cada conjunto de datos, pasamos a observar si hay
 A lo largo del seminario utilizamos varios paquetes:
 
 1. El paquete "dplyr" para manipulación de datos, filtra, ordena, agrupa y resume datos:
-```{r, eval = TRUE, message = FALSE}
-install.packages("dplyr")
+```{r, eval = TRUE, message = FALSE, warning = FALSE}
+#install.packages("dplyr") así es como lo hemos instalado.
 library(dplyr)
 ```
 
 2. El paquete "tidyverse" para análisis de datos, importa, limpia, transforma, visualiza y modela datos:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("tidyverse")
+#install.packages("tidyverse") así es como lo hemos instalado.
 library(tidyverse)
 ```
 
 3. El paquere "rjson" para leer y escribir datos en formato JSON:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("rjson")
+#install.packages("rjson") así es como lo hemos instalado.
 library(rjson)
 ```
 
 4. El paquete "tidyjson" para manipular datos JSON en formatp tidy:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("tidyjson")
+#install.packages("tidyjson") así es como lo hemos instalado.
 library(tidyjson)
 ```
 
 5. El paquete "ggplot2" para visualizar datos, en formato de gráfico.
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("ggplot2")
+#install.packages("ggplot2") así es como lo hemos instalado.
 library(ggplot2)
 ```
 
 6. El paquete "mapSpain" para visualizar un gráfico con mapa específico de España:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("mapSpain")
+#install.packages("mapSpain") así es como lo hemos instalado.
 library(mapSpain)
 ```
 
 7. El paquete "sf" para manejar datos espaciales:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("sf")
+#install.packages("sf") así es como lo hemos instalado.
 library(sf)
 ```
 
 8. El paquete "patchwork" para combinar varios gráficos en una sola salida:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("patchwork")
+#install.packages("patchwork") así es como lo hemos instalado.
 library(patchwork)
 ```
 
 9. El paquete "DT" para crear tablas interactivas:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("DT")
+#install.packages("DT") así es como lo hemos instalado.
 library(DT)
 ```
 
 10. El paquete "plotly" para visualización interactiva de gráficos:
 ```{r, eval = TRUE, message = FALSE, warning = FALSE}
-install.packages("plotly")
+#install.packages("plotly") así es como lo hemos instalado.
 library(plotly)
 ```
 
@@ -325,6 +325,71 @@ suicidio10 <- suicidio10 %>% slice(1:60)
 datatable(suicidio10, options = list(pageLength = 10))
 ```
 
+También vamos a añadir el código necesario, para la creación de lo mapas de España:
+```{r, eval = TRUE}
+census <- mapSpain::pobmun19
+
+codelist <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
+
+census_ccaa <- census %>%
+  left_join(codelist) %>%
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(census_ccaa)
+can <- esp_get_can_box()
+
+
+suicidio10 <- suicidio10 %>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+suicidio_global <- suicidio10 %>%
+  filter(sexo == "Ambos sexos") %>%
+  group_by(comunidades_autonomas)%>%
+  summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
+
+suicidio_mujeres <- suicidio10 %>%
+  filter(sexo == "Mujeres") %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(
+    porcentaje_mujeres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE)
+    )
+
+suicidio_hombres <- suicidio10 %>%
+  filter(sexo == "Hombres") %>%
+  group_by(comunidades_autonomas)%>%
+  summarize(porcentaje_hombres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(suicidio_mujeres$comunidades_autonomas))
+
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sm <- esp_get_ccaa() %>%
+  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sg <- esp_get_ccaa() %>%
+  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+```
+
 #### Formateo de datos del conjunto de datos del consumo de alcohol:
 
 ```{r, eval = TRUE}
@@ -360,20 +425,19 @@ consumo_alcohol3 <- consumo_alcohol1 %>%
               select(c("document.id","Nombre")),
             by = c("document.id"))
 
-#view(consumo_alcohol3)
-
 consumo_alcohol4 <- consumo_alcohol3 %>%
   mutate(
-    sexo = case_when(
+    Sexo = case_when(
       Nombre == "Ambos sexos" ~ "Ambos sexos",
       Nombre == "Hombres" ~ "Hombres",
       Nombre == "Mujeres" ~ "Mujeres",
       TRUE ~ as.character(NA)
     )
   )
+
 consumo_alcohol5 <- consumo_alcohol4 %>%
   mutate(
-    comunidades_autonomas = case_when(
+    Comunidades_autonomas = case_when(
       Nombre == "Total" ~ "Total Nacional",
       Nombre == "Andalucía" ~ "Andalucía",
       Nombre == "Aragón" ~ "Aragón",
@@ -400,24 +464,131 @@ consumo_alcohol5 <- consumo_alcohol4 %>%
 
 consumo_alcohol6 <- consumo_alcohol5 %>%
   mutate(
-    años = case_when(
-      Nombre == "TOTAL" ~ "Total consumido",
-      Nombre == "Si ha consumido" ~ "Si ha consumido",
-      Nombre == "No ha consumido" ~ "No ha consumido",
-      Nombre == "No consta" ~ "No consta",
+    Consumido = case_when(
+      Nombre == "TOTAL" ~ "Total_personas_encuestadas",
+      Nombre == "Sí ha consumido" ~ "Si_ha_consumido",
+      Nombre == "No ha consumido" ~ "No_ha_consumido",
+      Nombre == "No consta" ~ "No_consta",
       TRUE ~ as.character(NA)
     )
   )
-head(consumo_alcohol6)
 
 consumo_alcohol7 <- 
   as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
 
-head(consumo_alcohol7)
+consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
 
-consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3)]
+consumo_alcohol8<-consumo_alcohol7%>%
+  pivot_wider(names_from = Consumido, values_from = Valor)
+
+consumo_alcohol8 <- 
+  as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
+
+consumo_alcohol8 <-consumo_alcohol8%>%
+  mutate(
+    `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
+    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`),
+    `No_ha_consumido` = as.numeric(`No_ha_consumido`)
+  )
+
+consumo_alcohol9 <- consumo_alcohol8 %>%
+  mutate(
+    Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
+
+consumo_alcohol10 <- consumo_alcohol9 %>%
+  mutate(
+    Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
+
+consumo_alcohol10 <- consumo_alcohol10[, -2]
+
+consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
+consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
+
+datatable(consumo_alcohol10,options = list(pageLength = 10))
+```
+
+En este caso, añadimos también el código necesario para la creación de los mapas de España:
+
+```{r, echo = FALSE}
+census_2 <- mapSpain::pobmun19
+
+codelist_2 <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
+
+census_ccaa_2 <- census_2 %>%
+  left_join(codelist_2) %>%
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf_2 <- esp_get_ccaa() %>%
+  left_join(census_ccaa_2)
+can_2 <- esp_get_can_box()
+
+consumo_alcohol10 <- consumo_alcohol10 %>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+no_consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+ 
+no_consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+levels(factor(ccaa_sf_2$ine.ccaa.name))
+levels(factor(consumo_mujeres$Comunidades_autonomas))
+
+ccaa_sf_2 <- esp_get_ccaa() %>%
+  left_join(consumo_mujeres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+ccaa_sm_2 <- esp_get_ccaa() %>%
+  left_join(consumo_hombres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+ccaa_sg_2 <- esp_get_ccaa() %>%
+  left_join(consumo_global, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
 
 ```
+
 
 #### Formateo de datos del conjunto de datos de ejercicio físico:
 
@@ -535,6 +706,51 @@ duplicated(totalPersonasComunidad)
 ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades autonomas")
 ```
 
+### Formateo de datos para relacionar suicidio y consumo de alcohol.
+
+```{r, eval = TRUE}
+suicidio_global_mujeres <- suicidio_global %>%
+  left_join(suicidio_mujeres, by = "comunidades_autonomas")
+
+suicidio_final <- suicidio_global_mujeres %>%
+  left_join(suicidio_hombres, by = "comunidades_autonomas")
+
+suicidio_alcohol <- suicidio_final %>%
+  left_join(consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol2 <- suicidio_alcohol %>%
+  left_join(consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol3 <- suicidio_alcohol2 %>%
+  left_join(consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol4 <- suicidio_alcohol3 %>%
+  left_join(no_consumo_global, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol5 <- suicidio_alcohol4 %>%
+  left_join(no_consumo_mujeres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+suicidio_alcohol_final <- suicidio_alcohol5 %>%
+  left_join(no_consumo_hombres, by = c("comunidades_autonomas" = "Comunidades_autonomas"))
+
+
+suicidio_alcohol_final_2 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_global_suicidios, Porcentaje_global_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+
+suicidio_alcohol_final_3 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_mujeres_suicidios, Porcentaje_mujeres_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+
+suicidio_alcohol_final_4 <- suicidio_alcohol_final %>%
+  pivot_longer(cols = c(porcentaje_hombres_suicidios, Porcentaje_hombres_consumo),
+               names_to = "tipo_de_porcentaje",
+               values_to = "porcentaje")
+```
+
+
 ### Análisis de datos
 
 Una vez formateados los datos, pasamos a analizarlos:
@@ -560,87 +776,21 @@ suicidio_por_sexo_comunidad <- suicidio7 %>%
 
 ```
 
-También vamos a añadir el código necesario, para la creación de lo mapas de España:
-```{r, eval = TRUE}
-census <- mapSpain::pobmun19
 
-codelist <- mapSpain::esp_codelist %>%
-  select(cpro, codauto) %>%
-  distinct()
-
-census_ccaa <- census %>%
-  left_join(codelist) %>%
-  group_by(codauto) %>%
-  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
-  mutate(
-    porc_women = women / pob19,
-    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
-  )
-ccaa_sf <- esp_get_ccaa() %>%
-  left_join(census_ccaa)
-can <- esp_get_can_box()
-
-
-suicidio10 <- suicidio10 %>%
-  mutate(comunidades_autonomas = case_when(
-    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
-    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
-    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
-    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
-    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
-    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
-    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
-    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
-    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
-    TRUE ~ comunidades_autonomas
-  ))
-
-suicidio_global <- suicidio10 %>%
-  filter(sexo == "Ambos sexos") %>%
-  group_by(comunidades_autonomas)%>%
-  summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
-
-suicidio_mujeres <- suicidio10 %>%
-  filter(sexo == "Mujeres") %>%
-  group_by(comunidades_autonomas) %>%
-  summarize(
-    porcentaje_mujeres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE)
-    )
-
-suicidio_hombres <- suicidio10 %>%
-  filter(sexo == "Hombres") %>%
-  group_by(comunidades_autonomas)%>%
-  summarize(porcentaje_hombres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
-
-levels(factor(ccaa_sf$ine.ccaa.name))
-levels(factor(suicidio_mujeres$comunidades_autonomas))
-
-ccaa_sf <- esp_get_ccaa() %>%
-  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-
-ccaa_sm <- esp_get_ccaa() %>%
-  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-
-ccaa_sg <- esp_get_ccaa() %>%
-  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-```
 
 #### Para el conjunto de datos de consumo de alcohol:
 ```{r, eval = TRUE}
-consumo_por_sexo<- consumo_alcohol7 %>%
-  group_by(sexo) %>%
-  summarize(consumo_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
+consumo_por_sexo <- consumo_alcohol10 %>%
+  group_by(Sexo) %>%
+  summarize(consumo_medio_sexo = mean(Porcentaje_consumo, na.rm = TRUE)) 
 
+consumo_por_comunidad <- consumo_alcohol10 %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(consumo_medio_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
 
-consumo_por_comunidad <- consumo_alcohol7 %>%
-  group_by(comunidades_autonomas) %>%
-  summarize(consumo_medio_comunidad = mean(as.numeric(Valor), na.rm = TRUE))
-
-
-consumo_por_sexo_comunidad <- consumo_alcohol7 %>%
-  group_by(sexo, comunidades_autonomas) %>%
-  summarize(consumo_medio_sexo_comunidad = mean(as.numeric(Valor), na.rm = TRUE))
-
+consumo_por_sexo_comunidad <- consumo_alcohol10 %>%
+  group_by(Sexo, Comunidades_autonomas) %>%
+  summarize(consumo_medio_sexo_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
 ```
 
 #### Para el conjunto de datos de ejercicio físico:
@@ -718,6 +868,8 @@ graf_suicidio_por_sexo <- ggplot(suicidio_por_sexo, aes(x = reorder(sexo, suicid
   labs(title = "Suicidio Medio por sexo", x = "Sexo", y = "Suicidio Medio (unidades)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+graf_suicidio_por_sexo
 ```
 
 ```{r, echo = FALSE}
@@ -726,6 +878,8 @@ graf_suicidio_por_comunidad <- ggplot(suicidio_por_comunidad, aes(x = reorder(co
   labs(title = "Suicidio Medio por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Suicidio Medio (unidades)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+graf_suicidio_por_comunidad
 ```
 
 ```{r, echo = FALSE}
@@ -734,28 +888,16 @@ graf_suicidio_por_sexo_comunidad <- ggplot(suicidio_por_sexo_comunidad, mapping 
   labs(title = "Suicidio medio por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Suicidio Medio (unidades)") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+graf_suicidio_por_sexo_comunidad
 ```
 
 Para ver esto mucho más claro, hemos hecho estos gráficos con el mapa de españa:
 
 Para ambos sexos:
 
-```{r, echo = FALSE}
-grafico_suicidio_global <- ggplot(ccaa_sg) +
-  geom_sf(aes(fill = porcentaje_global_suicidios), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_global_suicidios, 4)),
-                fill = "white", alpha = 0.5,
-                size = 3, label.size = 0
-  ) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "Greens", rev = TRUE),
-    n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Global Suicidios", position = "inside")
-  ) +
-  theme_void() +
-  theme(legend.position = c(0.1, 0.6))
-```
+![Suicidios global](OUTPUT/FIGURES/Suicidio_global_mapa.png)
+
 
 Para poder diferenciar en hombres y mujeres:
 
@@ -791,6 +933,8 @@ grafico_suicidios_hombres <- ggplot(ccaa_sm) +
   theme(legend.position = c(0.1, 0.6))
 
 grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombres
+
+grafico_suicidio_por_sexos
 ```
 
 #### Conclusión
@@ -801,11 +945,27 @@ La conclusión que podemos sacar sobre esto es
 ### Consumo de alcohol en relación con comunidades autónomas y sexo.
 
 ```{r, echo = FALSE}
-ggplot(consumo_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = consumo_medio_sexo_comunidad,fill = sexo)) +
-  geom_bar(stat = "identity",position = position_dodge()) +
-  labs(title = "Consumo Medio de Alcohol por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Consumo Medio (unidades)") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+Grafica_consumo_por_sexo<-ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_medio_sexo, fill = Sexo)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (%)")
+
+Grafica_consumo_por_sexo
+```
+
+```{r, echo = FALSE}
+Grafica_consumo_por_comunidad<-ggplot(consumo_por_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_comunidad), y = consumo_medio_comunidad, fill = Comunidades_autonomas)) +
+  geom_bar(stat = "identity", show.legend = FALSE) + 
+  labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Porcentaje Medio de Consumo") +theme_minimal() +theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+Grafica_consumo_por_comunidad
+```
+
+```{r, echo = FALSE}
+Grafica_consumo_por_comunidad_y_sexo<-ggplot(consumo_por_sexo_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_sexo_comunidad), y = consumo_medio_sexo_comunidad, fill = Sexo)) +
+  geom_bar(stat = "identity", position = position_dodge()) + 
+  labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+Grafica_consumo_por_comunidad_y_sexo
 ```
 
 ### Realización de ejercicio en relación con comunidades autónomas y sexo.
@@ -824,6 +984,8 @@ grafica_suicidio_alcohol_global_barras <-
         y = "Comunidades autónomas")+
    theme_minimal()+
    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_suicidio_alcohol_global_barras
 ```
 
 ```{r, echo = FALSE}
@@ -854,6 +1016,8 @@ grafica_suicidio_alcohol_mujeres_barras <-
        y = "Comunidades autónomas")+
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_suicidio_alcohol_mujeres_barras
 ```
 
 ```{r, echo = FALSE}
@@ -884,6 +1048,8 @@ grafica_suicidio_alcohol_hombres_barras <-
        y = "Comunidades autónomas")+
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_suicidio_alcohol_hombres_barras
 ```
 
 ```{r, echo = FALSE}
@@ -901,3 +1067,5 @@ grafica_suicidio_alcohol_hombres_puntos <-
 
 ggplotly(grafica_suicidio_alcohol_hombres_puntos)
 ```
+
+#### Conclusión
