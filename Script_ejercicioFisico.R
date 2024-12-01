@@ -5,6 +5,9 @@ library(tidyverse)
 library(rjson)
 library(tidyjson)
 
+#DOTPLOT
+install.packages("plotly")
+library(plotly)
 
 
 ejercicioFisico <- fromJSON(file = "INPUT/DATA/Ejercicio_fisico.json")
@@ -257,8 +260,7 @@ ComparacionNadaYMaxEjercicio
 
 #Eliminación de la fila Total Nacional y todas las de ambos sexos
 ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio %>%
-  filter(Comunidades_autonomas!="Total Nacional")%>%
-  filter(Sexo!="Ambos sexos")
+  filter(Comunidades_autonomas!="Total Nacional")
 
 ggplot(ComparacionNadaYMaxEjercicio, aes(Comunidades_autonomas, `Porcentaje nada y máximo ejercicio`, fill=Sexo))+
   geom_bar(stat="identity", position = position_dodge())+
@@ -356,6 +358,12 @@ ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje,fill=Sexo))+
   labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos ejercicio físico")+
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+
+
+
+
+
 
 ##COMPARACIÓN EJERCICIO FÍSICO CON SUICIDIOS
 
@@ -490,6 +498,12 @@ ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad 
   theme_minimal() +
   geom_smooth(method = "loess", se = TRUE, aes(group = 1)) 
 
+
+
+
+
+
+
 ExtremosUnionFinal
 nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
   mutate(comunidades_autonomas = case_when(
@@ -558,6 +572,56 @@ frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
 frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
   rename(Comunidades_autonomas=comunidades_autonomas)
   
+ejercicioMujeres <- ejercicioMujeres%>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+ejercicioMujeresNinguno <- ejercicioMujeres%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")%>%
+  select(-Frecuencia_de_ejercicio)%>%
+  rename(Ninguno = Porcentaje)
+
+ejercicioMujeresEjercicio <- ejercicioMujeres%>%
+  filter(Frecuencia_de_ejercicio!="Ninguno")%>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+  
+  
+ejercicioHombres <- ejercicioHombres%>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+ejercicioHombresNinguno <- ejercicioHombres%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")%>%
+  select(-Frecuencia_de_ejercicio)%>%
+  rename(Ninguno = Porcentaje)
+
+ejercicioHombresEjercicio <- ejercicioHombres%>%
+  filter(Frecuencia_de_ejercicio!="Ninguno")%>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+
+
 
 
 ##MAPAS
