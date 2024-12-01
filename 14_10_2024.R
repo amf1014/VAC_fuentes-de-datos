@@ -483,7 +483,7 @@ Grafica_ejercicio_no_consumo_puntos<-ggplot(comparacion_datos, aes(x = `7 días 
   labs(
     title = "Relación entre Porcentaje de Consumo de Alcohol y Ejercicio Físico (7 días a la semana)",
     x = "Porcentaje de Ejercicio (7 días a la semana)",
-    y = "Porcentaje de Consumo de Alcohol",
+    y = "Porcentaje de  no Consumo de Alcohol",
     color = "Sexo"
   ) 
 
@@ -493,9 +493,9 @@ Grafica_no_ejercicio_consumo_puntos<-ggplot(comparacion_datos, aes(x = Ninguno, 
   geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE, color = "red") +
   labs(
-    title = "Relación entre Porcentaje de No Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
+    title = "Relación entre Porcentaje de Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
     x = "Porcentaje de Falta de Ejercicio (Ninguno)",
-    y = "Porcentaje de No Consumo de Alcohol",
+    y = "Porcentaje de Consumo de Alcohol",
     color = "Sexo"
   )
 
