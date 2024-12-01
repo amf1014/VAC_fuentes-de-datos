@@ -332,16 +332,16 @@ Porcentajes_alcohol_fila<- consumo_alcohol10 %>%
  
 
  #PREGUNTA NÚMERO 3 
+frecuenciaNadaYMaxEjercicioComunidad 
 
-ExtremosUnionFinal2<-ExtremosUnionFinal %>%
-  pivot_wider(names_from =FrecuenciasExtremo,values_from = Porcentaje)
+frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
+  pivot_wider(names_from =Frecuencia_de_ejercicio,values_from = Porcentaje)
 
-View(ExtremosUnionFinal2)
 
-comparacion_datos <- full_join(x=consumo_alcohol10,y=ExtremosUnionFinal2,
+comparacion_datos <- full_join(x=consumo_alcohol10,y=frecuenciaNadaYMaxEjercicioComunidad2,
                                by = c("Comunidades_autonomas", "Sexo"))
 
-#view(comparacion_datos)
+view(comparacion_datos)
 comparacion_datos
 
 comparacion_datos2<-full_join(x=Porcentajes_alcohol_fila,y=ExtremosUnionFinal,

@@ -534,6 +534,10 @@ ejercicioMinimoUnaVez <- ejercicioMinimoUnaVez%>%
   ))
 
 
+frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  mutate(Porcentaje = Ratio * 100) %>%
+  select(-Ratio,-NadaMax)%>%
+  rename(comunidades_autonomas=Comunidades_autonomas)
 
 frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
   mutate(comunidades_autonomas = case_when(
@@ -546,12 +550,14 @@ frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
     comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
     comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
     comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    comunidades_autonomas == "Total Nacional" ~ "Total nacional",
     TRUE ~ comunidades_autonomas
   ))
 
+
 frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
-  mutate(Porcentaje = Ratio * 100) %>%
-  select(-Ratio,-NadaMax)
+  rename(Comunidades_autonomas=comunidades_autonomas)
+  
 
 
 ##MAPAS
