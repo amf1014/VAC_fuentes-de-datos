@@ -481,25 +481,41 @@ grafico_interactivo_comunidad_ejercicio_suicidio <- ggplotly(grafico_comunidad_e
 grafico_interactivo_comunidad_ejercicio_suicidio
 
 #Realización nada ejercicio físico frente a suicidio por comunidades 
+suicidio_por_comunidad_cambiado <- suicidio_por_comunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
 
-nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+
+nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad_cambiado, by = "comunidades_autonomas")%>%
   filter(comunidades_autonomas!="Total nacional")%>%
   mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
-         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)+
-  theme(legend.position = "none")
+         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
 
 
-ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
-  geom_point(size = 3) +
+grafico_comunidad_nada_ejercicio_suicidio <- ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
+  geom_point(size = 1.5) +
   labs(title = "Relación de no realización de ejercicio y el suicidio",
        subtitle = "Se relaciona la no realización de ejercicio físico con el suicidio por comunidades autónomas",
        x = "Porcentaje de individuos medio que no realiza ejercicio físico ",
        y = "Porcentaje de suicidio medio",
        color = "Comunidades/Ciudades autónomas") +
   theme_minimal() +
-  geom_smooth(method = "loess", se = TRUE, aes(group = 1)) 
+  geom_smooth(method = "lm", se = TRUE, aes(group = 1)) 
 
 
+grafico_interactivo_comunidad_nada_ejercicio_suicidio <- ggplotly(grafico_comunidad_nada_ejercicio_suicidio)
+
+grafico_interactivo_comunidad_nada_ejercicio_suicidio
 
 
 
