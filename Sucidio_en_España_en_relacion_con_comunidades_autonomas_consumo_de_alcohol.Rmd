@@ -24,12 +24,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-## 1. INTRODUCCIÓN
+## 1. Introducción
 En España se estima que la tasa de suicidio es aproximadamente de un 13,9 por 100.000 hab/ año. Un número preocupante, pero ¿que motivos pueden llevar a dicha tragedia? 
 En este seminario vamos a tratar de encontrar relación entre el suicidio, el ejercicio físico y el consumo de alcohol.
 
 
-## 2. OBJETIVOS
+## 2. Objetivos
 En un primer lugar, vamos a observar y a intentar obtener información de cada conjunto de datos por separado. 
 
 Sobre el conjunto de datos sobre el suicidio, observamos las diferencias que hay en el número de suicidios según:
@@ -1347,8 +1347,10 @@ Para poder diferenciar en hombres y mujeres:
 
 #### Conclusión
 
-La conclusión que podemos sacar sobre esto es
+Las conclusiones que podemos sacar son, en primer lugar, que el porcentaje de suicidios medio es mayor en hombres, esto puede venir debido a que a los hombres se les inculca que deben poder solucionar sus problemas por ellos mismos, sin pedir ayuda. Además de que no deben expresar ni exteriorizar lo que sienten, lo que les puede llevar a profundas depresiones de las que no sepan salir.
 
+También se puede observar que la comunidad donde más suicidios hay es Asturias, esto puede ser debido a que, en Asturias, mucha gente vive en pueblos aislados, lo que lleva a un sentimiento de soledad que puede llevar a pensamientos suicidas. El suicidio entre jóvenes aumentó después del Covid-19, motivo que también puede influir.
+ 
 
 ### Consumo de alcohol en relación con comunidades autónomas y sexo.
 
@@ -1379,11 +1381,16 @@ Grafica_consumo_por_comunidad_y_sexo
 En este caso, también hemos realizado gráficos con el mapa de España:
 
 ![Consumo global](OUTPUT/FIGURES/Consumo_global.jpeg)
+
 Para poder diferenciar en hombres y mujeres:
 
 ![Consumo hombres y mujeres](OUTPUT/FIGURES/Consumo_por_sexos.jpeg)
+
 #### Conclusión
-La conclusión que podemos sacar es 
+
+A nivel de comunidad autónoma, se observa que los porcentajes mas grandes de consumo de alcohol se registran en Valencia, el País Vasco y Navarra. Esto podría deberse a factores como el turismo y una vida nocturna activa, características prominentes en estas regiones. Además, observamos que los hombres tienen un consumo medio de alcohol mayor que las mujeres.
+
+La diferencia de consumo entre sexos puede explicarse, en parte, por factores biológicos y psicológicos. En los hombres, el aumento en la liberación de dopamina está asociado con los efectos positivos subjetivos de la intoxicación por alcohol. Por otro lado, las mujeres producen menos alcohol-deshidrogenasa, lo que ralentiza la eliminación del alcohol en su organismo, haciéndolas más susceptibles a sus efectos. 
 
 ### Realización de ejercicio en relación con comunidades autónomas y sexo.
 
@@ -1543,7 +1550,15 @@ ggplotly(grafica_suicidio_alcohol_hombres_puntos)
 ```
 
 #### Conclusión
-La conclusión que podemos sacar es
+Un mayor consumo de alcohol puede estar relacionado con un mayor número de suicidios debido a que, a largo plazo el alcohol potencia las emociones negativas como la tristeza o la ira. También se puede relacionar con el impacto en la salud mental que el consumo de alcohol provoca, ya que puede provocar depresión y ansiedad entre otras, ambas, factores de riesgo del suicidio.
+
+El consumo de alcohol es mayor en hombres que en mujeres, lo que también puede justificar lo que anteriormente veíamos de que el suicidio era mayor en hombres. 
+Esto se debe a que los hombres generalmente toleran una mayor cantidad de alcohol, además de que socialmente se asocia el alcohol con la masculinidad
+.
+También puede deberse a que como los hombres evitan la ayuda emocional, por lo que para hacer frente a sus problemas recurren al alcohol.
+
+Por último decir, que el mayor consumo de alcohol en ciertas comunidades autónomas puede deberse a numerosos factores, como la celebración de festivos, el turismo, la cantidad de bares…
+
 
 ### Relación entre el suicidio y el ejercicio físico por comunidad autónoma y por sexo.
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -1591,6 +1606,7 @@ Con las conclusiones sacadas de diversas fuentes podemos determinar que el ejerc
 
 
 ### Relación entre el ejercicio físico y el consumo de alcohol por comunidad autónoma y por sexo.
+
 Para relacionar el consumo de alcohol con la no realización de ejercicio:
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -1654,16 +1670,49 @@ grafica_no_consumo_ej_ambos_sexos
 
 #### Conclusión
 
-##Bibliografía.
+Las gráficas de dispersión muestran la relación entre el porcentaje de personas que no consumen alcohol y el porcentaje de personas que realizan ejercicio físico de manera frecuente a lo largo de la semana, desglosado por sexo. Cada punto de las gráficas representa una comunidad autónoma.
 
-Ejercicio físico:
+1. Relación entre no consumo de alcohol y ejercicio físico regular:
+
+Existe una tendencia general que indica que, a medida que aumenta el porcentaje de personas que realizan ejercicio físico siete días a la semana, también aumenta el porcentaje de personas que no consumen alcohol. Sin embargo, esta relación no es consistente en todas las comunidades autónomas, lo que sugiere que factores adicionales, como aspectos culturales, sociales o económicos, pueden influir en esta correlación.
+
+Las mujeres tienden a presentar un mayor porcentaje de no consumo de alcohol en comparación con los hombres.
+
+2. Relación entre consumo de alcohol y falta de ejercicio físico:
+
+Se observa que, a medida que aumenta el porcentaje de personas que no hacen ejercicio, también tiende a incrementarse el porcentaje de consumo de alcohol. Esta tendencia también varía entre comunidades autónomas.
+
+Los hombres consumen más alcohol que las mujeres, lo cual coincide con las observaciones generales del análisis.
+
+3. Gráficas de barras por comunidad autónoma:
+
+En algunas comunidades autónomas, un mayor porcentaje de consumo de alcohol parece estar relacionado con un menor porcentaje de práctica de ejercicio físico. Sin embargo, esta correlación no es claramente consistente en todas las comunidades.
+
+En resumen, aunque se observa una relación general entre el consumo de alcohol y el ejercicio físico, esta no es uniforme en todas las comunidades autónomas. Esto refuerza la idea de que factores culturales, sociales y económicos desempeñan un papel importante en estas dinámicas.
+
+## Bibliografía.
+
 [Factores climáticos y actividad física en el norte de España](https://www.copemalaga.es/deportes/por-que-en-el-norte-de-espana-se-hace-mas-ejercicio-2021) 
-[INE: Encuesta de Condiciones de Vida 2022 sobre ejercicio físico](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176954&menu=ultiDatos&idp=1254735573175) [Eurobarómetro Deporte y Actividad Física 2022](https://www.fagde.org/eurobarometro-deporte-y-actividad-fisica-2022)
+
+[INE: Encuesta de Condiciones de Vida 2022 sobre ejercicio físico](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176954&menu=ultiDatos&idp=1254735573175) 
+[Eurobarómetro Deporte y Actividad Física 2022](https://www.fagde.org/eurobarometro-deporte-y-actividad-fisica-2022)
+
 [¿Por qué las mujeres hacen menos ejercicio que los hombres?](https://www.elsoldemexico.com.mx/sociedad/salud/por-que-las-mujeres-hacen-menos-ejercicio-que-los-hombres-6504264.html)
+
 [Hombres versus mujeres: beneficios para la salud con ejercicio](https://www.vitonica.com/salud/hombres-versus-mujeres-beneficios-salud-ejercicio)
 
-
-Ejercicio físico vs suicidio:
 [Relación entre el ejercicio y la salud mental - Revista Ocronos](https://revistamedica.com)
+
 [Impacto del sedentarismo en la salud mental - SciELO México](https://www.scielo.org.mx)
+
 [Beneficios psicológicos del ejercicio - Universidad de Chile](https://www.inta.uchile.cl)
+
+[Como afecta el alcohol a los hombres y las mujeres](https://fehv.org/afecta-igual-alcohol-hombres-mujeres/)
+
+[Consumo de alcohol en hombres](https://www.bbc.com/mundo/noticias/2010/10/101019_alcoholismo_hombres_men)
+
+[Población en España por comunidades y por sexo](https://es.statista.com/estadisticas/473637/poblacion-de-espana-por-genero-y-comunidad-autonoma/)
+
+[Mayor suicidio en hombres](https://ibero.mx/prensa/experta-explica-por-que-los-hombres-se-suicidan-mas-que-las-mujeres)
+
+[Mayor suicidio en Asturias](https://www.lavozdeasturias.es/noticia/asturias/2022/10/12/asturias-lidera-tasa-suicidios-principales-senales-advertencia/00031665596772858646395.htm)
