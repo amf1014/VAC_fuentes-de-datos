@@ -325,71 +325,6 @@ suicidio10 <- suicidio10 %>% slice(1:60)
 datatable(suicidio10, options = list(pageLength = 10))
 ```
 
-También vamos a añadir el código necesario, para la creación de lo mapas de España:
-```{r, eval = TRUE}
-census <- mapSpain::pobmun19
-
-codelist <- mapSpain::esp_codelist %>%
-  select(cpro, codauto) %>%
-  distinct()
-
-census_ccaa <- census %>%
-  left_join(codelist) %>%
-  group_by(codauto) %>%
-  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
-  mutate(
-    porc_women = women / pob19,
-    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
-  )
-ccaa_sf <- esp_get_ccaa() %>%
-  left_join(census_ccaa)
-can <- esp_get_can_box()
-
-
-suicidio10 <- suicidio10 %>%
-  mutate(comunidades_autonomas = case_when(
-    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
-    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
-    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
-    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
-    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
-    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
-    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
-    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
-    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
-    TRUE ~ comunidades_autonomas
-  ))
-
-suicidio_global <- suicidio10 %>%
-  filter(sexo == "Ambos sexos") %>%
-  group_by(comunidades_autonomas)%>%
-  summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
-
-suicidio_mujeres <- suicidio10 %>%
-  filter(sexo == "Mujeres") %>%
-  group_by(comunidades_autonomas) %>%
-  summarize(
-    porcentaje_mujeres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE)
-    )
-
-suicidio_hombres <- suicidio10 %>%
-  filter(sexo == "Hombres") %>%
-  group_by(comunidades_autonomas)%>%
-  summarize(porcentaje_hombres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
-
-levels(factor(ccaa_sf$ine.ccaa.name))
-levels(factor(suicidio_mujeres$comunidades_autonomas))
-
-ccaa_sf <- esp_get_ccaa() %>%
-  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-
-ccaa_sm <- esp_get_ccaa() %>%
-  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-
-ccaa_sg <- esp_get_ccaa() %>%
-  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-```
-
 #### Formateo de datos del conjunto de datos del consumo de alcohol:
 
 ```{r, eval = TRUE}
@@ -415,7 +350,7 @@ consumo_alcohol2<-consumo_alcohol %>%
   gather_array %>%
   spread_all %>%
   select("document.id", "Nombre")
-  
+
 consumo_alcohol2
 
 consumo_alcohol3 <- consumo_alcohol1 %>%
@@ -424,6 +359,7 @@ consumo_alcohol3 <- consumo_alcohol1 %>%
             y = consumo_alcohol2 %>%
               select(c("document.id","Nombre")),
             by = c("document.id"))
+
 
 consumo_alcohol4 <- consumo_alcohol3 %>%
   mutate(
@@ -434,7 +370,6 @@ consumo_alcohol4 <- consumo_alcohol3 %>%
       TRUE ~ as.character(NA)
     )
   )
-
 consumo_alcohol5 <- consumo_alcohol4 %>%
   mutate(
     Comunidades_autonomas = case_when(
@@ -472,123 +407,7 @@ consumo_alcohol6 <- consumo_alcohol5 %>%
       TRUE ~ as.character(NA)
     )
   )
-
-consumo_alcohol7 <- 
-  as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
-
-consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
-
-consumo_alcohol8<-consumo_alcohol7%>%
-  pivot_wider(names_from = Consumido, values_from = Valor)
-
-consumo_alcohol8 <- 
-  as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
-
-consumo_alcohol8 <-consumo_alcohol8%>%
-  mutate(
-    `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
-    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`),
-    `No_ha_consumido` = as.numeric(`No_ha_consumido`)
-  )
-
-consumo_alcohol9 <- consumo_alcohol8 %>%
-  mutate(
-    Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
-  )
-
-consumo_alcohol10 <- consumo_alcohol9 %>%
-  mutate(
-    Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
-  )
-
-consumo_alcohol10 <- consumo_alcohol10[, -2]
-
-consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
-consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
-
-datatable(consumo_alcohol10,options = list(pageLength = 10))
 ```
-
-En este caso, añadimos también el código necesario para la creación de los mapas de España:
-
-```{r, echo = FALSE}
-census_2 <- mapSpain::pobmun19
-
-codelist_2 <- mapSpain::esp_codelist %>%
-  select(cpro, codauto) %>%
-  distinct()
-
-census_ccaa_2 <- census_2 %>%
-  left_join(codelist_2) %>%
-  group_by(codauto) %>%
-  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
-  mutate(
-    porc_women = women / pob19,
-    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
-  )
-ccaa_sf_2 <- esp_get_ccaa() %>%
-  left_join(census_ccaa_2)
-can_2 <- esp_get_can_box()
-
-consumo_alcohol10 <- consumo_alcohol10 %>%
-  mutate(Comunidades_autonomas = case_when(
-    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
-    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
-    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
-    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
-    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
-    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
-    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
-    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
-    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
-    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
-    TRUE ~ Comunidades_autonomas
-  ))
-
-consumo_global <- consumo_alcohol10 %>%
-  filter(Sexo == "Ambos sexos") %>%
-  group_by(Comunidades_autonomas)%>%
-  summarize(Porcentaje_global_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
-
-consumo_mujeres <- consumo_alcohol10 %>%
-  filter(Sexo == "Mujeres") %>%
-  group_by(Comunidades_autonomas) %>%
-  summarize(Porcentaje_mujeres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
-
-consumo_hombres <- consumo_alcohol10 %>%
-  filter(Sexo == "Hombres") %>%
-  group_by(Comunidades_autonomas)%>%
-  summarize(Porcentaje_hombres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
-
-no_consumo_global <- consumo_alcohol10 %>%
-  filter(Sexo == "Ambos sexos") %>%
-  group_by(Comunidades_autonomas)%>%
-  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
-
-no_consumo_mujeres <- consumo_alcohol10 %>%
-  filter(Sexo == "Mujeres") %>%
-  group_by(Comunidades_autonomas) %>%
-  summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
- 
-no_consumo_hombres <- consumo_alcohol10 %>%
-  filter(Sexo == "Hombres") %>%
-  group_by(Comunidades_autonomas)%>%
-  summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
-
-levels(factor(ccaa_sf_2$ine.ccaa.name))
-levels(factor(consumo_mujeres$Comunidades_autonomas))
-
-ccaa_sf_2 <- esp_get_ccaa() %>%
-  left_join(consumo_mujeres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
-
-ccaa_sm_2 <- esp_get_ccaa() %>%
-  left_join(consumo_hombres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
-
-ccaa_sg_2 <- esp_get_ccaa() %>%
-  left_join(consumo_global, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
-
-```
-
 
 #### Formateo de datos del conjunto de datos de ejercicio físico:
 
@@ -640,7 +459,7 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
       Nombre == "Mujeres" ~ "Mujeres",
       TRUE ~ as.character(NA)
     ),
-    `Comunidades autonomas` = case_when(
+    `Comunidades_autonomas` = case_when(
       Nombre == "Total" ~ "Total Nacional",
       Nombre == "Andalucía" ~ "Andalucía",
       Nombre == "Aragón" ~ "Aragón",
@@ -651,7 +470,7 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
       Nombre == "Castilla y León" ~ "Castilla y León",
       Nombre == "Castilla-La Mancha" ~ "Castilla-La Mancha",
       Nombre == "Cataluña" ~ "Cataluña",
-      Nombre == "Comunitat Valenciana" ~ "Comunitat Valenciana",
+      Nombre == "Comunitat Valenciana" ~ "Comunidad Valenciana",
       Nombre == "Extremadura" ~ "Extremadura",
       Nombre == "Galicia" ~ "Galicia",
       Nombre == "Madrid (Comunidad de)" ~ "Madrid",
@@ -663,7 +482,7 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
       Nombre == "Melilla (Ciudad Autónoma de)" ~ "Melilla",
       TRUE ~ as.character(NA)
     ),
-    `Frecuencia de ejercicio` = case_when(
+    `Frecuencia_de_ejercicio` = case_when(
       Nombre == "TOTAL" ~ "TOTAL",
       Nombre == "Ninguno" ~ "Ninguno",
       Nombre == "1 o 2 días a la semana" ~ "1 o 2 días a la semana",
@@ -677,38 +496,675 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
 ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
-  fill(Sexo, `Comunidades autonomas`, `Frecuencia de ejercicio`, .direction = "up")
+  fill(Sexo, `Comunidades_autonomas`, `Frecuencia_de_ejercicio`, .direction = "up")
 
 ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- filter(ejercicioFisicoUnion, ejercicioFisicoUnion$Nombre == ejercicioFisicoUnion$Sexo)
-  
+
 ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   select(-Nombre,-document.id)%>%
-  rename("Miles de personas"=Valor)
+  rename("Miles_de_personas"=Valor)
 
 ejercicioFisicoUnion
 
 totalPersonasComunidad <- ejercicioFisicoUnion %>%
-  filter(`Frecuencia de ejercicio` == "TOTAL") %>%
-  select(`Comunidades autonomas`, `Total personas según la comunidad` = `Miles de personas`)
+  filter(`Frecuencia_de_ejercicio` == "TOTAL") %>%
+  select(`Comunidades_autonomas`, `Total_personas_según_la_comunidad` = `Miles_de_personas`)
 
 totalPersonasComunidad
 duplicated(totalPersonasComunidad)
 
 totalPersonasComunidad <- totalPersonasComunidad %>%
-  distinct(`Comunidades autonomas`, .keep_all = TRUE)
+  distinct(`Comunidades_autonomas`, .keep_all = TRUE)
 
 duplicated(totalPersonasComunidad)
 
-ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades autonomas")
+ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades_autonomas")
+
+ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
+  mutate(
+    Ratio = `Miles_de_personas` / `Total_personas_según_la_comunidad`,
+    Porcentaje = Ratio * 100
+  )%>%
+  select(-`Total_personas_según_la_comunidad`)
+
+ejercicioFisicoUnionFinal <- ejercicioFisicoUnion %>%
+  select(-Miles_de_personas, -Ratio)
 ```
 
-### Formateo de datos para relacionar suicidio y consumo de alcohol.
+
+### Análisis de datos
+
+Una vez formateados los datos, pasamos a analizarlos:
+
+#### Para el conjunto de datos de suicidio:
 
 ```{r, eval = TRUE}
+suicidio_por_sexo <- suicidio7 %>%
+  group_by(sexo) %>%
+  summarize(suicidio_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
+
+
+suicidio_por_comunidad <- suicidio7 %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(suicidio_medio_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+
+
+suicidio_por_sexo_comunidad <- suicidio7 %>%
+  group_by(sexo, comunidades_autonomas) %>%
+  summarize(suicidio_medio_sexo_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+
+census <- mapSpain::pobmun19
+
+codelist <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
+
+census_ccaa <- census %>%
+  left_join(codelist) %>%
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(census_ccaa)
+can <- esp_get_can_box()
+
+
+suicidio10 <- suicidio10 %>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+suicidio_global <- suicidio10 %>%
+  filter(sexo == "Ambos sexos") %>%
+  group_by(comunidades_autonomas)%>%
+  summarize(porcentaje_global_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
+
+suicidio_mujeres <- suicidio10 %>%
+  filter(sexo == "Mujeres") %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(
+    porcentaje_mujeres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE)
+  )
+
+suicidio_hombres <- suicidio10 %>%
+  filter(sexo == "Hombres") %>%
+  group_by(comunidades_autonomas)%>%
+  summarize(porcentaje_hombres_suicidios = mean(porcentaje_suicidios, na.rm = TRUE))
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(suicidio_mujeres$comunidades_autonomas))
+
+ccaa_sf <- esp_get_ccaa() %>%
+  left_join(suicidio_mujeres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sm <- esp_get_ccaa() %>%
+  left_join(suicidio_hombres, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_sg <- esp_get_ccaa() %>%
+  left_join(suicidio_global, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+
+```
+
+#### Para el conjunto de datos de consumo de alcohol:
+```{r, eval = TRUE}
+consumo_alcohol7 <- 
+  as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
+
+
+
+consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
+
+
+
+#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
+
+consumo_alcohol8<-consumo_alcohol7%>%
+  pivot_wider(names_from = Consumido, values_from = Valor)
+
+
+consumo_alcohol8 <- 
+  as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
+
+consumo_alcohol8 <-consumo_alcohol8%>%
+  mutate(
+    `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
+    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`),
+    `No_ha_consumido` = as.numeric(`No_ha_consumido`)
+  )
+
+
+
+consumo_alcohol9 <- consumo_alcohol8 %>%
+  mutate(
+    Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
+
+#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
+
+consumo_alcohol10 <- consumo_alcohol9 %>%
+  mutate(
+    Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
+
+
+consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
+
+
+consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
+consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
+
+
+#Gráficas de España
+census_2 <- mapSpain::pobmun19
+
+codelist_2 <- mapSpain::esp_codelist %>%
+  select(cpro, codauto) %>%
+  distinct()
+
+census_ccaa_2 <- census_2 %>%
+  left_join(codelist_2) %>%
+  group_by(codauto) %>%
+  summarise(pob19 = sum(pob19), men = sum(men), women = sum(women)) %>%
+  mutate(
+    porc_women = women / pob19,
+    porc_women_lab = paste0(round(100 * porc_women, 2), "%")
+  )
+ccaa_sf_2 <- esp_get_ccaa() %>%
+  left_join(census_ccaa_2)
+can_2 <- esp_get_can_box()
+
+consumo_alcohol10 <- consumo_alcohol10 %>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+
+consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_consumo = mean(Porcentaje_consumo, na.rm = TRUE))
+
+levels(factor(ccaa_sf_2$ine.ccaa.name))
+levels(factor(consumo_mujeres$Comunidades_autonomas))
+
+ccaa_sf_2 <- esp_get_ccaa() %>%
+  left_join(consumo_mujeres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+ccaa_sm_2 <- esp_get_ccaa() %>%
+  left_join(consumo_hombres, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+ccaa_sg_2 <- esp_get_ccaa() %>%
+  left_join(consumo_global, by = c("ine.ccaa.name" = "Comunidades_autonomas"))
+
+consumo_por_sexo <- consumo_alcohol10 %>%
+  group_by(Sexo) %>%
+  summarize(consumo_medio_sexo = mean(Porcentaje_consumo, na.rm = TRUE)) 
+
+consumo_por_comunidad <- consumo_alcohol10 %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(consumo_medio_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
+
+consumo_por_sexo_comunidad <- consumo_alcohol10 %>%
+  group_by(Sexo, Comunidades_autonomas) %>%
+  summarize(consumo_medio_sexo_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
+```
+
+#### Para el conjunto de datos de ejercicio físico:
+```{r, eval = TRUE}
+ejercicioMinimoUnaVez <- ejercicioFisicoUnion%>%
+  rename(sexo = Sexo, comunidades_autonomas=Comunidades_autonomas)%>%
+  filter(sexo!="Ambos sexos", Frecuencia_de_ejercicio!='TOTAL', Frecuencia_de_ejercicio!='Ninguno', comunidades_autonomas!='Total Nacional')%>%
+  select(-Miles_de_personas,-Porcentaje)
+
+ejercicioNada <- ejercicioFisicoUnion%>%
+  rename(sexo = Sexo, comunidades_autonomas=Comunidades_autonomas)%>%
+  filter(sexo!="Ambos sexos", Frecuencia_de_ejercicio=='Ninguno', comunidades_autonomas!='Total Nacional')%>%
+  select(-Miles_de_personas,-Porcentaje)
+
+#Tabla de ejercicio_por_comunidad para comparar 
+realizacion_ejercicio_por_comunidad <- ejercicioMinimoUnaVez %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE)/2)
+
+#Tabla de nada_ejercicio_por_comunidad comparar 
+nada_ejercicio_por_comunidad <- ejercicioNada %>%
+  group_by(comunidades_autonomas) %>%
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE)/2)
+
+#Tabla de realizacion_ejercicio_por_sexo
+realizacion_ejercicio_por_sexo <- ejercicioMinimoUnaVez %>%
+  group_by(sexo) %>%
+  summarize(ejercicio_medio_sexo=sum(as.numeric(Ratio), na.rm = TRUE)/19)
+
+
+#Comparación de frecuencias de ejercicio por comunidad ¿cuál puede ser la causa?
+#EN HOMBRES
+ejercicioHombres <- ejercicioFisicoUnion%>%
+  filter(Sexo=="Hombres")%>%
+  select(-Ratio, -Miles_de_personas, -Sexo)
+
+ejercicioHombres <- ejercicioHombres%>%
+  filter(Frecuencia_de_ejercicio!="TOTAL")
+
+ejercicioHombres
+
+ejercicioMujeres <- ejercicioFisicoUnion%>%
+  filter(Sexo=="Mujeres")%>%
+  select(-Ratio, -Miles_de_personas, Sexo)
+
+ejercicioMujeres <- ejercicioMujeres%>%
+  filter(Frecuencia_de_ejercicio!="TOTAL")
+
+ejercicioMujeres
+
+#Comparación de los extremos de realización de ejercicio físico
+frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
+  mutate(
+    NadaMax = case_when(
+      `Frecuencia_de_ejercicio` == "Ninguno" ~ `Ratio`,
+      `Frecuencia_de_ejercicio` == "7 días a la semana" ~ `Ratio`,
+      TRUE ~ as.double(NA)
+    ))%>%
+  select(`Comunidades_autonomas`,Sexo,`Frecuencia_de_ejercicio`,`Ratio`, NadaMax) %>%
+  filter(!is.na(NadaMax))
+
+frecuenciaNadaYMaxEjercicioComunidad
+
+
+#tabla de ejercicio_por_sexo para comparar con suicidio
+NadaYMaxEjercicioSexoSinNacional <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  filter(Comunidades_autonomas!="Total Nacional")%>%
+  select(-NadaMax)
+
+#Nada de ejercicio físico
+NadaEjercicioSexoSinNacional <- NadaYMaxEjercicioSexoSinNacional%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")
+
+
+ejercicio_min_por_sexo <- NadaEjercicioSexoSinNacional %>%
+  group_by(Sexo) %>%
+  summarize(Nada_de_ejercicio=sum(as.numeric(Ratio), na.rm = TRUE)/19)
+
+#7 días a la semana ejercicio físico
+MaxEjercicioSexoSinNacional <- NadaYMaxEjercicioSexoSinNacional%>%
+  filter(Frecuencia_de_ejercicio=="7 días a la semana")
+
+
+ejercicio_max_por_sexo <- MaxEjercicioSexoSinNacional %>%
+  group_by(Sexo) %>%
+  summarize(Maximo_ejercicio=mean(as.numeric(Ratio), na.rm = TRUE))
+
+#Con esto se genera una columna que el ratio de personas que realizan nada de ejercicio físico frente a las personas que realizan diariamente
+ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  spread(`Frecuencia_de_ejercicio`, Ratio)%>%
+  fill(`7 días a la semana`,`Ninguno`, .direction = "up")%>%
+  filter(NadaMax==`7 días a la semana`)%>%
+  mutate(
+    `Comparacion nada y máximo ejercicio por comunidad y sexo` = `Ninguno` - `7 días a la semana`
+  )%>%
+  select(-NadaMax)
+
+#Con esto se genera una columna que muestra el porcentaje de personas que realizan nada de ejercicio físico frente a las personas que realizan diariamente
+ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio%>%
+  mutate(
+    `Porcentaje nada y máximo ejercicio` = ComparacionNadaYMaxEjercicio$`Comparacion nada y máximo ejercicio por comunidad y sexo`*100)
+
+ComparacionNadaYMaxEjercicio
+
+#Eliminación de la fila Total Nacional y todas las de ambos sexos
+ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio %>%
+  filter(Comunidades_autonomas!="Total Nacional")
+
+##Diferencias entre los valores extremos de realización de ejercicio físico comparado con el sexo
+
+NadaFrenteMaxEjercicioHombres <- ComparacionNadaYMaxEjercicio%>%
+  filter(Sexo=="Hombres")%>%
+  select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
+
+ExtremosEjercicioHombres <- NadaFrenteMaxEjercicioHombres%>%
+  pivot_longer(
+    cols = c("7 días a la semana", "Ninguno"), 
+    names_to = "Ejercicio_fisico",            
+    values_to = "Valor"                     
+  )%>%
+  select(-`Porcentaje nada y máximo ejercicio`)
+
+NadaFrenteMaxEjercicioMujeres <- ComparacionNadaYMaxEjercicio%>%
+  filter(Sexo=="Mujeres")%>%
+  select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
+
+ExtremosEjercicioMujeres <- NadaFrenteMaxEjercicioMujeres%>%
+  pivot_longer(
+    cols = c("7 días a la semana", "Ninguno"), 
+    names_to = "Ejercicio_fisico",            
+    values_to = "Valor"                     
+  )%>%
+  select(-`Porcentaje nada y máximo ejercicio`)
+
+ExtremosRealizacionEjercicio <- left_join(ExtremosEjercicioHombres, ExtremosEjercicioMujeres, by=c("Comunidades_autonomas"))
+
+ExtremosUnion <- ExtremosRealizacionEjercicio %>%
+  pivot_longer(
+    cols = starts_with("Valor"),  
+    names_to = "Sexo",            
+    values_to = "Valor"           
+  )%>%
+  mutate(
+    Sexo = ifelse(Sexo == "Valor.x","Hombres", "Mujeres"))%>%
+  select(-`Sexo.x`,-`Sexo.y`)%>%
+  distinct(Comunidades_autonomas, Sexo, Valor,.keep_all = TRUE)
+
+ExtremosUnion <- ExtremosUnion%>%
+  mutate(
+    Frecuencia_Ejercicio = case_when(
+      Sexo == "Mujeres" ~ Ejercicio_fisico.y, 
+      Sexo == "Hombres" ~ Ejercicio_fisico.x
+    ))
+
+ExtremosUnion <- ExtremosUnion %>%
+  pivot_longer(cols = starts_with("Ejercicio_fisico"),
+               values_to = "FrecuenciasExtremo")%>%
+  select(-`name`)
+
+ExtremosUnionFinal <- ExtremosUnion%>%
+  filter(`Frecuencia_Ejercicio` == `FrecuenciasExtremo`) %>%
+  distinct()%>%
+  select(-`Frecuencia_Ejercicio`)
+
+ExtremosUnionFinal <- ExtremosUnionFinal%>%
+  mutate(
+    Porcentaje = Valor*100
+  )%>%
+  select(-`Valor`)
+
+
+
+RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje))+
+  geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
+  labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos", colour = "Sexo", shape = "Frecuencias de ejercicio") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+RepresentacionExtremosEjercicio
+
+#geom_smooth(method = "lm", se=TRUE) +
+
+ExtremosUnionFinal
+
+nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+realizacion_ejercicio_por_comunidad <- realizacion_ejercicio_por_comunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+ejercicioMinimoUnaVez <- ejercicioMinimoUnaVez%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
+
+
+frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  mutate(Porcentaje = Ratio * 100) %>%
+  select(-Ratio,-NadaMax)%>%
+  rename(comunidades_autonomas=Comunidades_autonomas)
+
+frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ comunidades_autonomas
+  ))
+
+
+frecuenciaNadaYMaxEjercicioComunidad <- frecuenciaNadaYMaxEjercicioComunidad%>%
+  rename(Comunidades_autonomas=comunidades_autonomas)
+
+ejercicioMujeres <- ejercicioMujeres%>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+ejercicioMujeresNinguno <- ejercicioMujeres%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")%>%
+  select(-Frecuencia_de_ejercicio)%>%
+  rename(Ninguno = Porcentaje)
+
+ejercicioMujeresEjercicio <- ejercicioMujeres%>%
+  filter(Frecuencia_de_ejercicio!="Ninguno")%>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+
+
+ejercicioHombres <- ejercicioHombres%>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+ejercicioHombresNinguno <- ejercicioHombres%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")%>%
+  select(-Frecuencia_de_ejercicio)%>%
+  rename(Ninguno = Porcentaje)
+
+ejercicioHombresEjercicio <- ejercicioHombres%>%
+  filter(Frecuencia_de_ejercicio!="Ninguno")%>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+
+
+ejercicioAmbosSexos <- ejercicioFisicoUnion%>%
+  filter(Sexo=="Ambos sexos")%>%
+  select(-Ratio, -Miles_de_personas, Sexo)
+
+ejercicioAmbosSexos <- ejercicioAmbosSexos%>%
+  filter(Frecuencia_de_ejercicio!="TOTAL")
+
+ejercicioAmbosSexos <- ejercicioAmbosSexos%>%
+  mutate(Comunidades_autonomas = case_when(
+    Comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    Comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    Comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    Comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    Comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    Comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    Comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    Comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    Comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    Comunidades_autonomas == "Total Nacional" ~ "Total nacional",
+    TRUE ~ Comunidades_autonomas
+  ))
+
+
+ejercicioAmbosSexosNinguno <- ejercicioAmbosSexos%>%
+  filter(Frecuencia_de_ejercicio=="Ninguno")%>%
+  select(-Frecuencia_de_ejercicio)%>%
+  rename(Ninguno = Porcentaje)
+
+ejercicioAmbosSexosEjercicio <- ejercicioAmbosSexos%>%
+  filter(Frecuencia_de_ejercicio!="Ninguno")%>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
+
+###MAPAS
+
+porcentaje_nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad %>%
+  mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
+  select(-ejercicio_medio_comunidad)
+
+porcentaje_realizacion_ejercicio_por_comunidad <- realizacion_ejercicio_por_comunidad %>%
+  mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
+  select(-ejercicio_medio_comunidad)
+
+porcentaje_realizacion_ejercicio_sexo_comunidad <- ejercicioMinimoUnaVez%>%
+  group_by(comunidades_autonomas,sexo) %>%
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE))%>%
+  mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
+  select(-ejercicio_medio_comunidad)
+
+mujeres_ejercicio_comunidad <- porcentaje_realizacion_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Mujeres")
+
+hombres_ejercicio_comunidad <- porcentaje_realizacion_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Hombres")
+
+porcentaje_realizacion_nada_ejercicio_sexo_comunidad <- ejercicioNada%>%
+  group_by(comunidades_autonomas,sexo) %>%
+  summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE))
+
+mujeres_nada_ejercicio_comunidad <- porcentaje_realizacion_nada_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Mujeres")
+
+hombres_nada_ejercicio_comunidad <- porcentaje_realizacion_nada_ejercicio_sexo_comunidad %>%
+  filter(sexo=="Hombres")
+
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(porcentaje_nada_ejercicio_por_comunidad$comunidades_autonomas))
+
+ccaa_nada <- esp_get_ccaa() %>%
+  left_join(porcentaje_nada_ejercicio_por_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+ccaa_ejercicio <- esp_get_ccaa() %>%
+  left_join(porcentaje_realizacion_ejercicio_por_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(mujeres_ejercicio_comunidad$comunidades_autonomas))
+
+ccaa_m_ejercicio <- esp_get_ccaa() %>%
+  left_join(mujeres_ejercicio_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+levels(factor(ccaa_sf$ine.ccaa.name))
+levels(factor(hombres_ejercicio_comunidad$comunidades_autonomas))
+
+ccaa_h_ejercicio <- esp_get_ccaa() %>%
+  left_join(hombres_ejercicio_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
+
+
+
+```
+
+
+### Formateo de datos entre los diferentes conjuntos de datos
+
+#### Formateo de datos para relacionar suicidio y consumo de alcohol.
+
+```{r, eval = TRUE}
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+no_consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
+  group_by(Comunidades_autonomas) %>%
+  summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+no_consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
 suicidio_global_mujeres <- suicidio_global %>%
   left_join(suicidio_mujeres, by = "comunidades_autonomas")
 
@@ -750,119 +1206,162 @@ suicidio_alcohol_final_4 <- suicidio_alcohol_final %>%
                values_to = "porcentaje")
 ```
 
-
-### Análisis de datos
-
-Una vez formateados los datos, pasamos a analizarlos:
-
-#### Para el conjunto de datos de suicidio:
-
-Vamos a agrupar por comunidad autónoma y por sexo.
-
+#### Formateo de datos para relacionar ejercicio fisico y suicidio.
 ```{r, eval = TRUE}
-suicidio_por_sexo <- suicidio7 %>%
-  group_by(sexo) %>%
-  summarize(suicidio_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
+ejercicio_max_por_sexo <- ejercicio_max_por_sexo%>%
+  rename(sexo=Sexo)
+ejercicio_min_por_sexo <- ejercicio_min_por_sexo%>%
+  rename(sexo=Sexo)
+suicidio_por_sexo
 
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = "sexo")
 
-suicidio_por_comunidad <- suicidio7 %>%
-  group_by(comunidades_autonomas) %>%
-  summarize(suicidio_medio_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
+         Nada_de_ejercicio = Nada_de_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
 
+ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
 
-suicidio_por_sexo_comunidad <- suicidio7 %>%
-  group_by(sexo, comunidades_autonomas) %>%
-  summarize(suicidio_medio_sexo_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Nada_de_ejercicio = Nada_de_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
 
+realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(ejercicio_medio_sexo = ejercicio_medio_sexo * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+  filter(comunidades_autonomas!="Total nacional")%>%
+  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
+         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
+
+ejercicio_max_por_sexo <- ejercicio_max_por_sexo%>%
+  rename(sexo=Sexo)
+ejercicio_min_por_sexo <- ejercicio_min_por_sexo%>%
+  rename(sexo=Sexo)
+suicidio_por_sexo
+
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = "sexo")
+
+ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
+         Nada_de_ejercicio = Nada_de_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(Nada_de_ejercicio = Nada_de_ejercicio * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = "sexo")%>%
+  filter(sexo!="Ambos sexos")%>%
+  mutate(ejercicio_medio_sexo = ejercicio_medio_sexo * 100,
+         suicidio_medio_sexo = suicidio_medio_sexo * 100)
+
+realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+  filter(comunidades_autonomas!="Total nacional")%>%
+  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
+         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
+
+nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+  filter(comunidades_autonomas!="Total nacional")%>%
+  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
+         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)+
+  theme(legend.position = "none")
 ```
 
 
+#### Formateo de datos para relacionar ejercicio fisico y consumo de alcohol.
 
-#### Para el conjunto de datos de consumo de alcohol:
 ```{r, eval = TRUE}
-consumo_por_sexo <- consumo_alcohol10 %>%
-  group_by(Sexo) %>%
-  summarize(consumo_medio_sexo = mean(Porcentaje_consumo, na.rm = TRUE)) 
+no_consumo_global <- consumo_alcohol10 %>%
+  filter(Sexo == "Ambos sexos") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_global_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
 
-consumo_por_comunidad <- consumo_alcohol10 %>%
+no_consumo_mujeres <- consumo_alcohol10 %>%
+  filter(Sexo == "Mujeres") %>%
   group_by(Comunidades_autonomas) %>%
-  summarize(consumo_medio_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
+  summarize(Porcentaje_mujeres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
 
-consumo_por_sexo_comunidad <- consumo_alcohol10 %>%
-  group_by(Sexo, Comunidades_autonomas) %>%
-  summarize(consumo_medio_sexo_comunidad = mean(Porcentaje_consumo, na.rm = TRUE))
+no_consumo_hombres <- consumo_alcohol10 %>%
+  filter(Sexo == "Hombres") %>%
+  group_by(Comunidades_autonomas)%>%
+  summarize(Porcentaje_hombres_no_consumo = mean(Porcentaje_no_consumo, na.rm = TRUE))
+
+frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
+  pivot_wider(names_from =Frecuencia_de_ejercicio,values_from = Porcentaje)
+
+
+comparacion_datos <- full_join(x=consumo_alcohol10,y=frecuenciaNadaYMaxEjercicioComunidad2, by = c("Comunidades_autonomas", "Sexo"))
+
+#comparacion consumo con no ejercicio
+
+comparacion_cons_no_ej_mujeres<-consumo_global %>%
+  left_join(ejercicioMujeresNinguno ,by = "Comunidades_autonomas")
+
+
+
+#comparacion no consumo con ejercicio
+comparacion_no_cons_ej_mujeres<- no_consumo_global  %>%
+  left_join(ejercicioMujeresEjercicio ,by = "Comunidades_autonomas")
+
+
+
+comparacion_cons_no_ej_hombres<-consumo_global %>%
+  left_join(ejercicioHombresNinguno,by = "Comunidades_autonomas")
+
+
+comparacion_no_cons_ej_hombres<- no_consumo_global  %>%
+  left_join(ejercicioHombresEjercicio,by = "Comunidades_autonomas")
+
+
+
+comparacion_cons_no_ej_ambos_sexos<-consumo_global %>%
+  left_join(ejercicioAmbosSexosNinguno,by = "Comunidades_autonomas")
+
+
+consumo_alcohol_no_ej_ambos_sexos_largo <- comparacion_cons_no_ej_ambos_sexos %>%
+  pivot_longer(
+    cols = c(Porcentaje_global_consumo,Ninguno), 
+    names_to = "Tipo_porcentaje",                 
+    values_to = "valor"                              
+  )
+
+comparacion_no_cons_ej_ambos_sexos<- no_consumo_global  %>%
+  left_join(ejercicioAmbosSexosEjercicio,by = "Comunidades_autonomas")
+
+comparacion_no_cons_ej_ambos_sexos<-comparacion_no_cons_ej_ambos_sexos%>%
+  rename(Porcentaje_ejercicio_7_dias = Porcentaje)
+
+consumo_no_alcohol_ej_ambos_sexos_largo <-comparacion_no_cons_ej_ambos_sexos %>%
+  pivot_longer(
+    cols = c(Porcentaje_global_no_consumo, Porcentaje_ejercicio_7_dias ), 
+    names_to = "Tipo_porcentaje",                 
+    values_to = "valor"                              
+  )
 ```
 
-#### Para el conjunto de datos de ejercicio físico:
-```{r, eval = TRUE}
-ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
-  mutate(
-    Ratio = `Miles de personas` / `Total personas según la comunidad`,
-    Porcentaje = Ratio * 100
-  )%>%
-  select(-`Total personas según la comunidad`)
 
-frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
-  mutate(
-    NadaMax = case_when(
-      `Frecuencia de ejercicio` == "Ninguno" ~ `Ratio`,
-      `Frecuencia de ejercicio` == "7 días a la semana" ~ `Ratio`,
-      TRUE ~ as.double(NA)
-    ))%>%
-  select(`Comunidades autonomas`,Sexo,`Frecuencia de ejercicio`,`Ratio`, NadaMax) %>%
-  filter(!is.na(NadaMax))
-
-frecuenciaNadaYMaxEjercicioComunidad
-
-ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
-  spread(`Frecuencia de ejercicio`, Ratio)%>%
-  fill(`7 días a la semana`,`Ninguno`, .direction = "up")%>%
-  filter(NadaMax==`7 días a la semana`)%>%
-  mutate(
-    `Comparacion nada y máximo ejercicio por comunidad y sexo` = `Ninguno` - `7 días a la semana`
-  )%>%
-  select(-NadaMax)
-
-ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio%>%
-  mutate(
-    `Porcentaje nada y máximo ejercicio` = ComparacionNadaYMaxEjercicio$`Comparacion nada y máximo ejercicio por comunidad y sexo`*100)
-
-ComparacionNadaYMaxEjercicio
-
-NadaFrenteMaxEjercicioHombres <- ComparacionNadaYMaxEjercicio%>%
-  filter(Sexo=="Hombres")%>%
-  select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
-
-NadaFrenteMaxEjercicioHombres
-
-NadaFrenteMaxEjercicioMujeres <- ComparacionNadaYMaxEjercicio%>%
-  filter(Sexo=="Mujeres")%>%
-  select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
-
-NadaFrenteMaxEjercicioMujeres
-
-NadaFrenteMaxEjercicioAmbos <- ComparacionNadaYMaxEjercicio%>%
-  filter(Sexo=="Ambos sexos")%>%
-  select(-`Comparacion nada y máximo ejercicio por comunidad y sexo`)
-
-NadaFrenteMaxEjercicioAmbos
-
-
-DiferenciaDeActividadEntreAmbosSexosComunidad <- full_join(NadaFrenteMaxEjercicioMujeres,NadaFrenteMaxEjercicioHombres, by = c("Comunidades autonomas"))%>%
-  rename(`Porcentaje Mujeres` =`Porcentaje nada y máximo ejercicio.x`, `Porcentaje Hombres` =`Porcentaje nada y máximo ejercicio.y`, ` Mujeres: 7 días a la semana` =`7 días a la semana.x`, `Hombres: 7 días a la semana` =`7 días a la semana.y`, `Mujeres: Ninguno`= Ninguno.x, `Hombres: Ninguno`= Ninguno.y)%>%
-  select(-Sexo.x, -Sexo.y)%>%
-  mutate(
-    `Porcentaje deferido ningun ejercicio mujeres respecto hombres` = (`Mujeres: Ninguno`- `Hombres: Ninguno`)*100,
-    `Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres` = (` Mujeres: 7 días a la semana`-`Hombres: 7 días a la semana`)*100)%>%
-  select(`Comunidades autonomas`,`Porcentaje deferido ningun ejercicio mujeres respecto hombres`,`Porcentaje deferido 7 días a la semana ejercicio mujeres respecto hombres`)
-
-```
 
 ## 5. Visor de gráficos y conclusiones finales.
 
 ### Suicidio en relación con comunidades autónomas y sexo.
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 graf_suicidio_por_sexo <- ggplot(suicidio_por_sexo, aes(x = reorder(sexo, suicidio_medio_sexo), y = suicidio_medio_sexo, fill = sexo)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
   labs(title = "Suicidio Medio por sexo", x = "Sexo", y = "Suicidio Medio (unidades)") +
@@ -872,7 +1371,7 @@ graf_suicidio_por_sexo <- ggplot(suicidio_por_sexo, aes(x = reorder(sexo, suicid
 graf_suicidio_por_sexo
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 graf_suicidio_por_comunidad <- ggplot(suicidio_por_comunidad, aes(x = reorder(comunidades_autonomas, suicidio_medio_comunidad), y = suicidio_medio_comunidad, fill = comunidades_autonomas)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
   labs(title = "Suicidio Medio por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Suicidio Medio (unidades)") +
@@ -882,7 +1381,7 @@ graf_suicidio_por_comunidad <- ggplot(suicidio_por_comunidad, aes(x = reorder(co
 graf_suicidio_por_comunidad
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 graf_suicidio_por_sexo_comunidad <- ggplot(suicidio_por_sexo_comunidad, mapping = aes(x = comunidades_autonomas, y = suicidio_medio_sexo_comunidad,fill = sexo)) +
   geom_bar(stat = "identity",position = position_dodge()) +
   labs(title = "Suicidio medio por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Suicidio Medio (unidades)") +
@@ -896,46 +1395,12 @@ Para ver esto mucho más claro, hemos hecho estos gráficos con el mapa de espa�
 
 Para ambos sexos:
 
-![Suicidios global](OUTPUT/FIGURES/Suicidio_global_mapa.png)
+![Suicidios global](OUTPUT/FIGURES/Suicidio_global_mapa.jpeg)
 
 
 Para poder diferenciar en hombres y mujeres:
 
-```{r, echo = FALSE}
-grafico_suicidio_mujeres <- ggplot(ccaa_sf) +
-  geom_sf(aes(fill = porcentaje_mujeres_suicidios), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_mujeres_suicidios, 4)),
-                fill = "white", alpha = 0.5,
-                size = 3, label.size = 0
-  ) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "Reds", rev = TRUE),
-    n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Mujeres Suicidios", position = "inside")
-  ) +
-  theme_void() +
-  theme(legend.position = c(0.1, 0.6))
-
-grafico_suicidios_hombres <- ggplot(ccaa_sm) +
-  geom_sf(aes(fill = porcentaje_hombres_suicidios), color = "grey70", linewidth = .3) +
-  geom_sf(data = can, color = "grey70") +
-  geom_sf_label(aes(label = round(porcentaje_hombres_suicidios, 4)),
-                fill = "white", alpha = 0.5,
-                size = 3, label.size = 0
-  ) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "Blues", rev = TRUE),
-    n.breaks = 10, labels = scales::label_number(suffix = "%"),
-    guide = guide_legend(title = "Porcentaje Hombres Suicidios", position = "inside")
-  ) +
-  theme_void() +
-  theme(legend.position = c(0.1, 0.6))
-
-grafico_suicidio_por_sexos <- grafico_suicidio_mujeres + grafico_suicidios_hombres
-
-grafico_suicidio_por_sexos
-```
+![Suicidios hombres y mujeres](OUTPUT/FIGURES/Suicidio_por_sexos_mapa.jpeg)
 
 #### Conclusión
 
@@ -944,7 +1409,7 @@ La conclusión que podemos sacar sobre esto es
 
 ### Consumo de alcohol en relación con comunidades autónomas y sexo.
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 Grafica_consumo_por_sexo<-ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_medio_sexo, fill = Sexo)) +
   geom_bar(stat = "identity", show.legend = FALSE) +
   labs(title = "Consumo Medio de Alcohol por Sexo", x = "Sexo", y = "Consumo Medio (%)")
@@ -952,7 +1417,7 @@ Grafica_consumo_por_sexo<-ggplot(consumo_por_sexo, aes(x = Sexo, y = consumo_med
 Grafica_consumo_por_sexo
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 Grafica_consumo_por_comunidad<-ggplot(consumo_por_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_comunidad), y = consumo_medio_comunidad, fill = Comunidades_autonomas)) +
   geom_bar(stat = "identity", show.legend = FALSE) + 
   labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma", x = "Comunidad Autónoma", y = "Porcentaje Medio de Consumo") +theme_minimal() +theme(axis.text.x = element_text(angle = 45, hjust = 1))
@@ -960,7 +1425,7 @@ Grafica_consumo_por_comunidad<-ggplot(consumo_por_comunidad, aes(x = reorder(Com
 Grafica_consumo_por_comunidad
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 Grafica_consumo_por_comunidad_y_sexo<-ggplot(consumo_por_sexo_comunidad, aes(x = reorder(Comunidades_autonomas, consumo_medio_sexo_comunidad), y = consumo_medio_sexo_comunidad, fill = Sexo)) +
   geom_bar(stat = "identity", position = position_dodge()) + 
   labs(title = "Consumo Medio de Alcohol por Comunidad Autónoma y Sexo", x = "Comunidad Autónoma", y = "Consumo Medio (unidades)") + theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
@@ -968,13 +1433,71 @@ Grafica_consumo_por_comunidad_y_sexo<-ggplot(consumo_por_sexo_comunidad, aes(x =
 Grafica_consumo_por_comunidad_y_sexo
 ```
 
+En este caso, también hemos realizado gráficos con el mapa de España:
+
+![Consumo global](OUTPUT/FIGURES/Consumo_global.jpeg)
+Para poder diferenciar en hombres y mujeres:
+
+![Consumo hombres y mujeres](OUTPUT/FIGURES/Consumo_por_sexos.jpeg)
+#### Conclusión
+La conclusión que podemos sacar es 
+
 ### Realización de ejercicio en relación con comunidades autónomas y sexo.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+graficoHombres <- ggplot(ejercicioHombres, aes(Comunidades_autonomas, Porcentaje, fill=Frecuencia_de_ejercicio))+
+  geom_bar(stat="identity", position = position_dodge())+
+  labs(title = "Ejercicio físico hombres ", subtitle = "Porcentaje de personas según la frecuencia de ejercicio físico por cada comunidad autónoma",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+graficoHombres
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+graficoMujeres <- ggplot(ejercicioMujeres, aes(Comunidades_autonomas, Porcentaje, fill=Frecuencia_de_ejercicio))+
+  geom_bar(stat="identity", position = position_dodge())+
+  labs(title = "Ejercicio físico mujeres", subtitle = "Porcentaje de personas según la frecuencia de ejercicio físico por cada comunidad autónoma",x = "Comunidad Autónoma",y = "Porcentaje de frecuencia de ejercicio", fill = "Frecuencia de ejercicio")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
+graficoMujeres
+```
+
+Para relacionar la máxima realización de ejercicio y la mínima por comunidad autónoma y sexo:
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje))+
+  geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
+  labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos", colour = "Sexo", shape = "Frecuencias de ejercicio") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+RepresentacionExtremosEjercicio
+```
+
+Para relacionar la máxima realización de ejercicio y la mínima por sexo:
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+dotPlot_maxyminEjercicio <- plot_ly(ExtremosUnionFinal, x = ~Porcentaje, y = ~Sexo, color = ~FrecuenciasExtremo, type = "box") %>%
+  layout(
+    title = "Distribución de Ejercicio por Sexo y Frecuencia"
+  )
+
+dotPlot_maxyminEjercicio
+```
+
+En este caso, también se muestran gráficos del mapa de España para verlo más claro:
+
+![Nada de ejercicio y realización de ejercicio global](OUTPUT/FIGURES/Mapa_nada_ejercicio_vs_mínimo_un_día_ejercicio.jpeg)
+
+![Realización de ejercicio en hombres y mujeres](OUTPUT/FIGURES/Mapa_mínimo_un_día_ejercicio_por_sexo_y_comunidad.jpeg)
+#### Conclusión
+
 
 ### Relación entre el suicidio y el consumo de alcohol por comunidad autónoma y por sexo.
 
 Primero para ambos sexos podemos observar estas dos gráficas:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 grafica_suicidio_alcohol_global_barras <- 
    ggplot(suicidio_alcohol_final_2, aes(x = comunidades_autonomas, y = porcentaje))+
    geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
@@ -988,7 +1511,7 @@ grafica_suicidio_alcohol_global_barras <-
 grafica_suicidio_alcohol_global_barras
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 grafica_suicidio_alcohol_global_puntos <- 
   ggplot(suicidio_alcohol_final, aes(x = porcentaje_global_suicidios, y = Porcentaje_global_consumo))+
   geom_point(aes(color = comunidades_autonomas), size = 3, alpha = 0.7)+
@@ -1006,7 +1529,7 @@ ggplotly(grafica_suicidio_alcohol_global_puntos)
 
 Después, para las mujeres podemos observar estas dos gráficas:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 grafica_suicidio_alcohol_mujeres_barras <- 
   ggplot(suicidio_alcohol_final_3, aes(x = comunidades_autonomas, y = porcentaje))+
   geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
@@ -1020,7 +1543,7 @@ grafica_suicidio_alcohol_mujeres_barras <-
 grafica_suicidio_alcohol_mujeres_barras
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 grafica_suicidio_alcohol_mujeres_puntos <- 
   ggplot(suicidio_alcohol_final, aes(x = porcentaje_mujeres_suicidios, y = Porcentaje_mujeres_consumo))+
   geom_point(aes(color = comunidades_autonomas), size = 3, alpha = 0.7)+
@@ -1038,7 +1561,7 @@ ggplotly(grafica_suicidio_alcohol_mujeres_puntos)
 
 Por último, para los hombres podemos observar estos dos gráficas:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 grafica_suicidio_alcohol_hombres_barras <- 
   ggplot(suicidio_alcohol_final_4, aes(x = comunidades_autonomas, y = porcentaje))+
   geom_bar(aes(fill = tipo_de_porcentaje), stat = "identity", position = "dodge")+
@@ -1052,7 +1575,7 @@ grafica_suicidio_alcohol_hombres_barras <-
 grafica_suicidio_alcohol_hombres_barras
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 grafica_suicidio_alcohol_hombres_puntos <- 
   ggplot(suicidio_alcohol_final, aes(x = porcentaje_hombres_suicidios, y = Porcentaje_hombres_consumo))+
   geom_point(aes(color = comunidades_autonomas), size = 3, alpha = 0.7)+
@@ -1069,3 +1592,87 @@ ggplotly(grafica_suicidio_alcohol_hombres_puntos)
 ```
 
 #### Conclusión
+La conclusión que podemos sacar es
+
+### Relación entre el suicidio y el ejercicio físico por comunidad autónoma y por sexo.
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+grafico_comunidad_ejercicio_suicidio <- ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
+  geom_point(size = 2) +
+  labs(title = "Relación de realización de ejercicio y el suicidio",
+       subtitle = "Se relaciona la realización de ejercicio físico mínimo una vez por semana y el suicidio por comunidades autónomas",
+       x = "Porcentaje de individuos medio que realiza mínimo 1 vez por semana ejercicio físico ",
+       y = "Porcentaje de suicidio medio",
+       color = "Comunidades/Ciudades autónomas") +
+  theme_minimal() +
+  geom_smooth(method = "loess", se = TRUE, aes(group = 1))
+
+grafico_interactivo_comunidad_ejercicio_suicidio <- ggplotly(grafico_comunidad_ejercicio_suicidio)
+
+grafico_interactivo_comunidad_ejercicio_suicidio
+```
+
+### Relación entre el ejercicio físico y el consumo de alcohol por comunidad autónoma y por sexo.
+Para relacionar el consumo de alcohol con la no realización de ejercicio:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+Grafica_no_ejercicio_consumo_puntos<-ggplot(comparacion_datos, aes(x = Ninguno, y = Porcentaje_consumo)) +
+  geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(
+    title = "Relación entre Porcentaje de Consumo de Alcohol y Falta de Ejercicio Físico (Ninguno)",
+    x = "Porcentaje de Falta de Ejercicio (Ninguno)",
+    y = "Porcentaje de Consumo de Alcohol",
+    color = "Sexo"
+  )
+
+Grafica_no_ejercicio_consumo_puntos
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+grafica_consumo_no_ej_ambos_sexos <- 
+  ggplot(consumo_alcohol_no_ej_ambos_sexos_largo, aes(x = Comunidades_autonomas, y = valor))+
+  geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre no ejercicio y consumo de alcohol en ambos sexos",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_consumo_no_ej_ambos_sexos
+```
+
+
+Para relacionar el no consumo de alcohol con la realización de ejercicio:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+Grafica_ejercicio_no_consumo_puntos<-ggplot(comparacion_datos, aes(x = `7 días a la semana`, y = Porcentaje_no_consumo)) +
+  geom_point(aes(color = Sexo), size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(
+    title = "Relación entre Porcentaje de no Consumo de Alcohol y Ejercicio Físico (7 días a la semana)",
+    x = "Porcentaje de Ejercicio (7 días a la semana)",
+    y = "Porcentaje de  no Consumo de Alcohol",
+    color = "Sexo"
+  ) 
+
+Grafica_ejercicio_no_consumo_puntos
+```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+grafica_no_consumo_ej_ambos_sexos <- 
+  ggplot(consumo_no_alcohol_ej_ambos_sexos_largo , aes(x = Comunidades_autonomas, y = valor))+
+  geom_bar(aes(fill = Tipo_porcentaje), stat = "identity", position = "dodge")+
+  facet_wrap(~ Tipo_porcentaje, scales = "free_y")+
+  labs(title = "Relación entre realización de ejercicio y no consumo de alcohol en ambos sexos",
+       x = "Porcentajes",
+       y = "Comunidades autónomas")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 5))
+
+grafica_no_consumo_ej_ambos_sexos
+```
+
+#### Conclusión
+
+
