@@ -407,6 +407,52 @@ consumo_alcohol6 <- consumo_alcohol5 %>%
       TRUE ~ as.character(NA)
     )
   )
+
+consumo_alcohol7 <- 
+  as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
+
+
+
+consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
+
+
+
+#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
+
+consumo_alcohol8<-consumo_alcohol7%>%
+  pivot_wider(names_from = Consumido, values_from = Valor)
+
+
+consumo_alcohol8 <- 
+  as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
+
+consumo_alcohol8 <-consumo_alcohol8%>%
+  mutate(
+    `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
+    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`),
+    `No_ha_consumido` = as.numeric(`No_ha_consumido`)
+  )
+
+
+
+consumo_alcohol9 <- consumo_alcohol8 %>%
+  mutate(
+    Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
+
+#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
+
+consumo_alcohol10 <- consumo_alcohol9 %>%
+  mutate(
+    Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
+  )
+
+
+consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
+
+consumo_alcohol_final_tabla <- consumo_alcohol10 %>% slice(1:720)
+
+datatable(consumo_alcohol_final_tabla, options = list(pageLength = 10))
 ```
 
 #### Formateo de datos del conjunto de datos de ejercicio físico:
@@ -429,8 +475,6 @@ tiposEjercicioFisico
 nombresEjercicioFisico <- ejercicioFisico %>%
   enter_object(Nombre)
 
-#Con la línea siguiente busco interpretar como se guardan los datos.
-nombresEjercicioFisico
 
 #Estructurar los datos
 ejercicioFisicoData <- ejercicioFisico %>%
@@ -445,11 +489,7 @@ ejercicioFisicoMetaData <-ejercicioFisico %>%
   spread_all %>%
   select(document.id, Nombre)
 
-ejercicioFisicoData
-ejercicioFisicoMetaData
-
 ejercicioFisicoUnion <- left_join(ejercicioFisicoMetaData, ejercicioFisicoData, by="document.id")
-ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   mutate(
@@ -493,34 +533,24 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
     )
   )
 
-ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   fill(Sexo, `Comunidades_autonomas`, `Frecuencia_de_ejercicio`, .direction = "up")
 
-ejercicioFisicoUnion
-
 ejercicioFisicoUnion <- filter(ejercicioFisicoUnion, ejercicioFisicoUnion$Nombre == ejercicioFisicoUnion$Sexo)
-
-ejercicioFisicoUnion
 
 ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
   select(-Nombre,-document.id)%>%
   rename("Miles_de_personas"=Valor)
 
-ejercicioFisicoUnion
-
 totalPersonasComunidad <- ejercicioFisicoUnion %>%
   filter(`Frecuencia_de_ejercicio` == "TOTAL") %>%
   select(`Comunidades_autonomas`, `Total_personas_según_la_comunidad` = `Miles_de_personas`)
 
-totalPersonasComunidad
 duplicated(totalPersonasComunidad)
 
 totalPersonasComunidad <- totalPersonasComunidad %>%
   distinct(`Comunidades_autonomas`, .keep_all = TRUE)
-
-duplicated(totalPersonasComunidad)
 
 ejercicioFisicoUnion <- left_join(ejercicioFisicoUnion, totalPersonasComunidad, by="Comunidades_autonomas")
 
@@ -533,6 +563,10 @@ ejercicioFisicoUnion <- ejercicioFisicoUnion %>%
 
 ejercicioFisicoUnionFinal <- ejercicioFisicoUnion %>%
   select(-Miles_de_personas, -Ratio)
+
+ejercicioFisicoUnionFinal <- ejercicioFisicoUnionFinal %>% slice(1:360)
+
+datatable(ejercicioFisicoUnionFinal, options = list(pageLength = 10))
 ```
 
 
@@ -543,19 +577,19 @@ Una vez formateados los datos, pasamos a analizarlos:
 #### Para el conjunto de datos de suicidio:
 
 ```{r, eval = TRUE}
-suicidio_por_sexo <- suicidio7 %>%
+suicidio_por_sexo <- suicidio10 %>%
   group_by(sexo) %>%
-  summarize(suicidio_medio_sexo=mean(as.numeric(Valor), na.rm = TRUE))
+  summarize(suicidio_medio_sexo=mean(as.numeric(porcentaje_suicidios), na.rm = TRUE))
 
 
-suicidio_por_comunidad <- suicidio7 %>%
+suicidio_por_comunidad <- suicidio10 %>%
   group_by(comunidades_autonomas) %>%
-  summarize(suicidio_medio_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+  summarize(suicidio_medio_comunidad=mean(as.numeric(porcentaje_suicidios), na.rm = TRUE))
 
 
-suicidio_por_sexo_comunidad <- suicidio7 %>%
+suicidio_por_sexo_comunidad <- suicidio10 %>%
   group_by(sexo, comunidades_autonomas) %>%
-  summarize(suicidio_medio_sexo_comunidad=mean(as.numeric(Valor), na.rm = TRUE))
+  summarize(suicidio_medio_sexo_comunidad=mean(as.numeric(porcentaje_suicidios), na.rm = TRUE))
 
 census <- mapSpain::pobmun19
 
@@ -624,47 +658,6 @@ ccaa_sg <- esp_get_ccaa() %>%
 
 #### Para el conjunto de datos de consumo de alcohol:
 ```{r, eval = TRUE}
-consumo_alcohol7 <- 
-  as.data.frame(apply(consumo_alcohol6, 2, function(col) col[!is.na(col)])) 
-
-
-
-consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
-
-
-
-#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
-
-consumo_alcohol8<-consumo_alcohol7%>%
-  pivot_wider(names_from = Consumido, values_from = Valor)
-
-
-consumo_alcohol8 <- 
-  as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
-
-consumo_alcohol8 <-consumo_alcohol8%>%
-  mutate(
-    `Si_ha_consumido` = as.numeric(`Si_ha_consumido`),
-    `Total_personas_encuestadas` = as.numeric(`Total_personas_encuestadas`),
-    `No_ha_consumido` = as.numeric(`No_ha_consumido`)
-  )
-
-
-
-consumo_alcohol9 <- consumo_alcohol8 %>%
-  mutate(
-    Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
-  )
-
-#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
-
-consumo_alcohol10 <- consumo_alcohol9 %>%
-  mutate(
-    Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
-  )
-
-
-consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
 
 
 consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
@@ -1208,79 +1201,29 @@ suicidio_alcohol_final_4 <- suicidio_alcohol_final %>%
 
 #### Formateo de datos para relacionar ejercicio fisico y suicidio.
 ```{r, eval = TRUE}
-ejercicio_max_por_sexo <- ejercicio_max_por_sexo%>%
-  rename(sexo=Sexo)
-ejercicio_min_por_sexo <- ejercicio_min_por_sexo%>%
-  rename(sexo=Sexo)
-suicidio_por_sexo
+suicidio_por_comunidad_cambiado <- suicidio_por_comunidad%>%
+  mutate(comunidades_autonomas = case_when(
+    comunidades_autonomas == "Islas Baleares" ~ "Balears, Illes",
+    comunidades_autonomas == "Islas Canarias" ~ "Canarias",
+    comunidades_autonomas == "Castilla-La Mancha" ~ "Castilla - La Mancha",
+    comunidades_autonomas == "Principado de Asturias" ~ "Asturias, Principado de",
+    comunidades_autonomas == "Comunidad Valenciana" ~ "Comunitat Valenciana",
+    comunidades_autonomas == "Madrid" ~ "Madrid, Comunidad de",
+    comunidades_autonomas == "Murcia" ~ "Murcia, Región de",
+    comunidades_autonomas == "Navarra" ~ "Navarra, Comunidad Foral de",
+    comunidades_autonomas == "La Rioja" ~ "Rioja, La",
+    TRUE ~ comunidades_autonomas
+  ))
 
-ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = "sexo")
-
-ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
-         Nada_de_ejercicio = Nada_de_ejercicio * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(Nada_de_ejercicio = Nada_de_ejercicio * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(ejercicio_medio_sexo = ejercicio_medio_sexo * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad_cambiado, by = "comunidades_autonomas")%>%
   filter(comunidades_autonomas!="Total nacional")%>%
-  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
-         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
+  mutate(ejercicio_medio_comunidad = as.numeric(ejercicio_medio_comunidad) * 100,
+         suicidio_medio_comunidad = as.numeric(suicidio_medio_comunidad) * 100)
 
-ejercicio_max_por_sexo <- ejercicio_max_por_sexo%>%
-  rename(sexo=Sexo)
-ejercicio_min_por_sexo <- ejercicio_min_por_sexo%>%
-  rename(sexo=Sexo)
-suicidio_por_sexo
-
-ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_max_por_sexo, ejercicio_min_por_sexo, by = "sexo")
-
-ejercicio_fisico_suicidio_sexo <- full_join(ejercicio_fisico_suicidio_sexo,suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
-         Nada_de_ejercicio = Nada_de_ejercicio * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-ejercicioMax_suicidio_por_sexo <- full_join(ejercicio_max_por_sexo, suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(Maximo_ejercicio = Maximo_ejercicio * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-ejercicioMin_suicidio_por_sexo <- full_join(ejercicio_min_por_sexo, suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(Nada_de_ejercicio = Nada_de_ejercicio * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-realizacion_ejercicio_suicidio_sexo <- full_join(realizacion_ejercicio_por_sexo, suicidio_por_sexo, by = "sexo")%>%
-  filter(sexo!="Ambos sexos")%>%
-  mutate(ejercicio_medio_sexo = ejercicio_medio_sexo * 100,
-         suicidio_medio_sexo = suicidio_medio_sexo * 100)
-
-realizacion_ejercicio_suicidio_por_comunidad <- full_join(realizacion_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
+nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad_cambiado, by = "comunidades_autonomas")%>%
   filter(comunidades_autonomas!="Total nacional")%>%
-  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
-         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)
-
-nada_ejercicio_suicidio_por_comunidad <- full_join(nada_ejercicio_por_comunidad, suicidio_por_comunidad, by = "comunidades_autonomas")%>%
-  filter(comunidades_autonomas!="Total nacional")%>%
-  mutate(ejercicio_medio_comunidad = ejercicio_medio_comunidad * 100,
-         suicidio_medio_comunidad = suicidio_medio_comunidad * 100)+
-  theme(legend.position = "none")
+  mutate(ejercicio_medio_comunidad = as.numeric(ejercicio_medio_comunidad) * 100,
+         suicidio_medio_comunidad = as.numeric(suicidio_medio_comunidad) * 100)
 ```
 
 
@@ -1464,7 +1407,8 @@ graficoMujeres <- ggplot(ejercicioMujeres, aes(Comunidades_autonomas, Porcentaje
 graficoMujeres
 ```
 
-Para relacionar la máxima realización de ejercicio y la mínima por comunidad autónoma y sexo:
+Según lo que podemos observar en las gráfica superiores, vemos un alto porcentaje de individuos que no realizan ningún ejercicio físico y que la realización de ejercicio físico 7 días a la semana es muy baja en ambos sexos. Esta información nos permite concluir que los extremos en ambos casos son de interés para el análisis, por ello, generamos los siguientes gráficos por comunidades viendo la máxima realización de ejercicio físico diario frente a la mínima:
+
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje))+
   geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
@@ -1475,7 +1419,7 @@ RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_au
 RepresentacionExtremosEjercicio
 ```
 
-Para relacionar la máxima realización de ejercicio y la mínima por sexo:
+Usamos estos DotPlots para ver en ambos sexos las diferencias y poder llegar a conclusiones más claras:
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 dotPlot_maxyminEjercicio <- plot_ly(ExtremosUnionFinal, x = ~Porcentaje, y = ~Sexo, color = ~FrecuenciasExtremo, type = "box") %>%
   layout(
@@ -1490,8 +1434,15 @@ En este caso, también se muestran gráficos del mapa de España para verlo más
 ![Nada de ejercicio y realización de ejercicio global](OUTPUT/FIGURES/Mapa_nada_ejercicio_vs_mínimo_un_día_ejercicio.jpeg)
 
 ![Realización de ejercicio en hombres y mujeres](OUTPUT/FIGURES/Mapa_mínimo_un_día_ejercicio_por_sexo_y_comunidad.jpeg)
-#### Conclusión
 
+#### Conclusión.
+
+Observando los mapas de la realización de ejercicio físico y la no realización de ejercicio físico por comunidades vemos un mayor porcentaje de realización de ejercicio físico en la zona cantábrica y, por el contrario, un alto porcentaje de no realización de ejercicio por la zona media y sur de la península. 
+Existen varias posibles explicaciones por las que se pueda dar estos resultados. Los factores climáticos del norte español favorecen la realización de actividades al aire libre por el clima mas fresco y húmedo, sin embargo, en épocas muy frías esto puede producir un problema. Este problema está ciertamente solucionado con la creación de instalaciones deportivas públicas que junto con programas que promueven el ejercicio físico, supone un fácil acceso a acceso a actividades deportivas y fomenta un estilo de vida más activo.
+
+Observando las medias del DotPlot de la realización y no realización de ejercicio físico, y comprobando los datos con los porcentajes por comunidades de la gráfica “Ejercicio físico extremos por Sexo y Comunidad Autónoma”, vemos que es mayor la no realización de ejercicio físico en mujeres y  que es menor (aunque en menor medida) la realización de ejercicio físico diariamente.
+El hecho de que las mujeres tiendan a realizar menos ejercicio físico que los hombres tiene varias explicaciones, muchas de ellas relacionadas con barreras sociales, culturales y de percepción.
+En nuestra sociedad los estereotipos han generado a lo largo del tiempo una tendencia a idealizar que las mujeres no realizan tantas actividades deportivas como los hombres. Esto se produce debido a que históricamente las actividades domésticas han sido realizadas por mujeres y las actividades más intensas y deportivas por hombres. Asimismo, la errónea idea de que el levantamiento de pesas no es algo “femenino” y los estándares fitness y corporales que no promueven la realización de ejercicio físico, por la no consideración de la diversidad de cuerpos, puede suponer que se rehuse la realización de ejercicio físico por parte de las mujeres.
 
 ### Relación entre el suicidio y el consumo de alcohol por comunidad autónoma y por sexo.
 
@@ -1596,6 +1547,7 @@ La conclusión que podemos sacar es
 
 ### Relación entre el suicidio y el ejercicio físico por comunidad autónoma y por sexo.
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
 grafico_comunidad_ejercicio_suicidio <- ggplot(realizacion_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
   geom_point(size = 2) +
   labs(title = "Relación de realización de ejercicio y el suicidio",
@@ -1610,6 +1562,33 @@ grafico_interactivo_comunidad_ejercicio_suicidio <- ggplotly(grafico_comunidad_e
 
 grafico_interactivo_comunidad_ejercicio_suicidio
 ```
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+grafico_comunidad_nada_ejercicio_suicidio <- ggplot(nada_ejercicio_suicidio_por_comunidad, aes(x = ejercicio_medio_comunidad , y = suicidio_medio_comunidad, color = comunidades_autonomas)) +
+  geom_point(size = 1.5) +
+  labs(title = "Relación de no realización de ejercicio y el suicidio",
+       subtitle = "Se relaciona la no realización de ejercicio físico con el suicidio por comunidades autónomas",
+       x = "Porcentaje de individuos medio que no realiza ejercicio físico ",
+       y = "Porcentaje de suicidio medio",
+       color = "Comunidades/Ciudades autónomas") +
+  theme_minimal() +
+  geom_smooth(method = "lm", se = TRUE, aes(group = 1)) 
+
+
+grafico_interactivo_comunidad_nada_ejercicio_suicidio <- ggplotly(grafico_comunidad_nada_ejercicio_suicidio)
+
+grafico_interactivo_comunidad_nada_ejercicio_suicidio
+```
+
+#### Conclusión.
+El gráfico “Relación de no realización de ejercicio y suicidio” es un gráfico con una línea de tendencia con pendiente negativa, esto quiere decir que cuanto mayor es el porcentaje de no realizar ejercicio físico menor es el porcentaje de sucidio a nivel nacional. Vemos con esta gráfica como los datos no están correlacionados puesto que la realización de actividad física está bien documentada como un factor que mejora el estado de ánimo y reduce los riesgos a trastornos como depresión que podrían asociarse con el suicidio. 
+
+Para contrarrestar con los datos obtenidos vamos a obtener conclusiones basadas en información de algunos artículos:
+Se ha demostrado que el ejercicio físico disminuye el estrés y la ansiedad, el ejercicio físico regula los niveles de cortisol y aumenta la liberación de endomorfinas, esto provoca una mejora en el ánimo y sensación de bienestar inmediato. Asimismo la actividad física aumenta la neuroplasticidad y la producción de factores neurotróficos, lo que ayuda a mejorar la memoria y el aprendizaje. 
+Con las conclusiones sacadas de diversas fuentes podemos determinar que el ejercicio físico si tiene un impacto positivo en la salud mental de los individuos y que puede ayudar a disminuir los casos de suicidio.
+
+
 
 ### Relación entre el ejercicio físico y el consumo de alcohol por comunidad autónoma y por sexo.
 Para relacionar el consumo de alcohol con la no realización de ejercicio:
@@ -1675,4 +1654,16 @@ grafica_no_consumo_ej_ambos_sexos
 
 #### Conclusión
 
+##Bibliografía.
 
+Ejercicio físico:
+[Factores climáticos y actividad física en el norte de España](https://www.copemalaga.es/deportes/por-que-en-el-norte-de-espana-se-hace-mas-ejercicio-2021) 
+[INE: Encuesta de Condiciones de Vida 2022 sobre ejercicio físico](https://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&cid=1254736176954&menu=ultiDatos&idp=1254735573175) [Eurobarómetro Deporte y Actividad Física 2022](https://www.fagde.org/eurobarometro-deporte-y-actividad-fisica-2022)
+[¿Por qué las mujeres hacen menos ejercicio que los hombres?](https://www.elsoldemexico.com.mx/sociedad/salud/por-que-las-mujeres-hacen-menos-ejercicio-que-los-hombres-6504264.html)
+[Hombres versus mujeres: beneficios para la salud con ejercicio](https://www.vitonica.com/salud/hombres-versus-mujeres-beneficios-salud-ejercicio)
+
+
+Ejercicio físico vs suicidio:
+[Relación entre el ejercicio y la salud mental - Revista Ocronos](https://revistamedica.com)
+[Impacto del sedentarismo en la salud mental - SciELO México](https://www.scielo.org.mx)
+[Beneficios psicológicos del ejercicio - Universidad de Chile](https://www.inta.uchile.cl)
