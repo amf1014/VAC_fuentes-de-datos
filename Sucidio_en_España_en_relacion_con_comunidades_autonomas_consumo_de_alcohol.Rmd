@@ -343,15 +343,11 @@ consumo_alcohol1<-consumo_alcohol %>%
   spread_all %>%
   select("document.id", "Valor")
 
-consumo_alcohol1
-
 consumo_alcohol2<-consumo_alcohol %>%
   enter_object(MetaData) %>%
   gather_array %>%
   spread_all %>%
   select("document.id", "Nombre")
-
-consumo_alcohol2
 
 consumo_alcohol3 <- consumo_alcohol1 %>%
   select(c("document.id","Valor")) %>%
@@ -415,13 +411,8 @@ consumo_alcohol7 <-
 
 consumo_alcohol7$Valor <- consumo_alcohol7$Valor[seq(1, length(consumo_alcohol7$Valor), by = 3 )]
 
-
-
-#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
-
 consumo_alcohol8<-consumo_alcohol7%>%
   pivot_wider(names_from = Consumido, values_from = Valor)
-
 
 consumo_alcohol8 <- 
   as.data.frame(apply(consumo_alcohol8, 2, function(col) col[!is.na(col)])) 
@@ -434,19 +425,15 @@ consumo_alcohol8 <-consumo_alcohol8%>%
   )
 
 
-
 consumo_alcohol9 <- consumo_alcohol8 %>%
   mutate(
     Porcentaje_consumo = (`Si_ha_consumido`/`Total_personas_encuestadas`)*100
   )
 
-#Hago porcentaje de las personas que si han consumido con el total de personas encuestadas.
-
 consumo_alcohol10 <- consumo_alcohol9 %>%
   mutate(
     Porcentaje_no_consumo = (`No_ha_consumido`/`Total_personas_encuestadas`)*100
   )
-
 
 consumo_alcohol10 <- consumo_alcohol10[, -2]#Borra columna Nombre
 
@@ -463,20 +450,14 @@ tiposEjercicioFisico_visiongeneral<-ejercicioFisico%>%
   gather_object %>% 
   json_types
 
-tiposEjercicioFisico_visiongeneral
-
 tiposEjercicioFisico <- ejercicioFisico %>%
   gather_object %>% 
   json_types %>% 
   count(name, type)
 
-tiposEjercicioFisico
-
 nombresEjercicioFisico <- ejercicioFisico %>%
   enter_object(Nombre)
 
-
-#Estructurar los datos
 ejercicioFisicoData <- ejercicioFisico %>%
   enter_object(Data) %>%
   gather_array %>%
@@ -663,8 +644,6 @@ ccaa_sg <- esp_get_ccaa() %>%
 consumo_alcohol10$Comunidades_autonomas <- consumo_alcohol10$Comunidades_autonomas[seq(1, length(consumo_alcohol10$Comunidades_autonomas), by =  4)]
 consumo_alcohol10$Sexo <- consumo_alcohol10$Sexo[seq(1, length(consumo_alcohol10$Sexo), by =  4)]
 
-
-#Gráficas de España
 census_2 <- mapSpain::pobmun19
 
 codelist_2 <- mapSpain::esp_codelist %>%
@@ -757,32 +736,24 @@ ejercicioNada <- ejercicioFisicoUnion%>%
   filter(sexo!="Ambos sexos", Frecuencia_de_ejercicio=='Ninguno', comunidades_autonomas!='Total Nacional')%>%
   select(-Miles_de_personas,-Porcentaje)
 
-#Tabla de ejercicio_por_comunidad para comparar 
 realizacion_ejercicio_por_comunidad <- ejercicioMinimoUnaVez %>%
   group_by(comunidades_autonomas) %>%
   summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE)/2)
 
-#Tabla de nada_ejercicio_por_comunidad comparar 
 nada_ejercicio_por_comunidad <- ejercicioNada %>%
   group_by(comunidades_autonomas) %>%
   summarize(ejercicio_medio_comunidad=sum(as.numeric(Ratio), na.rm = TRUE)/2)
 
-#Tabla de realizacion_ejercicio_por_sexo
 realizacion_ejercicio_por_sexo <- ejercicioMinimoUnaVez %>%
   group_by(sexo) %>%
   summarize(ejercicio_medio_sexo=sum(as.numeric(Ratio), na.rm = TRUE)/19)
 
-
-#Comparación de frecuencias de ejercicio por comunidad ¿cuál puede ser la causa?
-#EN HOMBRES
 ejercicioHombres <- ejercicioFisicoUnion%>%
   filter(Sexo=="Hombres")%>%
   select(-Ratio, -Miles_de_personas, -Sexo)
 
 ejercicioHombres <- ejercicioHombres%>%
   filter(Frecuencia_de_ejercicio!="TOTAL")
-
-ejercicioHombres
 
 ejercicioMujeres <- ejercicioFisicoUnion%>%
   filter(Sexo=="Mujeres")%>%
@@ -791,9 +762,6 @@ ejercicioMujeres <- ejercicioFisicoUnion%>%
 ejercicioMujeres <- ejercicioMujeres%>%
   filter(Frecuencia_de_ejercicio!="TOTAL")
 
-ejercicioMujeres
-
-#Comparación de los extremos de realización de ejercicio físico
 frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
   mutate(
     NadaMax = case_when(
@@ -804,33 +772,24 @@ frecuenciaNadaYMaxEjercicioComunidad <- ejercicioFisicoUnion%>%
   select(`Comunidades_autonomas`,Sexo,`Frecuencia_de_ejercicio`,`Ratio`, NadaMax) %>%
   filter(!is.na(NadaMax))
 
-frecuenciaNadaYMaxEjercicioComunidad
-
-
-#tabla de ejercicio_por_sexo para comparar con suicidio
 NadaYMaxEjercicioSexoSinNacional <- frecuenciaNadaYMaxEjercicioComunidad%>%
   filter(Comunidades_autonomas!="Total Nacional")%>%
   select(-NadaMax)
 
-#Nada de ejercicio físico
 NadaEjercicioSexoSinNacional <- NadaYMaxEjercicioSexoSinNacional%>%
   filter(Frecuencia_de_ejercicio=="Ninguno")
-
 
 ejercicio_min_por_sexo <- NadaEjercicioSexoSinNacional %>%
   group_by(Sexo) %>%
   summarize(Nada_de_ejercicio=sum(as.numeric(Ratio), na.rm = TRUE)/19)
 
-#7 días a la semana ejercicio físico
 MaxEjercicioSexoSinNacional <- NadaYMaxEjercicioSexoSinNacional%>%
   filter(Frecuencia_de_ejercicio=="7 días a la semana")
-
 
 ejercicio_max_por_sexo <- MaxEjercicioSexoSinNacional %>%
   group_by(Sexo) %>%
   summarize(Maximo_ejercicio=mean(as.numeric(Ratio), na.rm = TRUE))
 
-#Con esto se genera una columna que el ratio de personas que realizan nada de ejercicio físico frente a las personas que realizan diariamente
 ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
   spread(`Frecuencia_de_ejercicio`, Ratio)%>%
   fill(`7 días a la semana`,`Ninguno`, .direction = "up")%>%
@@ -840,18 +799,12 @@ ComparacionNadaYMaxEjercicio <- frecuenciaNadaYMaxEjercicioComunidad%>%
   )%>%
   select(-NadaMax)
 
-#Con esto se genera una columna que muestra el porcentaje de personas que realizan nada de ejercicio físico frente a las personas que realizan diariamente
 ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio%>%
   mutate(
     `Porcentaje nada y máximo ejercicio` = ComparacionNadaYMaxEjercicio$`Comparacion nada y máximo ejercicio por comunidad y sexo`*100)
 
-ComparacionNadaYMaxEjercicio
-
-#Eliminación de la fila Total Nacional y todas las de ambos sexos
 ComparacionNadaYMaxEjercicio <- ComparacionNadaYMaxEjercicio %>%
   filter(Comunidades_autonomas!="Total Nacional")
-
-##Diferencias entre los valores extremos de realización de ejercicio físico comparado con el sexo
 
 NadaFrenteMaxEjercicioHombres <- ComparacionNadaYMaxEjercicio%>%
   filter(Sexo=="Hombres")%>%
@@ -914,18 +867,12 @@ ExtremosUnionFinal <- ExtremosUnionFinal%>%
   select(-`Valor`)
 
 
-
 RepresentacionExtremosEjercicio <- ggplot(ExtremosUnionFinal, aes(Comunidades_autonomas,Porcentaje))+
   geom_point(aes(colour=factor(Sexo), shape = factor(FrecuenciasExtremo)))+
   labs(title = "Ejercicio físico extremos por Sexo y Comunidad Autónoma",x = "Comunidad Autónoma",y = "Porcentaje de individuos", colour = "Sexo", shape = "Frecuencias de ejercicio") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-RepresentacionExtremosEjercicio
-
-#geom_smooth(method = "lm", se=TRUE) +
-
-ExtremosUnionFinal
 
 nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad%>%
   mutate(comunidades_autonomas = case_when(
@@ -1079,8 +1026,6 @@ ejercicioAmbosSexosEjercicio <- ejercicioAmbosSexos%>%
   group_by(Comunidades_autonomas) %>%
   summarize(Porcentaje=sum(as.numeric(Porcentaje), na.rm = TRUE))
 
-###MAPAS
-
 porcentaje_nada_ejercicio_por_comunidad <- nada_ejercicio_por_comunidad %>%
   mutate(porcentaje_ejercicio_medio_comunidad = ejercicio_medio_comunidad*100)%>%
   select(-ejercicio_medio_comunidad)
@@ -1111,7 +1056,6 @@ mujeres_nada_ejercicio_comunidad <- porcentaje_realizacion_nada_ejercicio_sexo_c
 hombres_nada_ejercicio_comunidad <- porcentaje_realizacion_nada_ejercicio_sexo_comunidad %>%
   filter(sexo=="Hombres")
 
-
 levels(factor(ccaa_sf$ine.ccaa.name))
 levels(factor(porcentaje_nada_ejercicio_por_comunidad$comunidades_autonomas))
 
@@ -1132,9 +1076,6 @@ levels(factor(hombres_ejercicio_comunidad$comunidades_autonomas))
 
 ccaa_h_ejercicio <- esp_get_ccaa() %>%
   left_join(hombres_ejercicio_comunidad, by = c("ine.ccaa.name" = "comunidades_autonomas"))
-
-
-
 ```
 
 
@@ -1251,31 +1192,20 @@ frecuenciaNadaYMaxEjercicioComunidad2<-frecuenciaNadaYMaxEjercicioComunidad %>%
 
 comparacion_datos <- full_join(x=consumo_alcohol10,y=frecuenciaNadaYMaxEjercicioComunidad2, by = c("Comunidades_autonomas", "Sexo"))
 
-#comparacion consumo con no ejercicio
-
 comparacion_cons_no_ej_mujeres<-consumo_global %>%
   left_join(ejercicioMujeresNinguno ,by = "Comunidades_autonomas")
 
-
-
-#comparacion no consumo con ejercicio
 comparacion_no_cons_ej_mujeres<- no_consumo_global  %>%
   left_join(ejercicioMujeresEjercicio ,by = "Comunidades_autonomas")
-
-
 
 comparacion_cons_no_ej_hombres<-consumo_global %>%
   left_join(ejercicioHombresNinguno,by = "Comunidades_autonomas")
 
-
 comparacion_no_cons_ej_hombres<- no_consumo_global  %>%
   left_join(ejercicioHombresEjercicio,by = "Comunidades_autonomas")
 
-
-
 comparacion_cons_no_ej_ambos_sexos<-consumo_global %>%
   left_join(ejercicioAmbosSexosNinguno,by = "Comunidades_autonomas")
-
 
 consumo_alcohol_no_ej_ambos_sexos_largo <- comparacion_cons_no_ej_ambos_sexos %>%
   pivot_longer(
